@@ -27,11 +27,31 @@ No cambie rutas de capítulos ni identificadores de apartados sin conservar los 
 
 Los PDF incluidos son las ediciones verificadas el **27 de octubre de 2026**, copiadas sin modificar. Este flujo genera HTML; **no regenera los PDF**. Cuando cambie contenido, genere y revise también el PDF correspondiente con el proceso editorial original y sustituya el archivo manteniendo su nombre. No publique un PDF antiguo como si reflejara una revisión nueva.
 
-Las fuentes iniciales proceden de `manual-v3` y `manual/plugin` del repositorio de desarrollo. `IMPORTACION.json` conserva sus hashes previos a las adaptaciones web. Las fuentes originales siguen intactas; no hay sincronización automática. A partir de la adopción de este repositorio, coordine las actualizaciones para evitar dos ediciones divergentes.
+**Este repositorio es la fuente principal de las dos guías**, por decisión del usuario del 27-10-2026. Las fuentes iniciales proceden de `manual-v3` y `manual/plugin` del repositorio de desarrollo. `IMPORTACION.json` conserva sus hashes previos a las adaptaciones web. Las copias antiguas y MANUAL.md se conservan como referencia histórica/auxiliar, sin sincronización paralela ni obligación de incorporar primero allí las novedades.
+
+La copia local inicial está en `C:\Dev\DesignBuilderCTE\output\ayudacte`. Es un repositorio Git independiente, no una salida desechable: no eliminarlo al limpiar `output`. Si se traslada, actualizar las referencias en AGENTS.md del programa y del plugin.
+
+## Procedimiento cuando cambia una función
+
+1. Revisar el cambio de la aplicación o del plugin y localizar su explicación en **ambas guías**. Actualizar directamente los QMD afectados, ejemplos, resolución de problemas y capturas cuando corresponda. Si el cambio es exclusivamente interno y no afecta al usuario, documentar brevemente que no requiere modificar la ayuda.
+2. Mantener la ayuda pública acorde con la versión distribuida. Si la función aún no se ha entregado, preparar la actualización y coordinar su publicación con esa entrega; no presentarla como disponible antes de tiempo.
+3. Comprobar `git status --short --branch` y el remoto antes de editar. Preservar trabajo ajeno y mantener estables las rutas y anclas utilizadas desde el software.
+4. Ejecutar `python scripts/build.py`. Servir `_site` con el comando anterior y revisar las páginas modificadas, imágenes, navegación y búsqueda. Si solo cambian instrucciones internas como README o AGENTS.md, revisar el diff sin regenerar el sitio.
+5. Si cambia el contenido, actualizar y revisar también el PDF afectado. El flujo HTML no lo hace; dejar explícito cualquier pendiente y no presentar esa edición como completamente actualizada mientras exista una discrepancia.
+6. Revisar el diff y hacer staging únicamente de los archivos propios. Crear un commit de documentación separado del commit de código del otro repositorio:
+
+   ```powershell
+   git diff --check
+   git add <archivos-modificados>
+   git commit -m "Actualizar ayuda sobre la función modificada"
+   ```
+
+7. Cuando la sesión autorice publicar, ejecutar `git push origin main`, comprobar GitHub Actions y revisar el resultado en `https://ayudacte.ecoeficiente.es`. No reconfigurar DNS ni el dominio en cada actualización. Si falla, consultar el trabajo que falló; no afirmar que está publicado por el mero hecho de haber subido el commit.
+8. Cerrar la tarea indicando apartados actualizados, comprobaciones, PDF, si está local/subido/publicado y cualquier pendiente. Si falta acceso, registrar los apartados concretos a actualizar para continuar sin usar las copias antiguas como sustituto.
 
 ## Primera publicación en GitHub Pages
 
-Nombre propuesto: `ecoeficiente/ayudacte`. Los pasos siguientes se realizan una sola vez, cuando se decida publicarlo.
+Repositorio creado: `ecoeficiente/ayudacte`. Las fuentes ya están subidas. Los pasos siguientes documentan la configuración inicial; no repetir la creación ni añadir otra vez un remoto existente. Comprobar el estado real de Pages y DNS antes de continuar una configuración pendiente.
 
 1. Crear un repositorio **público vacío**, sin README ni licencia generados. Revisar las fuentes y capturas antes de subirlas; no se incluye código del programa ni material interno de control editorial.
 2. Conectar esta copia y subir la rama principal:
