@@ -1,0 +1,45 @@
+--- a/aplicacion/capitulos/07-calculo.qmd
++++ b/aplicacion/capitulos/07-calculo.qmd
+@@ -3,6 +3,16 @@
+ ## Requisitos previos
+ 
+ Abra el expediente correcto y confirme la escala, ubicación y altitud antes de calcular. Debe existir al menos una zona habitable en residencial o una acondicionada en terciario. Use una carpeta escribible y cierre los archivos de resultados que otra aplicación pueda bloquear.
++
++## Puentes térmicos exportados {#sec-puentes-exportados}
++
++La aplicación utiliza las longitudes y los valores Ψ guardados por el plugin para cada zona, tanto en expedientes actuales como en los antiguos compatibles. No vuelve a medir las longitudes a partir de la geometría. La simulación, HE1 y el XML utilizan esos mismos datos, teniendo en cuenta los multiplicadores de zona.
++
++Por ejemplo, una longitud de 10 m con Ψ = 0,4 W/(m·K) aporta 4 W/K por instancia de zona. Si el multiplicador de zona es 3, aporta 12 W/K al total. Revise las longitudes, los signos de Ψ y los multiplicadores antes de exportar.
++
++Después de actualizar la aplicación, vuelva a **Calcular** antes de generar documentos de expedientes con resultados anteriores. En expedientes antiguos, los resultados pueden cambiar porque ahora se respetan las longitudes exportadas. Si están incompletas o no representan el edificio, corríjalas en el plugin y cree de nuevo el expediente. Reprocesar documentación no sustituye ese recálculo.
++
++En terciario, el edificio de referencia conserva las longitudes exportadas y aplica sus Ψ de referencia. El edificio objeto conserva los Ψ del usuario.
+ 
+ ## Ejecutar y seguir el progreso
+ 
+--- a/aplicacion/capitulos/11-resolucion-problemas.qmd
++++ b/aplicacion/capitulos/11-resolucion-problemas.qmd
+@@ -3,6 +3,12 @@
+ ## Localizar la causa
+ 
+ Busque el síntoma en este capítulo y aplique su primera acción. Conserve el mensaje completo, la operación y su hora antes de repetir. Los archivos parciales de un cálculo o una validación fallidos no son documentos de entrega.
++
++## Datos de puentes ausentes o inválidos
++
++Si el cálculo indica que faltan longitudes o valores Ψ, o que los datos de puentes son inválidos, revise **Editar puentes térmicos** en el plugin. Compruebe las categorías de cada zona, guarde el editor y el modelo, y cree de nuevo el expediente. La aplicación no estima longitudes para completar datos ausentes ni sustituye un bloque actual inválido por valores antiguos.
++
++Si tras actualizar la aplicación los resultados anteriores dejan de estar vigentes, revise los datos exportados y pulse **Calcular**. No basta con reprocesar los documentos. Consulte [Puentes térmicos exportados](07-calculo.qmd#sec-puentes-exportados).
+ 
+ ## Consultar el archivo de registro del expediente {#sec-log-expediente}
+ 
+--- a/plugin/capitulos/02-puentes.qmd
++++ b/plugin/capitulos/02-puentes.qmd
+@@ -99,6 +99,8 @@
+ 
+ ## Revisar antes de exportar
+ 
++DesignBuilder CTE utiliza las longitudes y los valores Ψ exportados por el plugin; no realiza una segunda medición geométrica de las longitudes, tampoco en los expedientes antiguos compatibles. Revise aquí cualquier longitud ausente o incorrecta. La carga de longitudes es una operación explícita del editor: guarde sus valores definitivos antes de crear el expediente.
++
+ Revise las trece categorías y los encuentros que no hayan recibido longitud en la carga. Use el mismo criterio dimensional para L y Ψ, compruebe los multiplicadores y evite duplicar encuentros. Guarde el editor y el DSB; después de modificar puentes, cree de nuevo el expediente y recalcule antes de documentar.
+ 
+ En terciario, el edificio de referencia conserva las longitudes y aplica sus Ψ de referencia. Para balcón, partición y otros utiliza Ψ = 0 únicamente en ese edificio de referencia; el edificio objeto conserva los valores introducidos.
