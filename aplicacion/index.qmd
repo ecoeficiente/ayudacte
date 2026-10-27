@@ -1,0 +1,69 @@
+---
+format:
+  html:
+    body-classes: manual-home
+    toc: false
+---
+
+# DesignBuilder CTE {.unnumbered}
+
+::: {.content-visible when-format="html"}
+::: {.manual-hero}
+::: {.manual-eyebrow}
+DesignBuilder CTE · Manual de usuario
+:::
+
+<h1 class="manual-hero-title">Del modelo al certificado.</h1>
+
+::: {.manual-intro}
+Prepare el modelo, complete el expediente y obtenga la documentación. Siga el caso práctico para familiarizarse con la aplicación o consulte directamente la tarea que necesita.
+:::
+:::
+
+::: {.manual-routes}
+::: {.manual-route}
+<span class="manual-route-number" aria-hidden="true">01</span>
+
+## [Preparar un certificado](capitulos/03-flujo-general.qmd) {.unnumbered .unlisted}
+
+Conozca las etapas y continúe desde el punto en el que se encuentra su proyecto.
+:::
+::: {.manual-route}
+<span class="manual-route-number" aria-hidden="true">02</span>
+
+## [Revisar un expediente](capitulos/10-revision-validacion.qmd) {.unnumbered .unlisted}
+
+Contraste el modelo, los resultados y los documentos de un expediente recibido.
+:::
+::: {.manual-route}
+<span class="manual-route-number" aria-hidden="true">03</span>
+
+## [Resolver un problema](capitulos/11-resolucion-problemas.qmd) {.unnumbered .unlisted}
+
+Localice el síntoma y la primera acción para resolverlo.
+:::
+:::
+
+[Descargar el manual en PDF](Manual-de-usuario-DesignBuilder-CTE-v3.pdf){.btn .btn-primary}
+
+::: {.manual-shortcuts}
+## Consultas frecuentes {.unnumbered .unlisted}
+
+- [Caso práctico: completar una vivienda](capitulos/06a-ejemplo-guiado.qmd)
+- [Crear el expediente DBCTE](capitulos/05-plugin.qmd#crear-un-expediente-dbcte)
+- [Guardar o copiar el expediente](capitulos/06-aplicacion.qmd#sec-guardar-proyecto)
+- [Cuándo recalcular, reprocesar o regenerar documentos](capitulos/07-calculo.qmd#validez-e-invalidación-de-resultados)
+- [Obtener los informes HE y el certificado](capitulos/08-documentacion.qmd)
+- [Conservar y trasladar el trabajo](capitulos/09-archivos.qmd)
+:::
+:::
+
+## Cómo utilizar este manual {.unnumbered}
+
+DesignBuilder CTE parte de un modelo existente en DesignBuilder, añade los datos necesarios para el procedimiento y permite generar informes HE y documentación de certificación energética. Este manual está dirigido a técnicos familiarizados con certificación y con manejo básico de DesignBuilder.
+
+Para situarse, lea **El proceso de trabajo**. Si ya dispone de un expediente exportado, el **Caso práctico: completar una vivienda** recorre la aplicación con capturas reales. Los capítulos de consulta desarrollan las opciones, variantes y consecuencias de cada decisión; puede acceder a ellos por el índice o buscar el nombre de un campo o comando.
+
+Los nombres de páginas y botones aparecen en **negrita**; los archivos y extensiones, como `código`. Los datos de las capturas son ejemplos y deben sustituirse por los del proyecto. Los avisos se sitúan junto a la operación que afectan.
+
+La corrección técnica del modelo y de la documentación corresponde al técnico. El estado de consistencia del expediente confirma la integridad de su contenido, no la exactitud de los datos ni la autoría del certificado.

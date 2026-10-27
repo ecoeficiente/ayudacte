@@ -1,0 +1,54 @@
+# Glosario y compatibilidad {#sec-anexos}
+
+## Glosario
+
+| Término | Significado |
+|---|---|
+| ACS | Agua caliente sanitaria |
+| CFI | Carga interna media utilizada por el procedimiento |
+| DSB | Archivo nativo de DesignBuilder |
+| `dsbXML` | Representación XML intercambiable del modelo DesignBuilder |
+| `.dbcte` | Expediente con modelo, IDF, adjuntos y documentos registrados |
+| Edificio objeto | Edificio modelado y certificado |
+| Edificio de referencia | Caso reglamentario de comparación para terciario |
+| EnergyPlus | Motor de simulación energética utilizado |
+| EPDB | Procesamiento de indicadores de eficiencia energética |
+| HE | Documentación de verificación del Documento Básico de Ahorro de Energía |
+| HE1 | Informe relativo al control de la demanda y control solar |
+| IDF | Archivo de entrada de EnergyPlus |
+| PCI / PCS | Poder calorífico inferior / superior; bases distintas para expresar energía de combustible |
+| Ψ (psi) | Transmitancia térmica lineal de un puente térmico, en W/(m·K) |
+| Qsol | Resultado de control solar utilizado en HE1 |
+| Resultados válidos | Resultados correspondientes al modelo y opciones actuales |
+| Sistema de sustitución | Equipo ficticio previsto para cubrir demanda no satisfecha |
+| XML base | XML energético previo a medidas y visitas |
+| XML final | XML completado y utilizado para el PDF |
+| XML Medidas | Herramienta para completar medidas e inspección |
+| XMLCert | Herramienta de validación y generación del PDF |
+
+## Compatibilidad
+
+Utilice los componentes compatibles de la misma distribución:
+
+- DesignBuilder CTE;
+- plugin y plantilla;
+- versión compatible de DesignBuilder;
+- versión de EnergyPlus admitida por la exportación;
+- XML Medidas;
+- XMLCert y recursos de validación.
+
+La versión exacta de DesignBuilder se obtiene desde **Ayuda > Acerca de**. La versión del ejecutable en el sistema de archivos puede no identificar correctamente la edición.
+
+El modelo y el diccionario EnergyPlus deben corresponder a la versión admitida por DesignBuilder CTE. El procesamiento actual exige EnergyPlus 23.1 y detiene la apertura si el IDF o el diccionario no corresponden a esa versión.
+
+No combine ejecutables o resultados de paquetes distintos aunque sus nombres sean iguales.
+
+## Fuentes de consulta
+
+- [Ayuda de DesignBuilder: datos del modelo](https://designbuilder.co.uk/helpv7.0/Content/Building_Model_Data.htm).
+- [Ayuda de DesignBuilder: geometría](https://designbuilder.co.uk/helpv7.0/Content/Building_Geometry.htm).
+- [Ayuda de DesignBuilder: construcciones](https://designbuilder.co.uk/helpv7.0/Content/_Construction_data.htm).
+- [Ayuda de DesignBuilder: huecos](https://designbuilder.co.uk/helpv7.0/Content/_Openings_data_Windows_doors_vents_holes_sub_surfaces.htm).
+- [Ayuda de DesignBuilder: HVAC detallado](https://designbuilder.co.uk/helpv7.0/Content/Detailed%20HVAC.htm).
+- [Ayuda de DesignBuilder: exportación IDF](https://designbuilder.co.uk/helpv7.0/Content/Exporting_IDF_Files.htm).
+- Documentación oficial vigente del CTE, RITE y procedimiento de certificación aplicable.

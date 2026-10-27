@@ -1,0 +1,231 @@
+# Resolución de problemas {#sec-diagnostico}
+
+## Localizar la causa
+
+Busque el síntoma en este capítulo y aplique su primera acción. Conserve el mensaje completo, la operación y su hora antes de repetir. Los archivos parciales de un cálculo o una validación fallidos no son documentos de entrega.
+
+## Consultar el archivo de registro del expediente {#sec-log-expediente}
+
+La aplicación escribe un archivo de texto junto al expediente `.dbcte`, con el mismo nombre base seguido de **`Log.txt`**. Por ejemplo:
+
+```text
+Proyecto/
+├── Vivienda.dbcte
+└── ViviendaLog.txt
+```
+
+Este registro, también denominado *log*, recoge la fecha y hora, el tipo de mensaje y la información de las operaciones: avisos, errores y detalles que ayudan a localizar una incidencia. Se consulta con el Bloc de notas u otro editor de texto.
+
+Para revisar un fallo:
+
+1. Anote qué operación estaba realizando y la hora aproximada.
+2. Abra la carpeta del expediente y localice su archivo `Log.txt` con el nombre completo del proyecto.
+3. Vaya al final del archivo y busque las entradas de esa operación. Lea también las líneas anteriores al error para conocer su contexto.
+4. Compruebe si el mensaje identifica un dato, equipo, archivo o ruta que deba revisar.
+5. Si el fallo procede de EnergyPlus, consulte también **`eplusout.err`** en la subcarpeta de simulación correspondiente; las rutas se explican en [Carpetas donde se ejecutan las simulaciones](09-archivos.qmd#sec-carpetas-simulacion).
+6. Conserve el registro de la incidencia antes de repetir el proceso y adjúntelo a la consulta de soporte junto con el mensaje mostrado por la aplicación.
+
+El registro puede contener mensajes de varias operaciones y sesiones. Compruebe siempre su fecha y hora; si hay registros archivados con una fecha en el nombre, seleccione el que corresponda a la incidencia.
+
+Si el problema se produce antes de abrir un expediente, consulte el registro general en **`%LOCALAPPDATA%\DesignBuilderCTE\Log.txt`**. Puede pegar esa ruta en la barra de direcciones del Explorador de archivos.
+
+El log es un archivo externo y no se incorpora al `.dbcte`. Para enviarlo a soporte, revíselo por si contiene rutas o datos identificativos y utilice el canal previsto. El log de DesignBuilder CTE explica el proceso de la aplicación; `eplusout.err` detalla los avisos y errores de la simulación.
+
+## Inicio y licencia
+
+| Síntoma | Comprobación | Recuperación |
+|---|---|---|
+| La aplicación muestra **Error de inicio** y se cierra | Lea el detalle; compruebe instalación y archivos bloqueados | Repare la instalación y conserve el mensaje para soporte |
+| Ya existe otra instancia | Busque la ventana abierta o un proceso anterior | Cierre normalmente la instancia; reinicie el equipo si quedó bloqueada |
+| Licencia no válida | Abra **Configuración** y revise estado, titular y fecha | Instale una licencia válida mediante **Instalar/Cambiar licencia** |
+| No se puede instalar la licencia | Compruebe formato, permisos y procedencia | Copie el archivo a una ubicación local y repita; no lo edite |
+
+## Plugin ausente o incompleto
+
+### El menú no aparece
+
+Cierre DesignBuilder y pulse **Reparar o reinstalar plugin y plantilla** en **Configuración** de DesignBuilder CTE. Reabra DesignBuilder y cargue un modelo. Si el menú sigue ausente, revise el estado de integración y comunique las versiones a soporte. El procedimiento completo está en [Instalación y configuración inicial](02-instalacion.qmd#sec-instalacion). **Carpeta de plugin y plantilla** abre el material distribuido, no la carpeta del plugin activo.
+
+### El editor no muestra un parámetro
+
+Compruebe el nivel seleccionado. Cada etiqueta solo aparece en los ámbitos admitidos. Por ejemplo, la pertenencia a la envolvente se define en zona y `D`/`Ra` en edificio.
+
+### No aparece Tipo de zona o no coincide con lo esperado
+
+Seleccione el nivel de zona; en otros niveles el indicador se oculta. Si el tipo es incorrecto, revise el grupo HVAC y la casilla **Ocupada**, incluidos sus valores heredados, según [Clasificación de las zonas](04-preparar-designbuilder.qmd#sec-clasificacion-zonas). Reabra el editor después de corregirlos. Ante un error de lectura, conserve el mensaje y resuelva la causa antes de guardar; no utilice el último texto mostrado como clasificación confirmada.
+
+### No se pueden guardar parámetros
+
+Revise los mensajes de validación:
+
+- número no válido;
+- valor negativo no admitido;
+- porcentaje superior a 100;
+- elección fuera de la lista;
+- una zona habitable marcada Exterior. En ese caso debe seleccionar Interior; la opción también se exige para las no acondicionadas.
+
+Corrija el campo señalado y pulse **Guardar**. Si no quiere conservar los cambios, utilice **Cancelar**.
+
+## Exportación y expediente
+
+| Síntoma | Causa probable | Acción |
+|---|---|---|
+| El plugin exige HVAC detallado | Nivel HVAC simplificado | Cambie **Opciones del modelo** a HVAC detallado y revise el sistema |
+| Exige terreno estándar | Mecanismo de terreno incompatible | Seleccione **1-Estándar** en sitio |
+| Exige ventilación programada | Ventilación natural calculada u otro modo | Seleccione ventilación natural programada |
+| Exige volumen o área interior | Convención geométrica exterior | Configure ambos métodos como **1-Interior** |
+| Se exportó una selección parcial | El ámbito no era el edificio completo; el plugin no comprueba esta selección | Seleccione el edificio completo y repita la exportación |
+| No permite crear expediente | El DSB no está guardado | Guarde el DSB y repita |
+| Advierte sobre `dsbXML` | Datos de biblioteca con valor distinto | Seleccione **1-Ninguno** en la opción de inclusión de bibliotecas XML |
+| El expediente queda pendiente | No se completó la siguiente exportación IDF | Complete la exportación IDF; para cambiar el destino, cancele la solicitud y vuelva a crearla |
+| No se puede escribir el destino | Carpeta protegida, red o archivo abierto | Use una carpeta local escribible y cierre el archivo |
+
+## Apertura de proyectos
+
+### Expediente incompatible o dañado
+
+La aplicación rechaza expedientes incompletos, incompatibles o cuyos archivos no concuerdan. Vuelva a obtener el original o créelo desde el DSB. Conserve el mensaje para soporte; no intente reparar manualmente su contenido.
+
+### IDF incompatible
+
+Si falta el paquete de la versión indicada, compruebe la conexión y su disponibilidad en el servidor. Puede cancelar la preparación sin perder el expediente que estaba abierto. Si el paquete no está publicado o no supera la comprobación de integridad, no se sustituye por otro. En ese caso, exporte desde una versión compatible de DesignBuilder. No cambie únicamente la línea `Version` del IDF.
+
+### Faltan datos de clasificación o una zona habitable es Exterior
+
+Revise la zona indicada y sus datos de grupo HVAC, **Ocupada**, envolvente, estanqueidad y volumen. Las zonas habitables deben ser **Interior**. Corrija las listas HVAC del edificio activo si se señala una referencia incorrecta y exporte de nuevo con el plugin de la distribución. Consulte [Clasificación de las zonas](04-preparar-designbuilder.qmd#sec-clasificacion-zonas); no complete los datos editando el IDF.
+
+### Datos internos dañados
+
+Si la aplicación no puede leer datos administrativos persistidos, pruebe con una copia anterior o vuelva a crear el expediente. Conserve el archivo fallido para soporte.
+
+## Datos del edificio y certificador
+
+| Síntoma | Comprobación | Acción |
+|---|---|---|
+| No se puede generar documentación | Busque campos obligatorios vacíos o con error | Complete edificio, certificado y certificador |
+| Referencia catastral rechazada | Registro y formato mostrado | Quite separadores, revise dígitos y seleccione el registro correcto |
+| Referencias incompatibles tras cambiar registro | Tabla existente | Elimine o corrija las referencias que pertenecen al registro anterior |
+| Zona climática inesperada | Provincia, municipio y altitud | Corrija la ubicación; no escriba manualmente una zona para compensar |
+| Irradiación manual no aceptada | Valor y fuente | Complete ambos o borre ambos |
+| Imagen o plano no aparece | Ruta y extensión | Vuelva a cargar el archivo y guarde el expediente |
+| NIF, teléfono o correo rechazado | Formato | Corrija el formato; la aplicación no valida la autenticidad |
+
+## Cálculo
+
+### La operación está deshabilitada
+
+Compruebe:
+
+- que existe un modelo abierto;
+- que no hay otra operación en curso;
+- que el cálculo anterior terminó correctamente;
+- que se ha confirmado el control solar cuando es necesario;
+- que los resultados no han quedado obsoletos.
+
+### EnergyPlus termina con error
+
+Abra **`eplusout.err`** en la carpeta de la simulación que ha fallado y busque el primer error grave. Consulte [Carpetas donde se ejecutan las simulaciones](09-archivos.qmd#sec-carpetas-simulacion) para localizarlo y [Consultar el archivo de registro del expediente](11-resolucion-problemas.qmd#sec-log-expediente) para revisar el contexto de la operación. Corrija el dato en DesignBuilder, vuelva a exportar y calcule de nuevo.
+
+No se limite al último mensaje: puede ser una consecuencia de un error anterior.
+
+### El cálculo se cancela
+
+Espere a que la aplicación confirme la cancelación. Los resultados parciales no son válidos. Repita el cálculo completo.
+
+### Horas fuera de consigna
+
+Revise dimensionado, horarios, conexiones y consignas. Active sistemas de sustitución solo cuando proceda y vuelva a simular.
+
+### Puentes térmicos con avisos
+
+Si se indican tramos sin resolver, revise las zonas afectadas y el criterio dimensional antes de aceptar los resultados. Si se rechaza la tabla exportada, corríjala en el plugin y vuelva a exportar; no sustituya sus datos por listas antiguas. Consulte [Puentes térmicos](05-plugin.qmd#sec-puentes-termicos).
+
+### Resultados no reutilizables
+
+Puede faltar la carpeta **Resultados**, no corresponder al IDF o contener una revisión incompleta. Copie la carpeta correcta o calcule de nuevo.
+
+### Recuperación de calor en demanda {#sec-error-recuperacion}
+
+Consulte primero el modo y la efectividad aplicada en el registro. El criterio y la herencia se explican en [Recuperación de calor para demanda](05-plugin.qmd#sec-recuperacion-demanda-plugin).
+
+| Problema | Qué comprobar |
+|---|---|
+| El campo no aparece en una zona | La zona debe estar acondicionada y pertenecer a un grupo HVAC. No basta con marcarla como Ocupada. |
+| No permite guardar Manual | Introduzca un número entre 0 y 100; no deje el campo vacío. |
+| Automático da una efectividad cero | Revise los cuatro rendimientos sensibles, los caudales y el horario del recuperador. Un rendimiento vacío puede tomar el valor cero. |
+| El porcentaje manual no se aplica | Compruebe que la zona tiene aire exterior atendido por un recuperador y que este no está permanentemente parado. |
+| El cálculo informa de datos o conexiones inválidos | Revise el equipo o la zona indicados: rendimientos, caudal nominal y conexión con las zonas. El programa detiene el cálculo si no puede asignar inequívocamente la recuperación. |
+
+### n50 adoptado y mensaje de reparto de fugas
+
+Compruebe la envolvente y el n50 introducido en **Datos del Edificio > Características**. Si no existen opacos exteriores netos ni fugas iniciales en huecos y puertas, el programa no puede repartir el caudal objetivo. Si corrige el modelo, expórtelo de nuevo; si cambia solo n50, guarde el expediente. Después vuelva a calcular. Las condiciones se explican en [n50 adoptado](06-aplicacion.qmd#sec-n50-adoptado).
+
+Si el n50 de HE1 no es el esperado, confirme el dato guardado y el último cálculo y consulte [Interpretar n50 en HE1](07-calculo.qmd#sec-revisar-n50).
+
+## HE1, HE y XML
+
+| Síntoma | Causa probable | Acción |
+|---|---|---|
+| HE1 solicita simular otra vez | Cambió modelo, clima o propiedades solares | Genere nuevos resultados Qsol |
+| La confirmación solar bloquea HE/XML | Existen controles específicos no confirmados | Revise en DesignBuilder, justifique y confirme |
+| HE falla | Resultados o datos inválidos | Revise cálculo, registro y campos obligatorios |
+| XML base falla | Falta EPDB, resultado o dato requerido | Reprocese o calcule y complete los datos |
+| Falta `Epdb.xml` | Procesamiento energético incompleto | Ejecute de nuevo cálculo o reprocesado |
+| EPDB incompatible | Archivos mezclados o herramientas distintas | Regenere todo con el conjunto instalado |
+| Un factor de conversión vuelve a `1` | Texto, signo, valor no finito o separador decimal no reconocido | Introduzca de nuevo el factor con el formato mostrado y compruebe el valor visible |
+| El factor total es inferior al no renovable | Relación de factores incoherente | Corrija los factores y repita el procesamiento |
+| La operación supera el tiempo admitido | Archivo bloqueado o procesamiento detenido | Cierre salidas, revise registro y repita |
+
+## XML Medidas
+
+### No se abre
+
+Si el mensaje indica que no se encuentra `xml-medidas.exe`, repare la instalación. Si existe pero está bloqueado, compruebe seguridad de Windows y procedencia del paquete.
+
+### El caso base no es el esperado
+
+Cierre sin guardar, vuelva a DesignBuilder CTE, identifique la ruta del XML base correcto y ábralo de nuevo.
+
+### No se puede obtener XML final
+
+Revise:
+
+- estado de medidas;
+- al menos una visita real;
+- campos obligatorios de medidas y recomendaciones;
+- casos mejorados compatibles con el caso base;
+- validación mostrada por XML Medidas.
+
+## XMLCert y PDF {#sec-xmlcert-pdf}
+
+| Síntoma | Comprobación | Recuperación |
+|---|---|---|
+| El selector indica XML final, pero se eligió el base | Estado de medidas y visitas | Complete y guarde desde XML Medidas |
+| Falta `xml2cert.exe` o recursos | Instalación | Repare DesignBuilder CTE |
+| Validación XML falla | Mensaje de XMLCert | Corrija en XML Medidas y guarde un nuevo XML final |
+| No puede reemplazar el PDF | PDF abierto | Cierre el visor y repita |
+| Se creó un PDF parcial | Código de error de XMLCert | Descarte el parcial; corrija el XML |
+| El PDF tiene marca de agua | XML procesable pero incompleto; revise también el registro | Complete el XML final y genere de nuevo el PDF |
+| Tiempo de generación agotado | Herramienta bloqueada o XML problemático | Revise registro, reinicie la herramienta y valide el XML |
+
+## Documentos ausentes del expediente
+
+HE y HE1 son DOCX externos y no aparecen en **Documentos del expediente**. Entréguelos aparte.
+
+Si faltan XML o PDF, compruebe que el IDF no haya cambiado, regenere los documentos obsoletos y **Guarde**. Reabra el expediente para comprobarlos. Siga **Incorporar los documentos al expediente**, en [Generar la documentación](08-documentacion.qmd#sec-documentacion); copiar archivos dentro de **Documentación** no los incorpora al DBCTE.
+
+## Información para soporte
+
+Prepare:
+
+- versión pública de DesignBuilder CTE;
+- versión de DesignBuilder desde **Ayuda > Acerca de**;
+- versión del plugin y herramientas XML cuando esté disponible;
+- tipo de archivo abierto;
+- operación exacta;
+- mensaje completo;
+- archivo de registro del expediente (`<nombre>Log.txt`) y hora aproximada de la incidencia;
+- archivo de errores de EnergyPlus;
+- indicación de si el fallo se reproduce con una copia limpia.
+
+Elimine datos personales y no envíe licencias. Comparta el proyecto solo por un canal autorizado.

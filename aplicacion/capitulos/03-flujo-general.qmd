@@ -1,0 +1,30 @@
+# El proceso de trabajo {#sec-flujo-general}
+
+Parta del modelo que ya utiliza en DesignBuilder. La geometría y las instalaciones se editan allí; los datos administrativos y las opciones de certificación se completan en DesignBuilder CTE. El plugin conecta ambos mediante el expediente `.dbcte`.
+
+## Del modelo a los documentos {#sec-inicio-rapido}
+
+| Etapa | Qué se hace | Dónde continuar |
+|---|---|---|
+| Preparar el modelo | Revisar las condiciones específicas de CTE sobre el DSB existente | [Preparar el modelo en DesignBuilder](04-preparar-designbuilder.qmd#sec-preparar-designbuilder) |
+| Completar y exportar | Asignar parámetros, revisar puentes térmicos y crear el DBCTE mediante la exportación IDF | [Plugin y exportación del expediente](05-plugin.qmd#sec-plugin) |
+| Completar el expediente | Introducir edificio y certificador, elegir escala y clima, declarar el ámbito HE | [Caso práctico: completar una vivienda](06a-ejemplo-guiado.qmd#sec-ejemplo-guiado) o [Trabajar con DesignBuilder CTE](06-aplicacion.qmd#sec-aplicacion) |
+| Calcular | Ejecutar EnergyPlus y procesar los resultados del procedimiento | [Cálculo y resultados](07-calculo.qmd#sec-calculo) |
+| Documentar | Obtener informes HE o completar el certificado energético | [Generar la documentación](08-documentacion.qmd#sec-documentacion) |
+| Conservar | Guardar el expediente y sus archivos externos | [Archivos, revisiones y conservación](09-archivos.qmd#sec-archivos) |
+
+## Dos salidas documentales
+
+**Verificación HE.** Los botones **HE1** y **HE** generan informes DOCX editables según la actuación y su ámbito. Se guardan como archivos externos en **Documentación**. La declaración de aplicabilidad HE es independiente del tipo y la escala del certificado energético.
+
+**Certificación energética.** DesignBuilder CTE genera el **XML base**. En **XML Medidas** se completan medidas de mejora, visitas y demás apartados; se guarda un **XML final** y se selecciona en **Generar PDF desde XML** para obtener el certificado con XMLCert.
+
+> XML base → XML Medidas → XML final → PDF del certificado
+
+El XML final y el PDF se incorporan al guardar el expediente. Los informes HE y la carpeta **Resultados** permanecen fuera del `.dbcte`; consérvelos junto al proyecto.
+
+## Elegir el punto de entrada
+
+Para comenzar, consulte [Instalación y configuración inicial](02-instalacion.qmd#sec-instalacion). Si ya dispone de un DBCTE, puede abrirlo y seguir el caso práctico. El índice y el buscador permiten consultas puntuales.
+
+Los cambios en el modelo requieren exportarlo de nuevo. Para actualizar el expediente, consulte **Validez e invalidación de resultados**, en **Cálculo y resultados**.

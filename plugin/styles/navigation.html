@@ -1,0 +1,40 @@
+<script>
+// Enhance Quarto's generated TOC. Without JavaScript it remains a normal index.
+document.addEventListener("DOMContentLoaded", () => {
+  const toc = document.getElementById("TOC-body");
+  if (toc) {
+    const title = toc.querySelector("h2");
+    const label = title?.textContent.trim() || "En esta página";
+    const details = document.createElement("details");
+    details.className = "manual-mobile-toc";
+    const summary = document.createElement("summary");
+    summary.textContent = label;
+    details.append(summary);
+    toc.before(details);
+    details.append(toc);
+    // right-body duplicates the margin TOC's IDs; links need only their hrefs.
+    toc.querySelectorAll("[id]").forEach(el => el.removeAttribute("id"));
+    title?.remove();
+    toc.setAttribute("aria-label", label);
+    toc.addEventListener("click", event => {
+      if (event.target.closest("a")) details.open = false;
+    });
+  }
+
+  // The generated Algolia button otherwise retains its English default label.
+  const search = document.getElementById("quarto-search");
+  const label = search?.getAttribute("title") || "Buscar";
+  const button = search?.querySelector(".aa-DetachedSearchButton");
+  if (button) {
+    button.title = label;
+    button.setAttribute("aria-label", label);
+  }
+  search?.querySelector(".aa-Autocomplete")?.setAttribute("aria-label", label);
+  document.querySelector(".navbar-toggler")?.setAttribute("aria-label", "Alternar navegación");
+
+  // Horizontally scrollable tables can also be explored with the keyboard.
+  document.querySelectorAll("main table").forEach(table => {
+    table.setAttribute("tabindex", "0");
+  });
+});
+</script>

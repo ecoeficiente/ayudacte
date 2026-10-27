@@ -1,0 +1,104 @@
+# Revisar un expediente recibido {#sec-revision-certificado}
+
+Este recorrido está dirigido a quien recibe un expediente para revisarlo. Trabaje sobre una copia: los documentos recibidos son la referencia con la que contrastará los nuevos resultados. La consistencia informática no acredita por sí sola la exactitud del modelo ni la autoría.
+
+## Preparar los archivos
+
+La revisión externa parte del expediente final `.dbcte`, que debe contener el XML final y el PDF del certificado. El DSB original puede no formar parte de la entrega solicitada. Con una instalación compatible de DesignBuilder CTE, el revisor puede volver a calcular a partir del expediente y contrastar los resultados con la certificación recibida.
+
+1. Conserve el expediente recibido y trabaje sobre una copia en una carpeta de revisión.
+2. Abra el `.dbcte`, compruebe su estado y consulte **Documentos del expediente**. Revise la identificación, el alcance y la calificación del XML final y del PDF recibidos antes de recalcular.
+3. Revise los datos del edificio, del certificado y del modelo. Anote las versiones de los programas utilizadas.
+4. Pulse **Calcular** para obtener los resultados de comprobación. No necesita recibir la carpeta **Resultados** del autor: se genera al realizar el cálculo.
+5. Compare los indicadores e informes obtenidos con los documentos recibidos. El nuevo cálculo permite contrastar los resultados energéticos; las medidas, visitas y observaciones se revisan en el XML final entregado.
+6. Si necesita examinar el modelo, utilice **Extraer modelo dsbXML**. También puede abrirlo en DesignBuilder mediante **Importar modelo desde DBCTE** en el plugin y guardarlo como DSB para su revisión.
+
+Contraste el modelo con los planos, fichas y justificantes disponibles, incluidos los de los casos mejorados cuando proceda. Los nombres y fechas de los archivos son indicios: compruebe su contenido. Mantenga diferenciados los documentos recibidos y los generados durante la revisión.
+
+## Recorrido de comprobación
+
+En DesignBuilder, revise primero los valores generales y después las excepciones de bloque, zona, superficie y hueco. Para localizar y editar datos, consulte [Preparar el modelo en DesignBuilder](04-preparar-designbuilder.qmd#sec-preparar-designbuilder), [Plugin y exportación del expediente](05-plugin.qmd#sec-plugin) y [Trabajar con DesignBuilder CTE](06-aplicacion.qmd#sec-aplicacion).
+
+| Qué revisar | Dónde y con qué contrastarlo | Alerta que debe aclararse |
+|---|---|---|
+| Emplazamiento y orientación | Norte y sombras del modelo frente a planos; provincia, municipio, altitud y clima en DesignBuilder CTE frente al emplazamiento real | Orientación incorrecta o ubicación mal definida en DesignBuilder CTE |
+| Geometría y alcance | Bloques, zonas y superficies frente a planos, encargo y XML | Partes ausentes, edificio colindante incluido o exportación parcial |
+| Superficies, volúmenes y multiplicadores | **Actividad**, espacios del XML e indicadores HE | Doble multiplicación o diferencia de superficie sin explicar su criterio |
+| Habitabilidad y envolvente | Grupo HVAC y Ocupada en DesignBuilder; Tipo de zona y pertenencia en el plugin | Confundir no habitable con Exterior |
+| Uso y condiciones operacionales | **Actividad**: horarios, consignas, ocupación, cargas y ventilación; escala del certificado | Escala incorrecta, perfiles heredados sin revisar o condiciones distintas entre casos |
+| Cerramientos y terreno | **Cerramientos**: contorno, capas, aislamiento; fichas y U de HE/XML | Medianería tratada como exterior, aislamiento duplicado o aproximación de terreno no valorada |
+| Huecos | **Huecos**: tamaño, vidrio, marco, U, factor solar; fichas y XML | Confundir U del vidrio con U del hueco completo o repetir áreas |
+| Sombras y protecciones | Geometría, controles y periodo; HE1 y justificación | Control específico confirmado sin respaldo |
+| Puentes térmicos | Datos exportados por zona y tipo; longitud, Ψ y producto en HE/XML | Criterios dimensionales mezclados, encuentros duplicados o tramos pendientes |
+| Infiltración y ventilación | Clase de ventanas, opacos y **HVAC**; caudales, recuperación y horarios | Mecanismos duplicados o confundir ren/h con m³/h |
+| Sistemas térmicos | **Sistema HVAC**: conexiones, zonas, potencia, combustible, rendimiento y control; fichas y XML | Sistema incoherente con el proyecto real |
+| ACS | Demanda, temperatura, generadores, depósitos y circuitos; HE/XML y resultados | Demanda insatisfecha, consumos comparados en puntos distintos o pérdidas mal interpretadas |
+| Renovables y cogeneración | Modelo y producciones adicionales; meses, servicio, autoconsumo y XML | Generador duplicado o producción confundida con energía aprovechada |
+| Iluminación terciaria | **Iluminación**, iluminancia y VEEI efectivo; espacios y consumo XML | Potencia, horario o unidades incoherentes |
+| Datos administrativos y certificador | Aplicación frente a encargo, catastro, planos, identidad y contacto | Formato válido con datos de otro edificio o técnico |
+| Cálculo | Registro, objeto, referencia terciaria, Qsol y resultados completos | Cancelación, horas fuera de consigna o resultados anteriores a un cambio relevante |
+| Medidas | XML Medidas, caso base y casos mejorados | Cambio de uso, superficie o edificio que invalida la comparación |
+
+La ubicación y el archivo climático seleccionados en DesignBuilder no tienen que coincidir con los del certificado: DesignBuilder CTE los sustituye al preparar el cálculo normativo. Compruebe la ubicación en DesignBuilder CTE y, en el modelo, la orientación y las sombras que representan el edificio.
+
+Muestree todas las tipologías y compruebe individualmente las excepciones. Cuando una comprobación no sea posible, indique qué documento falta y qué conclusión impide alcanzar.
+
+## Interpretar diferencias sin confundir magnitudes
+
+### Superficies y envolvente
+
+Contraste el alcance y el criterio de cada superficie antes de comparar cifras. La clasificación y pertenencia a la envolvente se explican en [Clasificación de las zonas](04-preparar-designbuilder.qmd#sec-clasificacion-zonas) y [Espacios habitables y envolvente térmica](04-preparar-designbuilder.qmd#sec-envolvente-zonas). Al leer el XML:
+
+- Superficie y volumen de un espacio describen una unidad representativa: aplique su multiplicador una sola vez.
+- El área opaca es neta de huecos; sume sus huecos una vez para reconstruir una fachada.
+- K y compacidad no utilizan la misma base que la superficie útil. Una medianería excluida del valor global puede requerir comprobación de transmitancia.
+
+Para particiones hacia no habitables, revise Estanqueidad y todas las caras que contactan con ese espacio, según [Transmisión hacia espacios no habitables](07-calculo.qmd#sec-transmision-no-habitables).
+
+### Infiltración y n50
+
+Compruebe si HE1 declara un **n50 adoptado por el usuario** o una estimación. En el primer caso, solicite la justificación y contraste el volumen representado; en el segundo, revise las entradas utilizadas. Los coeficientes, unidades y diferencias entre ambos se explican en [Interpretar n50 en HE1](07-calculo.qmd#sec-revisar-n50), en el capítulo de cálculo.
+
+### Demanda, consumos, ACS y renovables
+
+Si existe recuperación de calor, compruebe en el registro la efectividad aplicada a cada zona y, en modo Manual, su justificación técnica. Consulte [Recuperación de calor para demanda](05-plugin.qmd#sec-recuperacion-demanda-plugin).
+
+Utilice [Interpretar demanda, consumo y rendimiento](07-calculo.qmd#sec-interpretar-resultados) para distinguir energía útil, consumo de combustible, auxiliares y pérdidas. Compruebe la base PCI/PCS antes de contrastar un rendimiento y las horas fuera de consigna antes de comparar sistemas.
+
+Revise demanda de ACS a la temperatura objetivo y apoyo de sustitución. La producción termosolar manual se aprovecha con un límite mensual y no demuestra coincidencia horaria. Los porcentajes de cobertura de demanda y de ahorro de consumo final no son intercambiables.
+
+Un colector físico compartido puede atender ACS y calefacción sin representar dos equipos. En el resumen XML, la energía ambiente se agrupa como `Eambiente`, la minieólica como `Otro` y la cogeneración como `Cogen`; contraste también el detalle del generador.
+
+### Edificio de referencia y comparación con otras herramientas
+
+En terciario, revise que existe el caso de referencia correspondiente. No espere que reproduzca los sistemas reales del objeto. Una ventilación de referencia sin consumo eléctrico no implica por sí sola un error. La referencia debe excluir todas las no habitables, incluso las interiores a la envolvente, y no conservar conexiones a las zonas retiradas.
+
+Para comparar con HULC, use el mismo edificio, clima, uso, geometría, condiciones operacionales y puentes. Las diferencias de longitud × Ψ pueden explicar una diferencia de demanda que no se corrige cambiando el emisor. Consulte [Puentes térmicos](05-plugin.qmd#sec-puentes-termicos) para revisar la tabla de trece encuentros, sus longitudes por zona, el criterio dimensional y las asignaciones de Ψ.
+
+## Contrastar los documentos finales
+
+1. **HE1:** compruebe superficie de referencia, cerramientos, puentes, K, compacidad, n50, huecos, protecciones y resultado solar que figuren en el informe.
+2. **HE:** contraste identidad, clima, envolvente, sistemas, renovables e indicadores con modelo y resultados.
+3. **XML final:** revise edificio, certificador, espacios, construcciones, sistemas, indicadores, calificación, medidas y visitas. Use un visor; no necesita editar el XML.
+4. **PDF:** compruebe que procede de ese XML final, conserva datos, calificación, medidas, visitas, imagen y plano y no tiene marca de agua ni contenido truncado.
+5. **Expediente reabierto:** confirme que sus documentos incorporados son los que se entregan. Para contrastar el cálculo, utilice resultados correspondientes a ese expediente o genérelos de nuevo.
+
+El XML base con medidas pendientes no sustituye al final. Debe existir una visita real; una observación no la sustituye. Los casos mejorados han de mantener el mismo edificio y alcance. Si falta una escala por servicio prevista por el procedimiento, no interprete su ausencia como calificación G.
+
+## Registrar incidencias
+
+| Elemento | Fuente y dato encontrado | Resultado | Acción o limitación |
+|---|---|---|---|
+| Ejemplo: superficie útil | Plano frente a XML/PDF; anotar ambos valores | Conforme / discrepancia / no verificable | Explicar el criterio o solicitar la medición |
+
+Registre el dato, su localización, la fuente de contraste y el efecto sobre el certificado. Detenga la conclusión si hay mezcla de revisiones, escala incorrecta, resultados incompletos, controles sin justificar o ausencia de archivos esenciales. Una apariencia correcta del PDF no resuelve esas incidencias.
+
+## Conclusión
+
+| Resultado de la revisión | Cuándo corresponde |
+|---|---|
+| Coherente y reproducible | Los archivos necesarios pertenecen a la misma revisión y no hay discrepancias materiales |
+| Revisable con observaciones | Hay trazabilidad suficiente y las diferencias o limitaciones están explicadas sin alterar materialmente el resultado |
+| No verificable | Faltan archivos esenciales o hay incompatibilidades o discrepancias que impiden relacionar modelo, resultados y documentos |
+
+Identifique la revisión examinada y deje registradas las comprobaciones, incidencias y fuentes de contraste que sustentan la conclusión.

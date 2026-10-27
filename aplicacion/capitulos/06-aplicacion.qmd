@@ -1,0 +1,315 @@
+# Trabajar con DesignBuilder CTE {#sec-aplicacion}
+
+## Inicio y navegación
+
+Al iniciar, DesignBuilder CTE comprueba la configuración y la licencia. Si otra instancia está activa, utilice esa ventana. Si acaba de cerrarla, espere a que termine el cierre antes de volver a abrirla.
+
+La navegación principal contiene:
+
+- **Datos del Edificio**;
+- **Datos del Certificador**;
+- **Datos del modelo**;
+- **Cálculos y Documentación**;
+- **Configuración**.
+
+La cabecera muestra el nombre del proyecto abierto y permite **Abrir proyecto** y **Guardar** desde cualquier página. En **Cálculos y Documentación** se encuentran la importación, el cálculo y la generación de documentos. Los datos pueden revisarse en cualquier orden, pero deben estar completos y válidos antes de generar los documentos que los utilizan.
+
+En ventanas amplias, el menú lateral muestra los nombres de las páginas. Al reducir la ventana se recogen los nombres; el botón de menú permite desplegarlos. Los formularios distribuyen sus campos en una o dos columnas según el espacio disponible.
+
+Sin proyecto abierto, la pantalla de cálculo ofrece abrir uno y conserva el acceso a **Abrir XML Medidas** y **Generar PDF desde XML**, que permiten trabajar con un XML existente.
+
+### Localizar y corregir campos
+
+**Datos del Edificio** se organiza en seis secciones:
+
+| Sección | Contenido |
+|---|---|
+| Identificación | Descripción, dirección, ubicación administrativa y referencias catastrales. |
+| Características | Uso, alcance, unidades, superficie, antigüedad, normativa y características generales. |
+| Clima y ACS | Altitud, zona climática, irradiación y demanda de agua caliente sanitaria. |
+| Certificado | Tipo, escala, fecha y procedimiento. |
+| Ámbito HE | Actuación, ámbito del modelo y condiciones de aplicación del DB-HE. |
+| Imágenes | Imagen y plano del edificio, con su vista previa. |
+
+En ventanas estrechas, las pestañas se sustituyen por un selector con las mismas secciones. Cambiar de sección conserva lo escrito y la posición de desplazamiento; utilice **Guardar** para conservarlo en el expediente.
+
+Los errores de los campos se muestran debajo de la entrada después de editarla y salir de ella, o después de solicitar una operación que comprueba el formulario completo. El desplegable **Revisar campos** reúne los campos con errores; al pulsar uno, abre su sección y lleva el foco a la entrada correspondiente. Una sección que no está a la vista también puede contener datos pendientes.
+
+## Abrir un proyecto
+
+Pulse **Abrir proyecto** y seleccione el expediente `.dbcte` generado con el plugin de DesignBuilder.
+
+### Abrir un expediente DBCTE
+
+La aplicación comprueba que el expediente es compatible, está completo y sus archivos no presentan inconsistencias. Si detecta un problema, detiene la apertura.
+
+**Expediente DBCTE consistente** significa que el contenido supera esa comprobación. No equivale a una firma digital ni acredita la identidad del autor o la exactitud técnica del certificado.
+
+### Procesamiento inicial
+
+Al abrir, la aplicación lee el modelo y los datos propios del IDF incluido en el expediente. Puede calcular propiedades iniciales necesarias —por ejemplo, datos de envolvente o control solar— antes de habilitar el resto de operaciones.
+
+Si el aviso indica que la apertura está tardando más de lo previsto, espere a que concluya. Si EnergyPlus comunica un error, revise el archivo de errores indicado antes de repetir.
+
+Si los datos persistidos están dañados o el IDF no corresponde a la versión admitida, la apertura se detiene. Vuelva a exportar el modelo desde DesignBuilder; no reconstruya manualmente los bloques internos de datos.
+
+## Guardar expediente {#sec-guardar-proyecto}
+
+Pulse **Guardar** en la cabecera para conservar los datos, adjuntos y documentos de certificación preparados para el expediente. Los informes HE y HE1 se generan en DOCX externo dentro de **Documentación**; no se incorporan al `.dbcte`. El modelo DesignBuilder incluido permanece como se exportó; las correcciones del modelo energético deben hacerse en DesignBuilder y volver a exportarse.
+
+Para conservar una copia, pulse **Guardar** y elija otro nombre o carpeta en el diálogo. Revise cualquier advertencia de archivos que no hayan podido copiarse; guardar el proyecto no demuestra por sí solo que todos sus archivos externos se hayan trasladado.
+
+### Documentos obsoletos
+
+Los documentos quedan relacionados con el IDF con el que se generaron. Si el modelo cambia antes de guardar, DesignBuilder CTE excluye del nuevo expediente los documentos que ya no corresponden a esa revisión y solicita que se regeneren.
+
+Las copias visibles de la carpeta **Documentación** no se eliminan automáticamente. Su presencia no demuestra que formen parte del `.dbcte` actual. La comprobación correcta consiste en guardar y volver a abrir el expediente.
+
+::: {.callout-warning title="Resultados fuera del expediente" icon=false}
+La carpeta **Resultados** no se incorpora al `.dbcte`. Debe conservarse y trasladarse junto al expediente cuando se necesite reproducir, revisar o reutilizar el cálculo.
+:::
+
+## Importar datos desde otro proyecto {#sec-importar-datos}
+
+### Importar certificador
+
+**Importar certificador** permite seleccionar otro expediente `.dbcte` y copiar los datos del técnico. Antes de confirmar:
+
+1. Compruebe la identidad del archivo de origen.
+2. Revise los datos mostrados después de importar.
+3. Corrija dirección, contacto, titulación o entidad si no corresponden al certificado actual.
+
+La importación requiere un proyecto de destino abierto y no copia el modelo ni los resultados. Use **Guardar** después de revisar los datos.
+
+### Importar datos del edificio
+
+**Importar datos del edificio** copia los datos administrativos y de certificado admitidos, incluidos referencias catastrales y adjuntos cuando están disponibles. No sustituye la geometría, los sistemas ni los resultados del modelo abierto.
+
+Después de importar, revise especialmente:
+
+- dirección y alcance;
+- ubicación y altitud;
+- año y normativa;
+- referencias catastrales;
+- superficie y número de unidades;
+- tipo y escala del certificado;
+- imagen y plano.
+
+La aplicación evita dejar una importación parcial si se produce un error, pero el usuario debe confirmar que el origen era el correcto.
+
+## Datos del edificio
+
+La página reúne datos administrativos, normativos y de certificación que aparecen en el XML y en los informes.
+
+### Identificación y dirección
+
+Complete descripción, dirección y código postal, y seleccione comunidad, provincia y municipio. La descripción debe identificar la parte certificada. La altitud se revisa en **Clima y ACS**: ubicación y altitud afectan al clima y al ACS, además de aparecer en los documentos.
+
+### Fecha de construcción y normativa
+
+Seleccione el intervalo de construcción o **Año exacto**. Si utiliza un año exacto, introdúzcalo con cuatro cifras.
+
+Indique:
+
+- normativa de la envolvente;
+- año personalizado de CTE cuando se seleccione una edición posterior no enumerada;
+- normativa de instalaciones térmicas;
+- año personalizado de RITE cuando corresponda;
+- otra normativa relevante, si procede.
+
+El año personalizado debe pertenecer al intervalo que muestra la aplicación. No utilice el año de una reforma parcial como fecha de construcción del edificio completo; documente cada caso según el alcance certificado.
+
+### Permeabilidad de opacos
+
+El campo opcional de permeabilidad de opacos a 100 Pa se expresa en m³/(h·m²). Si se introduce, debe ser finito, mayor que cero y con el número de decimales admitido.
+
+Si se deja vacío, DesignBuilder CTE aplica el valor previsto para el tipo de certificado:
+
+- edificio nuevo, ampliación o reforma: 16 m³/(h·m²);
+- edificio existente: 29 m³/(h·m²).
+
+El valor resuelto se incorpora al XML y se utiliza en infiltraciones cuando no se ha definido **n50 adoptado** en **Datos del Edificio > Características**. Si existe ese n50, el programa ajusta las fugas para alcanzar el valor adoptado y conserva las permeabilidades originales de los elementos. Introduzca un valor de proyecto únicamente cuando exista una fuente que lo justifique.
+
+Sin n50 adoptado, el informe HE1 estima n50 mediante un coeficiente de referencia **Co**, que puede diferir de la permeabilidad de proyecto. Con n50 adoptado, utiliza directamente el dato introducido. La comprobación de ambos casos se explica en [Interpretar n50 en HE1](07-calculo.qmd#sec-revisar-n50).
+
+### n50 adoptado {#sec-n50-adoptado}
+
+Introduzca **n50 adoptado (h⁻¹ a 50 Pa)** en **Datos del Edificio > Características** si dispone de un valor justificado. Es opcional y admite coma o punto decimal; debe ser finito y mayor que cero. Una entrada incorrecta impide calcular. Vacío conserva el procedimiento habitual.
+
+El dato se refiere al volumen de las zonas habitables del modelo, incluidos sus multiplicadores. No se solicita el volumen del ensayo: si el valor procede de otro volumen, justifique que representa el edificio modelado. No sustituye la ventilación mecánica.
+
+Mientras esté informado, la permeabilidad de opacos queda deshabilitada y conserva su valor. El cálculo ajusta las fugas para alcanzar el n50 adoptado y mantiene las permeabilidades originales de los elementos. Si las fugas iniciales de huecos y puertas superan el objetivo, se reducen proporcionalmente. Sin superficie opaca exterior neta, el reparto se realiza entre esas fugas, aumentándolas si resulta necesario; si tampoco existen fugas iniciales, el cálculo se detiene con un diagnóstico.
+
+HE1 utiliza directamente el número introducido y lo identifica como valor adoptado por el usuario. El edificio de referencia conserva su procedimiento. Borrar n50 vuelve a habilitar la permeabilidad de opacos y recupera la estimación habitual de HE1. Introducirlo, modificarlo o retirarlo exige guardar y **volver a calcular**; no requiere exportar el modelo otra vez desde DesignBuilder.
+
+## Referencias catastrales
+
+Seleccione el registro correspondiente:
+
+- Dirección General del Catastro, territorio de régimen común;
+- Diputación Foral de Álava;
+- Diputación Foral de Bizkaia;
+- Diputación Foral de Gipuzkoa;
+- Registro de la Riqueza Territorial de Navarra.
+
+La pantalla adapta el formato y muestra un ejemplo. Para añadir una referencia:
+
+1. Seleccione el registro.
+2. Introduzca parcela e inmueble según el formato mostrado.
+3. Active **Añadir una parte accesoria diferenciada** solo si se certifica una parte accesoria sin referencia propia.
+4. Complete **Parte** cuando se muestre.
+5. Pulse **Añadir Referencia**.
+6. Revise la tabla resultante.
+
+La aplicación elimina espacios y guiones de presentación y convierte letras a mayúsculas, pero no completa dígitos ni corrige una composición inválida. Si cambia de registro, elimine o corrija las referencias incompatibles.
+
+## Protección y elementos inalterables
+
+Indique el grado de protección y, cuando proceda, añada elementos inalterables con tipo y descripción. Deben corresponder a limitaciones reales que afecten a las intervenciones o medidas de mejora.
+
+No use este apartado como un campo de observaciones genérico. Las visitas, observaciones e intervenciones del certificado se completan después en XML Medidas.
+
+## Alcance, uso y geometría administrativa
+
+Declare edificio completo o parte, uso, unidades certificadas, plantas sobre y bajo rasante y superficie útil.
+
+**Plantas sobre rasante** admite cero. Es un dato administrativo y no modifica los niveles geométricos de DesignBuilder. Si existe discrepancia entre ambos, corrija o justifique la información; no introduzca una planta ficticia para superar una validación.
+
+La superficie útil debe referirse al mismo alcance que el certificado. Consulte la ayuda del campo para el criterio de medición, las exclusiones y el tratamiento de espacios exteriores cubiertos. Contrástela con planos y mediciones; la superficie catastral y el área de referencia energética pueden responder a criterios distintos. Explique las diferencias en lugar de forzar su igualdad.
+
+## ACS e irradiación solar
+
+En **Clima y ACS** se reúnen la altitud, el clima y las ayudas de demanda e irradiación. La zona solar ACS es distinta de la zona climática del certificado.
+
+Para convertir una demanda conocida a 60 °C:
+
+1. Pulse **Calcular demanda ACS a otra temperatura**.
+2. Introduzca la **Temperatura de impulsión ACS en el modelo (°C)**.
+3. Introduzca la **Demanda diaria a 60°C (litros)**, calculada previamente para el edificio.
+4. Pulse **Calcular** y consulte el volumen diario equivalente.
+5. Utilice ese resultado al definir la demanda en DesignBuilder y compruebe las unidades del campo de destino.
+
+La calculadora utiliza las temperaturas mensuales del agua de red de la ubicación seleccionada. No calcula por sí sola la demanda reglamentaria a partir de ocupantes o unidades ni modifica automáticamente el consumo de ACS del modelo.
+
+Si introduce irradiación manual, indique también su fuente. Un valor sin fuente o una fuente sin valor no constituyen una entrada completa. Si ambos se dejan vacíos, la aplicación utiliza su base de datos interna para la ubicación seleccionada.
+
+## Imagen y plano
+
+En **Datos del Edificio > Imágenes**, use **Cargar imagen del edificio** y **Cargar plano del edificio**. Se admiten los formatos de imagen mostrados por la aplicación. La vista previa permite comprobar el archivo elegido; si no puede leerse, se muestra **Vista previa no disponible**. Revise la ruta y el archivo antes de generar el documento.
+
+Compruebe:
+
+- que la imagen identifica el edificio correcto;
+- que el plano corresponde al alcance certificado;
+- que no contienen datos personales innecesarios;
+- que las rutas siguen disponibles al guardar;
+- que aparecen correctamente en el PDF final.
+
+## Datos del certificado
+
+Seleccione el tipo de certificado, la escala y la fecha de calificación; revise el procedimiento y versión que muestra la aplicación. Los tipos distinguen edificio existente y fases de proyecto u obra de edificio nuevo, ampliación o reforma.
+
+**Vivienda Unifamiliar** y **Vivienda en Bloque** utilizan el procedimiento residencial; **Terciario**, el terciario. La escala determina esta elección. **Uso del edificio** es un dato descriptivo y no la sustituye.
+
+## Ámbito de verificación HE
+
+En **Datos del Edificio > Ámbito HE**, seleccione la actuación: edificio existente sin intervención, nueva construcción, ampliación, reforma o cambio de uso. Esta declaración es independiente del tipo de certificado energético.
+
+Seleccione qué representa el modelo y confirme su correspondencia. El informe describe automáticamente el ámbito y el uso a partir de las selecciones del formulario, sin pedir un texto adicional. Una ampliación requiere un modelo de la parte ampliada; un cambio de uso puede corresponder a las unidades afectadas o al edificio completo. El programa no separa automáticamente los consumos de un modelo que incluya más superficie de la necesaria.
+
+Complete las condiciones que se muestran para la actuación: exclusiones generales, superficies útiles, incrementos de superficie y volumen, renovación térmica y condiciones de ACS. Las cuatro preguntas de **Condiciones generales HE0 / HE1** parten de **No** si no tienen respuesta guardada; revise si alguna corresponde a su caso. Las respuestas **Sí** ya guardadas se conservan.
+
+**Hay piscinas afectadas**, en HE4, también parte de **No** cuando no existe respuesta guardada y conserva cualquier **Sí** anterior. Seleccione **Sí** si la actuación afecta a una piscina. DesignBuilder CTE no calcula ni justifica su climatización: el usuario debe elaborar esa justificación por separado y añadirla a la memoria justificativa del HE. El formulario y el informe recuerdan esta obligación; la comprobación **HE4 piscinas** figura como **Pendiente** de esa aportación externa.
+
+Cuando tanto los Datos del Edificio como el ámbito HE corresponden al **edificio completo**, se reutiliza **Superficie útil (m²)** de Datos del Edificio y se oculta la entrada duplicada. Si alguno corresponde a una parte, se mantiene la superficie útil total independiente para no confundirla con la superficie de esa parte. En ambos casos se utiliza la superficie útil declarada, no la superficie energética calculada por la simulación. Las superficies de ampliación o cambio de uso siguen siendo datos específicos de la actuación.
+
+Los campos sin respuesta y los números vacíos o no válidos se consideran pendientes. Cambiar la actuación o el ámbito obliga a confirmar nuevamente; importar los datos de otro edificio también elimina la confirmación. Los datos se conservan al guardar el proyecto.
+
+Estos datos afectan a la justificación HE. Tras modificarlos, vuelva a generar el informe; por sí solos no requieren repetir EnergyPlus.
+
+## Datos del certificador
+
+Complete **Profesional**, **Entidad** y **Contacto** con nombre, NIF, titulación y datos profesionales. Si selecciona **Otra** titulación, escriba su denominación. El domicilio del certificador puede ser distinto del edificio.
+
+Los mensajes comprueban formatos, no la identidad ni la habilitación profesional. Corrija las entradas señaladas antes de generar documentos. Para reutilizar estos datos desde otro expediente, utilice **Importar certificador**, explicado en [Importar datos desde otro proyecto](06-aplicacion.qmd#sec-importar-datos).
+
+## Datos del modelo
+
+### Parámetros de cálculo
+
+Revise:
+
+- mes utilizado para el cálculo del CFI;
+- mes inicial y final de aplicación de sombras.
+
+Los meses inicial y final se incluyen completos y el periodo no puede atravesar el cambio de año. Los valores iniciales son marzo para CFI y junio a septiembre para sombras. Se guardan con el proyecto. Si cambia una condición usada en la simulación, vuelva a calcular.
+
+### Producciones energéticas adicionales
+
+Pueden añadirse componentes no descritos en DesignBuilder:
+
+- generador eléctrico;
+- cogenerador;
+- generador termosolar.
+
+Para cada componente:
+
+1. Pulse el botón de la categoría.
+2. Introduzca un nombre único y descriptivo.
+3. Seleccione tipo, servicio y vector cuando correspondan.
+4. Complete potencia, eficiencia, superficie o relación térmica según el tipo.
+5. Introduzca la producción mensual de enero a diciembre en kWh.
+6. Compruebe el total anual.
+7. Pulse **Guardar componente**.
+
+Los valores deben ser finitos y no negativos; las eficiencias se expresan entre 0 y 1. La producción termosolar solo puede asignarse a ACS o calefacción. En cogeneración, la serie mensual introducida representa producción eléctrica.
+
+Los nombres deben tener al menos tres caracteres y ser únicos, también respecto a los equipos del modelo. Las eficiencias entre 0 y 1 son fracciones: por ejemplo, 0,8 representa un 80 %.
+
+No añada como componente adicional un sistema ya representado en DesignBuilder. La cogeneración adicional solo declara electricidad; no crea por sí misma consumo de combustible ni producción térmica.
+
+#### Importar generadores de otro proyecto {#sec-importar-generadores}
+
+Con el destino abierto, pulse **Importar de otro proyecto** y seleccione un expediente `.dbcte` con componentes válidos. Se añaden sus producciones adicionales y se conservan los componentes existentes. Los nombres coincidentes reciben el sufijo «(importado)» y se informa del número de cambios.
+
+Revise nombres, servicios, parámetros y los doce meses. Después, pulse **Guardar** y **Reprocesar EPDB / HE / XML**. Importar no sustituye una revisión técnica de las producciones.
+
+#### Solar térmica adicional para ACS
+
+La solar integrada en el modelo se contabiliza primero. La aportación manual útil se limita cada mes a la demanda de ACS que queda por cubrir; si hay varios generadores, el límite se reparte proporcionalmente. La producción declarada se conserva aunque no toda pueda aprovecharse.
+
+Esa aportación reduce primero la sustitución de ACS y después los auxiliares identificados, sin reducir calefacción ni crear consumos negativos. Si no puede justificarse el consumo evitado, no se publica un porcentaje de ahorro de energía final sin respaldo. Es una estimación mensual: no demuestra coincidencia horaria ni garantiza igualdad con otra herramienta.
+
+El reprocesado reutiliza la solar simulada; no vuelve a calcular los colectores. Si cambia su geometría, rendimiento o conexión en DesignBuilder, exporte y simule de nuevo.
+
+### Factores de conversión
+
+La tabla admite factores de energía primaria total, energía primaria no renovable y emisiones para RED1, RED2 y electricidad de cogeneración.
+
+- Use factores procedentes de una fuente aplicable al proyecto.
+- El factor total no debe ser inferior al no renovable.
+- No introduzca el factor renovable en la columna de total: el programa obtiene la parte renovable por diferencia.
+- Revise el separador decimal mostrado por la interfaz.
+- Si se introduce texto, un valor negativo, un valor no finito o un separador no reconocido, la interfaz sustituye la entrada por `1`. Revise el valor que queda visible antes de procesar.
+
+La relación entre el factor total y el no renovable se comprueba durante el procesamiento. Si el total es inferior, la generación se detiene hasta corregir los factores.
+
+### Reflectancia de los materiales {#sec-reflectancia}
+
+En **Datos del modelo**, active **Usar valor de reflectancia de los materiales** cuando haya revisado las propiedades del modelo. La opción está desactivada inicialmente. Al activarla se conservan las absortancias solar y visible de los materiales no identificados como capas interiores; las capas identificadas como interiores mantienen 0,6 y la absortancia térmica sigue siendo 0,9. Desactivada se aplica 0,6 también a los demás materiales. Esta opción no modifica el tratamiento de la reflectancia del terreno y de las sombras.
+
+Cambiarla exige guardar y **volver a calcular**. Tanto esta opción como n50 pertenecen al expediente; revise su elección al crear uno nuevo.
+
+### Sistemas de sustitución
+
+Los sistemas de sustitución están **desactivados por defecto** al abrir un expediente nuevo. Si el expediente ya contiene una elección guardada, se conserva al volver a abrirlo.
+
+Active esta opción únicamente cuando proceda cubrir demanda no satisfecha con los equipos ficticios del procedimiento. Antes revise **Horas fuera de consigna**, en [Cálculo y resultados](07-calculo.qmd#sec-calculo). Cambiarla exige volver a calcular y debe constar en la revisión del certificado.
+
+### Reprocesar documentación
+
+**Reprocesar EPDB / HE / XML** reutiliza resultados válidos para actualizar la documentación después de cambiar datos que no exigen una nueva simulación. Genera un informe HE en DOCX externo y registra únicamente el XML base para el expediente. Si no existen resultados compatibles, realice **Calcular**.
+
+## Extraer el modelo dsbXML
+
+Con el expediente abierto, pulse **Extraer modelo dsbXML** y elija el destino. Obtendrá el XML del modelo incluido, para inspeccionarlo o conservar una copia independiente. Para abrir ese modelo en DesignBuilder puede usar **Importar modelo desde DBCTE**, en el plugin, y guardarlo como DSB. La extracción no incluye resultados de simulación.
