@@ -21,7 +21,7 @@ Sin proyecto abierto, la pantalla de cálculo ofrece abrir uno y conserva el acc
 ### Consultar la ayuda {#sec-ayuda}
 
 ::: {.callout-note}
-Estos accesos se incorporan en la próxima actualización del programa. Si no aparecen en su versión instalada, consulte directamente <https://ayudacte.ecoeficiente.es/aplicacion/>.
+La actualización de pruebas del 27 de octubre de 2026 incorpora estos accesos. Si no aparecen en su versión instalada, consulte directamente <https://ayudacte.ecoeficiente.es/aplicacion/>.
 :::
 
 Pulse **Ayuda (F1)** en la barra superior o **F1** para abrir la explicación de la pantalla visible en el navegador predeterminado. **Manual de usuario**, junto a Configuración, abre el inicio de la guía. La ayuda está disponible sin un proyecto cargado y no guarda ni modifica el expediente.

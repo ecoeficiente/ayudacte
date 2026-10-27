@@ -99,6 +99,8 @@ Si aparece **Hay una revisión más reciente**, el cálculo se ha editado pero l
 
 ## Revisar antes de exportar
 
+DesignBuilder CTE utiliza las longitudes y los valores Ψ exportados por el plugin; no realiza una segunda medición geométrica de las longitudes, tampoco en los expedientes antiguos compatibles. Revise aquí cualquier longitud ausente o incorrecta. La carga de longitudes es una operación explícita del editor: guarde sus valores definitivos antes de crear el expediente.
+
 Revise las trece categorías y los encuentros que no hayan recibido longitud en la carga. Use el mismo criterio dimensional para L y Ψ, compruebe los multiplicadores y evite duplicar encuentros. Guarde el editor y el DSB; después de modificar puentes, cree de nuevo el expediente y recalcule antes de documentar.
 
 En terciario, el edificio de referencia conserva las longitudes y aplica sus Ψ de referencia. Para balcón, partición y otros utiliza Ψ = 0 únicamente en ese edificio de referencia; el edificio objeto conserva los valores introducidos.

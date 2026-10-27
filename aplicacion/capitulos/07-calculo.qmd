@@ -4,6 +4,18 @@
 
 Abra el expediente correcto y confirme la escala, ubicación y altitud antes de calcular. Debe existir al menos una zona habitable en residencial o una acondicionada en terciario. Use una carpeta escribible y cierre los archivos de resultados que otra aplicación pueda bloquear.
 
+## Puentes térmicos exportados {#sec-puentes-exportados}
+
+Este comportamiento corresponde a la actualización de pruebas del 27 de octubre de 2026.
+
+La aplicación utiliza las longitudes y los valores Ψ guardados por el plugin para cada zona, tanto en expedientes actuales como en los antiguos compatibles. No vuelve a medir las longitudes a partir de la geometría. La simulación, HE1 y el XML utilizan esos mismos datos, teniendo en cuenta los multiplicadores de zona.
+
+Por ejemplo, una longitud de 10 m con Ψ = 0,4 W/(m·K) aporta 4 W/K por instancia de zona. Si el multiplicador de zona es 3, aporta 12 W/K al total. Revise las longitudes, los signos de Ψ y los multiplicadores antes de exportar.
+
+Después de actualizar la aplicación, vuelva a **Calcular** antes de generar documentos de expedientes con resultados anteriores. En expedientes antiguos, los resultados pueden cambiar porque ahora se respetan las longitudes exportadas. Si están incompletas o no representan el edificio, corríjalas en el plugin y cree de nuevo el expediente. Reprocesar documentación no sustituye ese recálculo.
+
+En terciario, el edificio de referencia conserva las longitudes exportadas y aplica sus Ψ de referencia. El edificio objeto conserva los Ψ del usuario.
+
 ## Ejecutar y seguir el progreso
 
 1. Abra **Cálculos y Documentación**.

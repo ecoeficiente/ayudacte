@@ -1,3 +1,9 @@
+# Integrado en la actualización de pruebas del 27-10-2026
+
+El parche conservado a continuación como referencia histórica ya está aplicado a las fuentes de ambas guías. No volver a aplicarlo. Su publicación se coordina con la instalación solicitada de la nueva aplicación. Consultar el historial Git y SESSION_HANDOFF.md del repositorio del programa para el resultado de instalación y publicación.
+
+---
+
 # Puentes exportados por el plugin: actualización preparada
 
 Estado: código preparado localmente en `DesignBuilderCTE`, rama `codex/informes-he-docx`, el 27-10-2026. Todavía no distribuido ni instalado. No publicar esta aclaración como comportamiento de las versiones anteriores.

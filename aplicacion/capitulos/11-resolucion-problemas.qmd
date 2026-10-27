@@ -4,6 +4,12 @@
 
 Busque el síntoma en este capítulo y aplique su primera acción. Conserve el mensaje completo, la operación y su hora antes de repetir. Los archivos parciales de un cálculo o una validación fallidos no son documentos de entrega.
 
+## Datos de puentes ausentes o inválidos
+
+Si el cálculo indica que faltan longitudes o valores Ψ, o que los datos de puentes son inválidos, revise **Editar puentes térmicos** en el plugin. Compruebe las categorías de cada zona, guarde el editor y el modelo, y cree de nuevo el expediente. La aplicación no estima longitudes para completar datos ausentes ni sustituye un bloque actual inválido por valores antiguos.
+
+Si tras actualizar la aplicación los resultados anteriores dejan de estar vigentes, revise los datos exportados y pulse **Calcular**. No basta con reprocesar los documentos. Consulte [Puentes térmicos exportados](07-calculo.qmd#sec-puentes-exportados).
+
 ## Consultar el archivo de registro del expediente {#sec-log-expediente}
 
 La aplicación escribe un archivo de texto junto al expediente `.dbcte`, con el mismo nombre base seguido de **`Log.txt`**. Por ejemplo:

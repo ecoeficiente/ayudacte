@@ -63,7 +63,7 @@ Exportar un archivo `.ctepsi` conserva los cálculos elegidos como archivo indep
 ## Consultar la ayuda {#sec-ayuda}
 
 ::: {.callout-note}
-Los botones de ayuda se incorporan en la próxima actualización del plugin. Si todavía no aparecen, consulte <https://ayudacte.ecoeficiente.es/plugin/>.
+La actualización de pruebas del 27 de octubre de 2026 incorpora los botones de ayuda. Si todavía no aparecen, consulte <https://ayudacte.ecoeficiente.es/plugin/>.
 :::
 
 El menú **DesignBuilder CTE → Ayuda** abre esta guía, incluso sin modelo. Cada ventana del plugin dispone de un botón **Ayuda** que abre el apartado correspondiente en el navegador: parámetros, puentes térmicos, cálculos y sus diálogos de reparto, carga, destinos, ponderación y detalle constructivo.
