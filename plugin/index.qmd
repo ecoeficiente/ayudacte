@@ -73,3 +73,7 @@ Consultar la ayuda no acepta el diálogo, guarda el modelo ni aplica cálculos. 
 La ayuda requiere Internet. Si no puede iniciarse el navegador, el aviso muestra la dirección para consultarla manualmente.
 
 ![El botón Ayuda permanece visible en la parte inferior de Parámetros CTE.](assets/ayuda-parametros.png){fig-alt="Ventana de parámetros con el botón Ayuda junto a las acciones inferiores."}
+
+::: {.callout-note title="Candidata 1.0.0-rc.1 — pruebas controladas"}
+Edición preparada para el grupo de pruebas; todavía no publicada. Use el paquete RC1 entregado por el desarrollador, compatible con EnergyPlus 23.1.0.002. Conserve una copia de sus expedientes. La validación física de ventiladores HPWH compartidos queda fuera del alcance acreditado. Compruebe exportación, apertura, cálculo, documentos, guardado y reapertura; comunique incidencias indicando la versión completa y el diagnóstico.
+:::
