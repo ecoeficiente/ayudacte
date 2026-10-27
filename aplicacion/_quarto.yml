@@ -99,6 +99,25 @@ format:
     smooth-scroll: true
     include-after-body: styles/navigation.html
 
+  typst:
+    keep-typ: true
+    brand: _brand.yml
+    template-partials: [styles/typst-show.typ]
+    toc: true
+    toc-depth: 2
+    number-sections: false
+    papersize: a4
+    fontsize: 10.5pt
+    mainfont: "Arial"
+    linestretch: 1.16
+    margin:
+      top: 22mm
+      right: 20mm
+      bottom: 22mm
+      left: 24mm
+    page-numbering: "1"
+
+
 crossref:
   fig-title: "Figura"
   tbl-title: "Tabla"

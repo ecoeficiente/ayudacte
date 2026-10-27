@@ -18,6 +18,16 @@ En ventanas amplias, el menú lateral muestra los nombres de las páginas. Al re
 
 Sin proyecto abierto, la pantalla de cálculo ofrece abrir uno y conserva el acceso a **Abrir XML Medidas** y **Generar PDF desde XML**, que permiten trabajar con un XML existente.
 
+### Consultar la ayuda {#sec-ayuda}
+
+::: {.callout-note}
+Estos accesos se incorporan en la próxima actualización del programa. Si no aparecen en su versión instalada, consulte directamente <https://ayudacte.ecoeficiente.es/aplicacion/>.
+:::
+
+Pulse **Ayuda (F1)** en la barra superior o **F1** para abrir la explicación de la pantalla visible en el navegador predeterminado. **Manual de usuario**, junto a Configuración, abre el inicio de la guía. La ayuda está disponible sin un proyecto cargado y no guarda ni modifica el expediente.
+
+Se necesita conexión a Internet. Si el programa no puede iniciar el navegador, muestra la dirección para abrirla manualmente. Si el navegador se abre pero no carga la página, compruebe la conexión.
+
 ### Localizar y corregir campos
 
 **Datos del Edificio** se organiza en seis secciones:
@@ -97,7 +107,7 @@ Después de importar, revise especialmente:
 
 La aplicación evita dejar una importación parcial si se produce un error, pero el usuario debe confirmar que el origen era el correcto.
 
-## Datos del edificio
+## Datos del edificio {#datos-del-edificio}
 
 La página reúne datos administrativos, normativos y de certificación que aparecen en el XML y en los informes.
 
@@ -227,13 +237,13 @@ Los campos sin respuesta y los números vacíos o no válidos se consideran pend
 
 Estos datos afectan a la justificación HE. Tras modificarlos, vuelva a generar el informe; por sí solos no requieren repetir EnergyPlus.
 
-## Datos del certificador
+## Datos del certificador {#datos-del-certificador}
 
 Complete **Profesional**, **Entidad** y **Contacto** con nombre, NIF, titulación y datos profesionales. Si selecciona **Otra** titulación, escriba su denominación. El domicilio del certificador puede ser distinto del edificio.
 
 Los mensajes comprueban formatos, no la identidad ni la habilitación profesional. Corrija las entradas señaladas antes de generar documentos. Para reutilizar estos datos desde otro expediente, utilice **Importar certificador**, explicado en [Importar datos desde otro proyecto](06-aplicacion.qmd#sec-importar-datos).
 
-## Datos del modelo
+## Datos del modelo {#datos-del-modelo}
 
 ### Parámetros de cálculo
 

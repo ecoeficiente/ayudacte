@@ -59,3 +59,17 @@ Exportar un archivo `.ctepsi` conserva los cálculos elegidos como archivo indep
 6. Guardado del DSB, creación del DBCTE y apertura en la aplicación.
 
 [Descargar la guía en PDF](Guia-del-plugin-DesignBuilder-CTE.pdf){.btn .btn-primary}
+
+## Consultar la ayuda {#sec-ayuda}
+
+::: {.callout-note}
+Los botones de ayuda se incorporan en la próxima actualización del plugin. Si todavía no aparecen, consulte <https://ayudacte.ecoeficiente.es/plugin/>.
+:::
+
+El menú **DesignBuilder CTE → Ayuda** abre esta guía, incluso sin modelo. Cada ventana del plugin dispone de un botón **Ayuda** que abre el apartado correspondiente en el navegador: parámetros, puentes térmicos, cálculos y sus diálogos de reparto, carga, destinos, ponderación y detalle constructivo.
+
+Consultar la ayuda no acepta el diálogo, guarda el modelo ni aplica cálculos. El plugin no asigna la tecla F1; el acceso F1 corresponde a la aplicación independiente DesignBuilder CTE. Los selectores de archivos de Windows conservan sus controles habituales.
+
+La ayuda requiere Internet. Si no puede iniciarse el navegador, el aviso muestra la dirección para consultarla manualmente.
+
+![El botón Ayuda permanece visible en la parte inferior de Parámetros CTE.](assets/ayuda-parametros.png){fig-alt="Ventana de parámetros con el botón Ayuda junto a las acciones inferiores."}

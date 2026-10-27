@@ -23,9 +23,9 @@ Abra http://127.0.0.1:8878/ y pruebe ambas guías, su buscador y los PDF. Para c
 
 Edite `aplicacion/` y `plugin/`: los `.qmd` son las fuentes; `assets/` contiene las capturas y `styles/` sus estilos. La portada está en `site/`. Las dos guías mantienen buscadores independientes y enlaces de navegación entre ellas.
 
-No cambie rutas de capítulos ni identificadores de apartados sin conservar los enlaces anteriores: estas URL se usarán desde los botones del plugin y F1 en la aplicación. Esos accesos en el software todavía no están implementados por este repositorio.
+No cambie rutas de capítulos ni identificadores de apartados sin conservar los enlaces anteriores: estas URL se usarán desde los botones del plugin y F1 en la aplicación. La implementación de esos accesos se mantiene en los repositorios del programa y del plugin; coordinar su publicación con la versión distribuida.
 
-Los PDF incluidos son las ediciones verificadas el **27 de octubre de 2026**, copiadas sin modificar. Este flujo genera HTML; **no regenera los PDF**. Cuando cambie contenido, genere y revise también el PDF correspondiente con el proceso editorial original y sustituya el archivo manteniendo su nombre. No publique un PDF antiguo como si reflejara una revisión nueva.
+El flujo de Pages genera HTML; **no regenera los PDF**. Para actualizar ambos PDF desde estas mismas fuentes y las plantillas incluidas, ejecutar `python scripts/build_pdf.py`, revisar visualmente el resultado y después `python scripts/build.py`. El script PDF requiere Quarto con Typst y la fuente Arial. No publique un PDF antiguo como si reflejara una revisión nueva.
 
 **Este repositorio es la fuente principal de las dos guías**, por decisión del usuario del 27-10-2026. Las fuentes iniciales proceden de `manual-v3` y `manual/plugin` del repositorio de desarrollo. `IMPORTACION.json` conserva sus hashes previos a las adaptaciones web. Las copias antiguas y MANUAL.md se conservan como referencia histórica/auxiliar, sin sincronización paralela ni obligación de incorporar primero allí las novedades.
 

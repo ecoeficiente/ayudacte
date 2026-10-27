@@ -1,0 +1,35 @@
+meta:
+  name: "Aurea Consulting"
+  link: "https://ecoeficiente.es"
+
+color:
+  palette:
+    aurea-green: "#91B900"
+    aurea-green-dark: "#647F00"
+    charcoal: "#252A2D"
+    slate: "#5E666B"
+    mist: "#F3F6EB"
+    pale-green: "#EAF1D4"
+  foreground: charcoal
+  background: "#FFFFFF"
+  primary: aurea-green-dark
+  secondary: slate
+  light: mist
+  dark: charcoal
+
+typography:
+  base:
+    family: "Arial"
+    size: 10.5pt
+    line-height: 1.16
+  headings:
+    family: "Arial"
+    weight: 700
+    line-height: 1.12
+    color: aurea-green-dark
+  monospace:
+    family: "Consolas"
+    size: 0.92em
+  link:
+    color: aurea-green-dark
+    decoration: underline

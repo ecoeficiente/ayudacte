@@ -60,6 +60,23 @@ format:
     anchor-sections: true
     include-after-body: styles/navigation.html
 
+  typst:
+    brand: _brand.yml
+    template-partials: [styles/typst-show.typ]
+    toc: true
+    toc-depth: 1
+    page-numbering: "1"
+    number-sections: true
+    papersize: a4
+    fontsize: 10.5pt
+    mainfont: Arial
+    linestretch: 1.16
+    margin:
+      top: 22mm
+      right: 20mm
+      bottom: 22mm
+      left: 24mm
+
 crossref:
   fig-title: Figura
   tbl-title: Tabla

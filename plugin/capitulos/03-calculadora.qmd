@@ -1,6 +1,6 @@
 # Calculadora y conjunto de cálculos Ψ
 
-## Organizar cálculos del edificio
+## Organizar cálculos del edificio {#organizar-cálculos-del-edificio}
 
 Abra **Calculadora de puentes térmicos** desde el menú. El conjunto permite reutilizar un cálculo en varios encuentros compatibles, conservando sus revisiones y asignaciones.
 
@@ -21,7 +21,7 @@ Editar un cálculo no modifica automáticamente sus asignaciones. Un cálculo co
 
 ![Conjunto abierto desde un encuentro: los botones inferiores son Aplicar al encuentro y Aceptar conjunto.](../assets/09-conjunto.jpg){width=100% fig-alt="Conjunto abierto desde un encuentro: los botones inferiores son Aplicar al encuentro y Aceptar conjunto."}
 
-## Crear un cálculo paso a paso
+## Crear un cálculo paso a paso {#crear-un-cálculo-paso-a-paso}
 
 1. Pulse **Añadir cálculo**.
 2. Escriba un nombre que identifique la solución constructiva.
@@ -40,7 +40,7 @@ Cambiar de categoría sustituye los detalles del cálculo y requiere confirmar. 
 
 **Ejemplo reproducible de manejo:** desde Fachada-cubierta, añada un cálculo de Cubiertas planas, grupo 1 (continuidad entre aislamientos de fachada y cubierta), Detalle 01. Con U del muro = 0,44 W/m²K, U de cubierta = 0,50 W/m²K, criterio interior y un detalle al 100 %, la pantalla muestra Ψi = 0,320 W/(m·K), estado Tabulado. Es una demostración del atlas; no demuestra que ese detalle represente la cubierta de esta vivienda.
 
-## Detalles y ponderación
+## Detalles y ponderación {#detalles-y-ponderación}
 
 Un cálculo puede combinar soluciones de una misma categoría. **Añadir detalle** incorpora una fila; **Duplicar detalle** copia la seleccionada; **Eliminar detalle** retira el detalle elegido. Revise los pesos después de cada operación.
 
@@ -52,7 +52,7 @@ Ejemplo didáctico: dos soluciones con Ψ de 0,30 y 0,50 W/(m·K), ponderadas al
 
 Los pesos sirven para obtener Ψ medio. **No sustituyen la longitud L de la tabla de puentes.** Tras aplicar Ψ, compruebe también L por separado.
 
-## Opciones del detalle
+## Opciones del detalle {#opciones-del-detalle}
 
 | Control | Uso |
 |---|---|
@@ -72,7 +72,7 @@ Un dibujo parecido no demuestra que se cumplan sus condiciones. Revise posición
 
 ![Detalle constructivo, intervalos de entrada, variantes y condiciones del atlas.](../assets/11-detalle.jpg){width=100% fig-alt="Detalle constructivo, intervalos de entrada, variantes y condiciones del atlas."}
 
-## Asignar el resultado
+## Asignar el resultado {#asignar-el-resultado}
 
 1. Seleccione el cálculo del conjunto.
 2. Pulse **Asignar Ψ…**.

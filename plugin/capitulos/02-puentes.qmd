@@ -37,7 +37,7 @@ Balcón, partición y otros no tienen equivalencia automática con el atlas en e
 
 Si el editor avisa de que ha adaptado datos antiguos al guardar, revise los valores antes de aceptarlos. Esa adaptación conserva los valores efectivos previos; solo se estiman nuevas longitudes cuando solicita expresamente su carga.
 
-## Cargar longitudes de zonas
+## Cargar longitudes de zonas {#cargar-longitudes-de-zonas}
 
 1. Seleccione el ámbito que desea cargar.
 2. Revise **Número de pilares por zona** y **Esquinas entrantes (%)**. Estos campos preparan la siguiente carga; no son longitudes.
@@ -65,7 +65,7 @@ La vista previa del ejemplo advierte que los frentes de forjado interior toman e
 
 La operación sustituye los Ψ compatibles del nivel seleccionado y conserva los restantes. No carga longitudes ni garantiza que los valores importados representen la solución constructiva prevista.
 
-## Repartir una longitud total
+## Repartir una longitud total {#repartir-una-longitud-total}
 
 1. Seleccione edificio o bloque.
 2. Pulse **Repartir total…** en el encuentro elegido.
