@@ -1,0 +1,8 @@
+_site/
+_work/
+**/.quarto/
+**/_build/
+**/__pycache__/
+*.log
+.DS_Store
+Thumbs.db
