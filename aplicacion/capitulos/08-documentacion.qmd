@@ -1,0 +1,213 @@
+# Generar la documentación {#sec-documentacion}
+
+Complete los datos requeridos y use resultados vigentes antes de generar documentación. Cierre los archivos de salida que puedan estar bloqueados por su editor.
+
+| Necesita obtener | Recorrido |
+|---|---|
+| Justificación HE | **Generar informe HE1** o **Generar informe HE**, según el alcance declarado |
+| Certificado energético | **Generar XML base** → **Abrir XML Medidas** → guardar XML final → **Generar PDF desde XML** |
+
+HE1 puede requerir una simulación de control solar; HE y XML necesitan resultados energéticos válidos. El PDF utiliza el XML final completado en XML Medidas.
+
+
+## Informes HE
+
+### Informe HE1
+
+Pulse **Generar informe HE1** en **Cálculos y Documentación**. Confirme previamente los controles solares específicos cuando aparezca el aviso. Si se ofrecen resultados existentes, reutilícelos solo si pertenecen al modelo actual; si faltan, se ejecuta o solicita el cálculo necesario.
+
+Al terminar, pulse **Abrir documento** o abra el DOCX en **Documentación**. Revise edificio, superficie de referencia, envolvente, K, compacidad, n50 y control solar. El origen de n50 se explica en [Interpretar n50 en HE1](07-calculo.qmd#sec-revisar-n50). Una cancelación deja el informe sin actualizar.
+
+### Informe HE
+
+Con el cálculo terminado y los controles solares confirmados, pulse **Generar informe HE**. Espere a que finalicen el procesamiento EPDB y la composición; después, pulse **Abrir documento** o abra el DOCX desde **Documentación**.
+
+El informe agrupa las comprobaciones disponibles de HE0, HE1 y HE4. Revise datos del edificio, resultados, envolvente, sistemas y resumen de verificaciones. **Generar XML base** no produce este informe: utilice su botón para obtenerlo o actualizarlo.
+
+**Abrir documento** utiliza la aplicación asociada en Windows. Si no existe una asociación o el archivo se ha movido, abra el documento desde su carpeta con un editor compatible.
+
+### Editar y conservar los informes DOCX
+
+HE agrupa las comprobaciones HE0, HE1 y HE4. HE1 recoge las de envolvente. Ambos se guardan como archivos **DOCX editables** en **Documentación**, junto al proyecto, con el nombre del proyecto, el tipo de informe y una marca de fecha y hora. La generación no requiere Word, LibreOffice ni conexión a Internet. Si ya existe un documento con ese nombre, se conserva y se informa del conflicto; una cancelación o error no publica un informe parcial.
+
+Los documentos incluyen índice, resumen y justificaciones editables, sin contraseña ni macros. Las referencias H1, H2… relacionan cada hueco con sus datos térmicos, solares y de permeabilidad.
+
+El índice contiene enlaces a los apartados y solicita su actualización al abrir. Los números de página los calcula el editor. Si no se actualizan automáticamente:
+
+- En **Word**, pulse dentro del índice y elija **Actualizar tabla > Actualizar toda la tabla**. Después de editar, use **Ctrl+A** y **F9** para actualizar campos y revise la vista de impresión.
+- En **LibreOffice Writer**, use **Herramientas > Actualizar > Actualizar todo**, o el menú contextual del índice para actualizarlo. Revise la paginación antes de entregar.
+
+La portada cuenta como primera página y no muestra encabezado ni pie; el resto utiliza «Página X de Y». Una edición puede modificar la paginación. Compruebe también que los títulos, las tablas extensas y los símbolos técnicos se conservan correctamente.
+
+Puede exportar una copia a PDF desde su editor. Los DOCX y esos PDF son documentos externos: **no se incorporan al `.dbcte` ni aparecen en Documentos del expediente**. Si comparte únicamente el expediente, conserve y envíe los informes aparte. Generar HE o HE1 con el modelo sin cambios no sustituye ni elimina la certificación registrada.
+
+### Interpretar la aplicabilidad HE
+
+Los informes HE y HE1 muestran el ámbito declarado y un resumen de las comprobaciones disponibles:
+
+- **Cumple** o **No cumple**: se ha comparado el valor con el límite aplicable.
+- **No aplicable**: la comprobación queda fuera del ámbito declarado; no es un incumplimiento.
+- **Pendiente de datos**: falta información para determinar la aplicación o el resultado. El informe se identifica como diagnóstico incompleto.
+
+Cada resultado incluye su motivo y referencia. El informe comprueba los apartados que enumera; no acredita por sí solo la totalidad del DB-HE. Los valores calculados se conservan aunque una exigencia no sea aplicable.
+
+En reformas, U se comprueba en los elementos afectados, mientras que K y control solar requieren renovar más del 25 % de la envolvente final. HE0 exige además renovar la generación térmica. La comprobación n50 se limita a edificios nuevos de uso residencial privado con superficie útil total superior a 120 m², además de las condiciones generales de aplicación.
+
+HE4 distingue las condiciones de obra nueva, reforma íntegra, cambio de uso característico e incremento de demanda. Declare la demanda inicial del edificio en litros diarios a 60 °C. En una ampliación, la demanda del modelo representa la demanda añadida.
+
+Si ha indicado que hay piscinas afectadas, el informe identifica **HE4 piscinas** como **Pendiente** e indica que la justificación corresponde al usuario. DesignBuilder CTE no realiza ese cálculo ni su justificación. Elabórela por separado y añádala a la memoria justificativa del HE antes de entregar la documentación.
+
+#### Exclusión de K por demanda anual
+
+Cuando ambas demandas anuales de calefacción y refrigeración son estrictamente inferiores a **15 kWh/m²·año**, el informe aplica automáticamente la alternativa de HE1 §3.1.1.6: K figura como **No aplicable** por demanda. Se evalúa cada servicio por separado, sin redondear; un valor exactamente igual a 15 no permite la exclusión. El informe conserva el K calculado y muestra las demandas y su superficie de referencia.
+
+Se utilizan las demandas sensibles del modelo actual, con el mismo cálculo y superficie que en la certificación. Deben corresponder al ámbito y uso declarados. No se obtienen demandas de una parte del edificio repartiendo los resultados del conjunto.
+
+**Generar informe HE** reutiliza las demandas del procesamiento energético. **Generar informe HE1** puede reutilizar resultados anuales vigentes; el cálculo de control solar por sí solo no acredita esta alternativa. Si faltan datos, K puede cumplir por comparación directa con su límite. Si lo supera y aún no puede descartarse la alternativa, queda **Pendiente**, con la indicación de ejecutar el cálculo energético y regenerar el informe. Una simulación parcial, un archivo incompleto o resultados desactualizados no justifican la exclusión.
+
+Esta alternativa afecta únicamente a K: las restantes comprobaciones mantienen sus criterios. No requiere marcar una opción en el plugin ni introducir manualmente las demandas.
+
+La compensación de transmitancias en reformas no se evalúa automáticamente. Tampoco se añaden justificaciones externas para soluciones singulares. Revise estas situaciones antes de interpretar una comparación directa como conclusión normativa definitiva.
+
+## Certificación energética
+
+### XML base
+
+#### Qué contiene
+
+El XML base reúne edificio, certificador, geometría, envolvente, sistemas, renovables, indicadores y calificaciones, junto con el balance EPDB y los indicadores HE. Se guarda en **Documentación** como `<nombre>-V30.xml`, con medidas pendientes y recomendaciones vacías.
+
+Incluye una visita inicial con la fecha de generación y la descripción «anotación» para que XML Medidas pueda abrirlo. Sustituya ese marcador por la visita real antes de guardar el XML final. Las visitas, observaciones e intervenciones se completan en XML Medidas, no en los datos administrativos de DesignBuilder CTE.
+
+#### Otros indicadores HE
+
+El bloque **OtrosIndicadores** utiliza la versión **HE2019** y recoge los resultados del modelo actual:
+
+| Indicador | Valor exportado |
+|---|---|
+| Volumen | Volumen bruto encerrado por la envolvente, en m³, incluyendo los multiplicadores de las zonas interiores |
+| Compacidad | Relación entre el volumen bruto encerrado y la superficie de intercambio con el exterior o el terreno, en m³/m² |
+| Carga interna media | CFI utilizado por el informe HE: 4,80 W/m² en residencial y el CFI calculado en terciario |
+| n50 | Renovaciones por hora a 50 Pa utilizadas en HE1: valor adoptado en Datos del Edificio o estimación cuando el campo está vacío |
+| K | Coeficiente global de transmisión calculado para HE1, en W/m²K |
+| qsoljul | Parámetro de control solar de julio, en kWh/m²·mes |
+
+Los valores se exportan con dos decimales. **Generar XML base** prepara estos cálculos sin crear el DOCX HE. Si los resultados Qsol faltan o no corresponden al modelo actual, vuelva a calcular antes de exportar; tampoco se exportan indicadores negativos o no finitos.
+
+Si el procedimiento no define una escala para un servicio en la zona climática elegida, ese servicio puede no figurar en la calificación. Su ausencia no significa clase G.
+
+#### Generar
+
+1. Pulse **1. Generar XML base**.
+2. Espere al mensaje de finalización.
+3. Anote la ruta mostrada.
+4. Compruebe que el archivo pertenece al edificio y revisión actuales.
+5. Continúe en XML Medidas.
+
+La generación se detiene si faltan datos obligatorios, resultados válidos o el fragmento EPDB esperado. Corrija la causa y vuelva a generar; no complete manualmente un XML parcial.
+
+::: {.callout-warning title="El XML base no es el XML final" icon=false}
+No seleccione el XML base en **Generar PDF desde XML**. Debe abrirse en XML Medidas, completar las secciones necesarias y guardarse como XML final.
+:::
+
+### Abrir XML Medidas
+
+1. Genere el XML base.
+2. Pulse **2. Abrir XML Medidas**.
+3. Si la herramienta solicita un archivo, seleccione el XML base de la revisión actual.
+4. Compruebe la descripción, dirección y datos del caso base.
+5. Confirme que las medidas aparecen pendientes de completar.
+
+Si DesignBuilder CTE no encuentra `xml-medidas.exe`, repare la instalación. No sustituya el ejecutable por una copia de otra distribución.
+
+### Caso base
+
+Antes de añadir medidas, compruebe identificación, alcance, superficie, sistemas y calificación. Conserve el XML base sin modificar. Si detecta un error energético, corríjalo en DesignBuilder o DesignBuilder CTE, calcule o reprocese según corresponda y genere un XML nuevo. Una medida de mejora no corrige un caso base incorrecto.
+
+### Medidas de mejora y casos mejorados
+
+Las medidas describen actuaciones y sus resultados mejorados. Para cada una:
+
+1. Defina un título reconocible.
+2. Describa la actuación con precisión suficiente.
+3. Asocie el caso mejorado correspondiente.
+4. Revise indicadores, ahorro y calificación.
+5. Añada información económica y plazos cuando el formato la solicite y exista una fuente.
+6. Compruebe que el caso mejorado corresponde al mismo edificio y alcance que el caso base.
+
+No presente como medida un caso calculado con una geometría, superficie, uso o referencia catastral diferente. Conserve el modelo o los datos que permitan reproducir cada caso mejorado.
+
+Si no existe posibilidad de mejora, utilice el estado específico previsto por XML Medidas. Los estados **medidas pendientes**, **sin posibilidad de mejora** y **medidas definidas** son alternativas; el XML final no debe expresar simultáneamente más de uno.
+
+### Visitas, observaciones e intervenciones
+
+Complete en XML Medidas:
+
+- una o varias visitas de inspección;
+- observaciones sobre el edificio o la toma de datos;
+- intervenciones realizadas o previstas;
+- recomendaciones finales.
+
+Debe existir al menos una visita real. Una observación no sustituye a una visita.
+
+Para cada visita, compruebe fecha y descripción conforme a la información disponible. No introduzca una visita ficticia para superar la validación.
+
+Las observaciones deben explicar incertidumbres, limitaciones de acceso, hipótesis o particularidades relevantes. No se utilizan para ocultar una incoherencia que pueda corregirse en el modelo.
+
+### Guardar el XML final
+
+1. Complete las secciones necesarias.
+2. Ejecute las comprobaciones disponibles en XML Medidas.
+3. Guarde el XML final con un nombre que lo distinga del XML base.
+4. Anote la carpeta.
+5. Cierre y vuelva a abrir el archivo si la herramienta permite comprobarlo.
+
+Un archivo de estado utilizado por XML Medidas para continuar la edición no sustituye al XML final. Conserve ambos cuando necesite reanudar el trabajo, pero seleccione el XML final para generar el certificado.
+
+### Generar el PDF mediante XMLCert
+
+1. Regrese a DesignBuilder CTE.
+2. Pulse **3. Generar PDF desde XML**.
+3. Seleccione el XML final guardado por XML Medidas.
+4. Si ya existe un PDF, confirme el reemplazo solo después de identificarlo.
+5. Espere a que XMLCert valide el documento y genere el PDF.
+6. Revise el mensaje final y la ruta; pulse **Abrir documento** para revisar el PDF con el visor de Windows.
+
+DesignBuilder CTE inicia XMLCert en segundo plano. Si la herramienta devuelve un error, la generación se considera fallida aunque haya aparecido un archivo parcial. Corrija el XML final y repita el proceso.
+
+Un XML incompleto que la herramienta considere procesable puede producir un PDF con marca de agua y avisos en el registro. Ese archivo sirve para diagnosticar lo que falta, pero no debe tratarse como certificado final. Complete el XML, repita la validación y compruebe que desaparecen la marca y los avisos.
+
+Ante un fallo, consulte [XMLCert y PDF](11-resolucion-problemas.qmd#sec-xmlcert-pdf) con el mensaje completo.
+
+### Revisar el PDF
+
+Contraste con el XML final la identidad y alcance del edificio, catastro, superficie, clima, certificador, calificación e indicadores. Compruebe las medidas, visitas, imagen y plano y que no haya contenido truncado ni marca de agua. La comprobación final de este capítulo reúne el cierre de la entrega; para revisar un expediente ajeno utilice [Revisar un expediente recibido](10-revision-validacion.qmd#sec-revision-certificado).
+
+### Incorporar los documentos al expediente
+
+Solo se preparan para incorporar los documentos de certificación: el XML base y, al completar el flujo, el XML final y su PDF. El par final sustituye al XML base. El reprocesado combinado HE + XML base registra únicamente ese XML; el informe HE permanece fuera. La presencia de archivos en **Documentación** no los incorpora automáticamente.
+
+Con un `.dbcte` abierto:
+
+1. Compruebe que el XML de certificación y, cuando corresponda, su PDF final son los correctos.
+2. Pulse **Guardar**.
+3. Seleccione el expediente de destino.
+4. Lea cualquier aviso de documentos obsoletos.
+5. Cierre el proyecto.
+6. Vuelva a abrir el `.dbcte` guardado.
+7. Compruebe que contiene los documentos esperados.
+
+En **Documentos del expediente** se muestran los documentos incorporados en el último guardado; **Abrir** permite consultarlos. Al incorporar el XML final, el base deja de figurar como documento generado del expediente, aunque puede seguir en la carpeta **Documentación**. El XML y PDF finales conservan los nombres elegidos.
+
+Los informes incluidos en expedientes antiguos siguen siendo recuperables; no se eliminan por el cambio de formato. Se mantienen sus reglas de vigencia documental. El modelo, la imagen y el plano del expediente se conservan.
+
+Si el IDF cambió desde que se generaron, el guardado puede excluirlos para evitar una entrega incoherente. Genere de nuevo la documentación con resultados válidos.
+
+## Comprobación final de entrega
+
+- [ ] La identificación, el alcance, el clima y el certificador son correctos y los resultados corresponden a la revisión entregada.
+- [ ] El XML final incluye las visitas reales y un estado de medidas completo y coherente; se conservan las justificaciones y casos mejorados.
+- [ ] El PDF procede de ese XML final y coinciden datos, indicadores, medidas, imagen y plano, sin marca de agua ni contenido truncado.
+- [ ] El `.dbcte` se ha guardado después de generar la certificación y, al reabrirlo, contiene el XML final y el PDF previstos.
+- [ ] Los informes HE/HE1 aplicables pertenecen a esa revisión y se entregan aparte cuando corresponda; si hay piscinas afectadas, se ha añadido su justificación externa a la memoria justificativa del HE.
+- [ ] Se conserva el archivo de trabajo con DSB, expediente, resultados, documentación y fuentes, sin incluir licencias ni datos personales innecesarios en la entrega.

@@ -1,0 +1,253 @@
+# Preparar el modelo en DesignBuilder {#sec-preparar-designbuilder}
+
+El modelo debe representar el edificio o parte certificada. Revise especialmente la clasificación de las zonas, la envolvente y las conexiones HVAC: el programa utiliza esos datos para preparar los cálculos normativos. Este capítulo reúne las particularidades de CTE; presupone el manejo habitual de geometría, construcciones e instalaciones en DesignBuilder.
+
+## Opciones obligatorias {#sec-opciones-obligatorias}
+
+Antes de exportar, compruebe:
+
+| Opción | Valor requerido | Ámbito | Control |
+|---|---|---|---|
+| Nivel de datos HVAC | HVAC detallado | Edificio | Plugin |
+| Modelado del terreno | 1-Estándar | Sitio | Plugin |
+| Ventilación natural | Programada | Opciones del modelo | Plugin |
+| Cálculo de volumen de zona | 1-Interior | Edificio | Plugin |
+| Cálculo de área de suelo | 1-Interior | Edificio | Plugin |
+| Ámbito de simulación | Edificio completo | Opciones del modelo | Usuario |
+
+El plugin bloquea la preparación del IDF cuando detecta cualquiera de las cinco opciones que figuran con control **Plugin**. La selección del edificio completo debe comprobarla el usuario antes de exportar. Corrija cualquier discrepancia en DesignBuilder y repita la exportación.
+
+## Niveles y herencia
+
+Compruebe el valor efectivo en el objeto que va a exportar. Un dato local de bloque, zona, superficie o hueco puede sustituir al definido en el edificio. Utilice los niveles superiores para condiciones comunes y revise las excepciones antes de exportar.
+
+## Emplazamiento, orientación y clima
+
+Revise en el nivel de sitio y en los datos generales del edificio:
+
+- norte del modelo y orientación real de las fachadas;
+- posición de edificios, obstáculos y sombras exteriores relevantes;
+- altura y cota relativas de los bloques;
+- terreno y contacto de las superficies con el exterior o el suelo.
+
+DesignBuilder CTE solicita provincia, municipio y altitud en **Datos del Edificio**. Esos datos determinan la zona climática reglamentaria y cálculos relacionados con ACS. Al realizar las simulaciones y cálculos normativos, DesignBuilder CTE sustituye el archivo climático del modelo por el correspondiente al procedimiento.
+
+La elección del archivo meteorológico en DesignBuilder es relevante si realiza simulaciones allí para estudiar u optimizar el proyecto. Para los cálculos normativos, revise la ubicación, la altitud y el clima en DesignBuilder CTE.
+
+## Geometría, bloques y zonas
+
+Incluya los espacios que afectan a la envolvente, también los no habitables, y represente los edificios colindantes como sombras cuando esa sea su única función. Separe zonas con diferente uso, condición habitable, horario, ventilación o sistema HVAC. Mantenga nombres descriptivos y estables para relacionarlas con los resultados y documentos.
+
+Revise las condiciones de contorno y las adyacencias mediante los datos de cada superficie. Su posición en la vista 3D no garantiza que esté definida como exterior, terreno o partición hacia la zona correcta. Estas asignaciones afectan a áreas, pérdidas y longitudes de puentes térmicos.
+
+## Superficie, volumen y multiplicadores
+
+DesignBuilder permite diferentes convenciones geométricas. Para DesignBuilder CTE:
+
+- el método de cálculo de volumen de las zonas debe ser **1-Interior**;
+- el método de cálculo del área de suelo debe ser **1-Interior**.
+
+Estas opciones permiten que el área y el volumen utilizados tengan en cuenta la geometría interior conforme a la configuración del modelo. El plugin comprueba ambos valores antes de preparar la exportación.
+
+Revise en la pestaña **Actividad**, para el edificio y las zonas:
+
+- superficie de suelo;
+- volumen;
+- multiplicador de zona;
+- inclusión de la zona en el cálculo;
+- totales ocupados y no ocupados cuando se muestren.
+
+El multiplicador representa varias unidades geométricamente equivalentes. Afecta a la agregación de superficies, volúmenes, cargas y longitudes. Verifique que no se haya multiplicado ya la geometría de forma explícita, porque se produciría una doble contabilización.
+
+La **superficie útil** introducida en DesignBuilder CTE es un dato administrativo del certificado. No debe copiarse sin más del total mostrado por DesignBuilder: compruebe que ambas magnitudes responden al mismo alcance y criterio.
+
+## Actividad y condiciones operacionales
+
+### Edificios residenciales
+
+La **escala residencial**, seleccionada en **Datos del Edificio > Certificado**, determina este procedimiento con independencia de la plantilla de Actividad del DSB. En las zonas habitables se sustituyen las cargas de ocupación, iluminación y equipos, sus horarios y las consignas por los residenciales; también se aplica el horario residencial de ACS.
+
+Siguen siendo entradas del modelo la geometría, la clasificación de zonas, los caudales de ventilación y la demanda de ACS. En espacios no habitables se conservan las ganancias reales de equipos. Si además simula directamente en DesignBuilder, las condiciones residenciales de la plantilla suministrada pueden servirle como punto de partida. Su uso es opcional; consulte [Instalar el plugin y la plantilla](02-instalacion.qmd#instalar-el-plugin-y-la-plantilla).
+
+### Edificios terciarios
+
+Defina la actividad, ocupación, cargas, horarios, consignas, ventilación e iluminación de cada zona conforme al proyecto. El procedimiento necesita al menos una zona acondicionada y genera automáticamente el edificio de referencia. Una zona sin calefacción ni refrigeración puede seguir afectando a la envolvente.
+
+## Clasificación de las zonas {#sec-clasificacion-zonas}
+
+El plugin determina el tipo de zona a partir de dos datos de DesignBuilder: su pertenencia a un grupo de zonas del HVAC y el valor efectivo de **Ocupada**. Este último se refiere a la casilla **Ocupada** de la pestaña **Actividad**: compruebe si está marcada o desmarcada para el método de ocupación seleccionado y si su estado es local o heredado.
+
+| En un grupo HVAC | Ocupada | Tipo de zona | Envolvente permitida |
+|---|---|---|---|
+| Sí | Sí o No | Acondicionada | Interior |
+| No | Sí | No acondicionada | Interior |
+| No | No | No habitable | Interior o Exterior |
+
+Las zonas acondicionadas y las no acondicionadas son habitables. Cualquier pertenencia a un grupo HVAC determina el estado **Acondicionada**, aunque el grupo no tenga equipos, atienda solo ventilación o tenga desactivados los servicios de calefacción y refrigeración. Compruebe que la asignación al grupo representa la zona prevista.
+
+El editor del plugin muestra el resultado mediante **Tipo de zona**, según [Indicador informativo del tipo de zona](05-plugin.qmd#sec-indicador-zona). Para cambiarlo, revise el grupo HVAC o **Ocupada** en el modelo de origen. La misma clasificación exportada se utiliza en HE y en la certificación energética.
+
+## Espacios habitables y envolvente térmica {#sec-envolvente-zonas}
+
+Todas las zonas se configuran como **Interior** por defecto, incluidas las no habitables. La habitabilidad y la pertenencia a la envolvente son condiciones distintas: incluir un espacio no habitable en la envolvente no lo convierte en habitable ni le asigna climatización.
+
+El parámetro del plugin **Pertenencia a la envolvente térmica** admite:
+
+- **Interior**: incluye la zona en la envolvente; es el valor inicial y el único permitido para las zonas habitables.
+- **Exterior**: excluye la zona de la envolvente; solo puede seleccionarse para una zona no habitable cuando esa exclusión corresponda al edificio modelado.
+
+Una zona **No acondicionada** también es habitable y debe permanecer en Interior. Si una zona Exterior pasa a ser habitable por un cambio en **Ocupada** o en el grupo HVAC, seleccione Interior antes de guardar los parámetros o exportar. El plugin señala la incompatibilidad y exige corregirla.
+
+El área de referencia reúne las superficies útiles de las zonas habitables. El volumen de la envolvente también incluye las no habitables interiores. Los cerramientos que separan dos zonas interiores no delimitan la envolvente. En una no habitable exterior, sus fachadas y su contacto con el terreno conservan sus condiciones físicas; la exclusión procede de la pertenencia de la zona, no de cambiar esas adyacencias.
+
+Esta selección se transmite al modelo utilizado por DesignBuilder CTE y afecta a la geometría y los indicadores correspondientes tanto en HE como en la certificación energética. Compruebe área de referencia, volumen, cerramientos y relación de espacios después de exportar.
+
+En espacios no habitables se conservan las ganancias reales de equipos, por ejemplo en un cuarto de instalaciones. Revise potencia y horario y retire cargas genéricas heredadas por error; una ganancia térmica no equivale automáticamente a consumo certificable.
+
+En residencial debe existir al menos una zona habitable. En terciario debe existir al menos una zona acondicionada. Si la superficie de referencia resultante es nula o no válida, no puede generarse correctamente el XML.
+
+## Construcciones y envolvente térmica
+
+Revise la construcción efectiva en **Cerramientos**, incluidas las excepciones de zona y superficie: capas y espesores, resistencias, transmitancia y propiedades solares. Utilice nombres reconocibles en el XML y compruebe su correspondencia con la documentación del edificio.
+
+Revise las propiedades superficiales de los materiales si va a conservarlas mediante **Usar valor de reflectancia de los materiales**, en **Datos del modelo** de DesignBuilder CTE. Consulte [Reflectancia de los materiales](06-aplicacion.qmd#sec-reflectancia).
+
+## Cerramientos en contacto con el terreno
+
+Compruebe qué superficies están en contacto con el terreno y si su geometría, cota y construcción son coherentes. El modelo debe utilizar el mecanismo de terreno **1-Estándar** requerido por el plugin.
+
+Para soleras con aislamiento perimetral, los parámetros CTE se asignan en el nivel de edificio:
+
+- `D`: dimensión característica del aislamiento perimetral, en metros;
+- `Ra`: resistencia térmica del aislamiento perimetral, en m²K/W.
+
+El programa calcula la transmitancia de la solera combinando su geometría con el aislamiento que corresponde a cada caso:
+
+- **Solera superficial** —hasta 0,5 m por debajo de la cota cero del modelo—: si alguna capa del cerramiento tiene una resistencia de al menos 0,5 m²K/W, el cálculo la trata como aislamiento continuo. Utiliza el mayor valor entre la resistencia de esa capa y `Ra`, sin sumarlos, y aplica la tabla de aislamiento continuo. En este caso, `D` no modifica el resultado.
+- **Solera superficial sin una capa que alcance ese valor:** utiliza `D` y `Ra` para seleccionar el tratamiento de aislamiento perimetral, o el de solera sin aislamiento cuando corresponda.
+- **Solera enterrada** —más de 0,5 m bajo la cota cero—: utiliza la profundidad, la geometría y la suma de las resistencias de las capas del cerramiento; `D` y `Ra` no intervienen en este caso.
+
+Para la simulación, DesignBuilder CTE prepara una versión del cerramiento ajustada a la transmitancia calculada, incluyendo el efecto del terreno. Esa preparación se realiza en el modelo de cálculo y no modifica las capas del DSB original.
+
+En los **muros enterrados**, la transmitancia depende de la resistencia de sus capas y de la altura o profundidad del muro que utiliza la tabla. Tanto en muros como en soleras, las tablas tienen un límite de aislamiento. Cuando las capas superan ese límite, el programa parte del último valor de la tabla y añade la resistencia que excede de él. El aislamiento exclusivamente perimetral se limita al máximo tabulado, sin prolongar el cálculo por encima de ese máximo.
+
+Esta prolongación permite tratar cerramientos más aislados que los incluidos en las tablas, pero es una aproximación del programa. No equivale a resolver el intercambio con el terreno mediante un cálculo detallado según UNE-EN ISO 13370. Los límites que debe tener en cuenta se resumen a continuación.
+
+### Límites del tratamiento del terreno {#sec-terreno-criterios}
+
+| Elemento | Límite tabulado y tratamiento que debe tenerse presente |
+|---|---|
+| Solera superficial con aislamiento perimetral | Ra se consulta hasta 2,5 m²K/W; el exceso perimetral no se extrapola |
+| Solera superficial con aislamiento continuo | Se utiliza la columna D ≥ 1,5; el exceso de resistencia sobre 2,5 m²K/W se añade a la resistencia equivalente |
+| Solera enterrada | Para resistencia de capas superior a 1,5 m²K/W se conserva el efecto de terreno del límite y se añade el exceso |
+| Muro enterrado | Para resistencia superior a 2,0 m²K/W se conserva el efecto de terreno del límite y se combina con la resistencia real |
+
+Se mantienen los límites geométricos de las tablas. Cuando el caso sea relevante para justificar el certificado, conserve el cálculo de contraste y sus hipótesis.
+
+## Huecos, vidrios, marcos y puertas
+
+Revise en **Huecos** las dimensiones, el vidrio y su factor solar, la transmitancia, el marco y su fracción, los retranqueos y las protecciones. Asigne la clase de permeabilidad mediante el plugin.
+
+Compruebe directamente los huecos dibujados manualmente: modificar el porcentaje general de acristalamiento puede no cambiar su geometría. Distinga las puertas de los huecos acristalados según el elemento real.
+
+## Sombras y protecciones solares
+
+Distinga:
+
+- obstáculos exteriores y edificios próximos;
+- voladizos, aletas y lamas geométricas;
+- retranqueos;
+- persianas, cortinas u otras protecciones móviles;
+- controles de activación de las protecciones.
+
+Compruebe la geometría en la vista del modelo y las propiedades en **Huecos**. Las protecciones móviles con controles diferentes de los modos convencionales requieren una confirmación expresa antes de generar HE o XML. Esa confirmación no corrige la definición: acredita que el usuario la ha revisado y que puede justificarla en la documentación.
+
+El informe HE1 utiliza un cálculo específico de control solar para el mes reglamentario. Si cambia la geometría, el clima, un hueco o una protección, vuelva a generar los resultados correspondientes.
+
+## Infiltración y ventilación
+
+### Infiltración
+
+DesignBuilder CTE sustituye la infiltración configurada en DesignBuilder al preparar los cálculos normativos. Revise la estanqueidad general y la clase de permeabilidad de las ventanas en el plugin. La aplicación permite indicar además una permeabilidad de opacos en **Datos del Edificio**. Si se deja vacía, aplica el valor previsto según el tipo de certificado; si se introduce, debe ser un número positivo con el formato admitido.
+
+No confunda:
+
+- permeabilidad de opacos;
+- clase de permeabilidad de huecos;
+- caudal de ventilación mecánica.
+
+Son entradas diferentes y se combinan al evaluar el intercambio de aire.
+
+Si dispone de un **n50 adoptado** justificado, introdúzcalo en **Datos del Edificio > Características** de DesignBuilder CTE. Este dato sustituye el uso de la permeabilidad manual de opacos para ajustar las infiltraciones y se utiliza también como n50 del informe HE1. No sustituye los caudales de ventilación mecánica. Consulte [n50 adoptado](06-aplicacion.qmd#sec-n50-adoptado) antes de introducirlo o retirarlo.
+
+### Ventilación natural
+
+DesignBuilder CTE elimina la ventilación natural introducida en DesignBuilder al preparar el cálculo normativo. Su activación, caudal y horario en el modelo de origen no determinan la ventilación natural utilizada en ese cálculo. En residencial, el procedimiento incorpora su propia ventilación nocturna cuando corresponde.
+
+Mantenga **Programada** en **Opciones del modelo**, porque es un requisito de compatibilidad comprobado por el plugin. Si realiza simulaciones directamente en DesignBuilder para estudiar mejoras, configure allí la ventilación natural que quiera analizar.
+
+### Ventilación mecánica
+
+La ventilación mecánica debe introducirse mediante **HVAC Detallado**. La ventilación simplificada de zona que se exporta como un caudal de ventilación independiente se elimina durante la preparación del cálculo normativo.
+
+En el sistema detallado, compruebe los caudales de aire exterior, horarios, recuperadores, ventiladores y zonas atendidas, siguiendo las conexiones de sus componentes.
+
+## Sistemas HVAC detallados
+
+Edite la instalación desde **Sistema HVAC** con **HVAC Detallado**. Siga las conexiones para comprobar qué generador, combustible, potencia, rendimiento, circuitos, bombas, ventiladores y acumuladores atienden a cada servicio y zona. Revise sus horarios y controles, especialmente en equipos compartidos entre ACS y calefacción.
+
+En residencial, una zona habitable sin un sistema HVAC completo puede recibir automáticamente un sistema ideal de referencia. Los equipos reales completos se conservan. La opción **Sistemas de sustitución** cumple otra función: cubrir carencias de un sistema real que no alcanza las consignas. Su uso y las comprobaciones previas se explican en **Horas fuera de consigna**, dentro de [Cálculo y resultados](07-calculo.qmd#sec-calculo).
+
+Revise los cuatro rendimientos sensibles del recuperador —calefacción y refrigeración al 75 % y al 100 % del caudal—, su caudal nominal y las zonas atendidas. No deje rendimientos vacíos: un valor cero puede anular la recuperación automática. El criterio y su configuración se explican en [Recuperación de calor para demanda](05-plugin.qmd#sec-recuperacion-demanda-plugin).
+
+### Combustibles del modelo
+
+Seleccione el combustible del equipo en DesignBuilder teniendo en cuenta esta correspondencia con los vectores de DesignBuilder CTE. Los nombres de la primera columna son los identificadores de EnergyPlus que se exportan con el modelo.
+
+| Combustible o suministro del modelo | Interpretación en DesignBuilder CTE |
+|---|---|
+| `Electricity` | Electricidad |
+| `NaturalGas` | Gas natural |
+| `FuelOilNo1`, `FuelOilNo2` | Gasóleo fósil |
+| `Propane` | GLP |
+| `Coal` | Carbón |
+| `Diesel` | Biocarburante |
+| `OtherFuel1` | Biomasa |
+| `OtherFuel2` | Biomasa densificada, como pellets |
+| `Gasoline` | Se agrupa en el vector Gasóleo |
+| `DistrictHeating` | Red de calor, RED1 |
+| `DistrictCooling` | Red de frío, RED2 |
+| `EnergyTransfer` | Energía del medioambiente |
+
+Para gasóleo fósil, utilice `FuelOilNo1` o `FuelOilNo2`: en este procedimiento `Diesel` está reservado a biocarburante. `OtherFuel1` y `OtherFuel2` tienen las asignaciones de biomasa indicadas, aunque EnergyPlus los presente como combustibles genéricos. Para GLP utilice `Propane`. En las redes de calor y frío, revise además sus factores de conversión en **Datos del modelo**.
+
+**PCS y PCI.** El poder calorífico superior (PCS) incluye el calor recuperable al condensar el vapor de agua de la combustión; el poder calorífico inferior (PCI) lo excluye. Para un mismo equipo, el rendimiento expresado sobre PCI es mayor y puede superar el 100 % en una caldera de condensación.
+
+En los equipos de combustión, DesignBuilder/EnergyPlus trabajan con rendimientos referidos a PCS. Introduzca los datos del equipo sobre esa base; si la ficha del fabricante indica un rendimiento sobre PCI, conviértalo a PCS antes de introducirlo. La [documentación de EnergyPlus sobre el rendimiento de calderas](https://bigladdersoftware.com/epx/docs/23-1/input-output-reference/group-plant-equipment.html#field-nominal-thermal-efficiency) explica esta convención.
+
+DesignBuilder CTE realiza automáticamente las conversiones necesarias de consumos y rendimientos a PCI para la certificación y los informes. No aplique otra conversión a los resultados: por ejemplo, un 92 % sobre PCS para gas natural equivale a un 102,11 % sobre PCI. Ambos expresan el mismo rendimiento con distinta base energética.
+
+## Agua caliente sanitaria
+
+Compruebe la demanda, las zonas que la originan y la temperatura utilizada, junto con la producción, acumulación, pérdidas, circuitos y aporte solar del sistema HVAC. En instalaciones compartidas, revise la conexión de cada servicio.
+
+**Calcular demanda ACS a otra temperatura**, en **Datos del Edificio > Clima y ACS**, convierte una demanda diaria conocida a 60 °C al volumen equivalente a la temperatura de impulsión del modelo. La ayuda no calcula por sí sola la demanda del edificio ni modifica el DSB. Para irradiación solar y su fuente, consulte **ACS e irradiación solar** en [Trabajar con DesignBuilder CTE](06-aplicacion.qmd#sec-aplicacion).
+
+## Generación renovable y cogeneración
+
+Defina superficie, orientación, potencia, rendimiento y conexión de colectores o generadores con sus circuitos térmicos o centros de carga. Revise la producción y el autoconsumo resultantes, y el combustible de la cogeneración.
+
+Puede añadir producciones no representadas en DesignBuilder desde **Datos del modelo** de DesignBuilder CTE. No añada de nuevo una producción ya simulada: se contabilizaría dos veces.
+
+## Iluminación
+
+En edificios terciarios, revise en **Iluminación**:
+
+- potencia de iluminación general;
+- unidades utilizadas;
+- horario;
+- control por luz natural;
+- iluminancia requerida de la actividad;
+- iluminación de tarea o exposición cuando exista.
+
+El parámetro `VEEI` del plugin se expresa en W/m²·100 lux y puede definirse en edificio, bloque o zona. Compruebe el valor efectivo en cada zona y su correspondencia con el sistema de iluminación y la actividad.

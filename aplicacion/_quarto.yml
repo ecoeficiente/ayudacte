@@ -1,0 +1,105 @@
+project:
+  type: book
+  output-dir: _build
+
+lang: es
+brand: false
+language:
+  search-text-placeholder: "Buscar en el manual…"
+
+book:
+  site-url: https://ayudacte.ecoeficiente.es/aplicacion/
+  title: "Manual de usuario de DesignBuilder CTE"
+  subtitle: "Modelado, certificación y revisión del expediente · Tercera edición"
+  author: "Aurea Consulting"
+  date: "2026-10-27"
+  output-file: "Manual-de-usuario-DesignBuilder-CTE-v3"
+  search:
+    location: navbar
+    type: overlay
+    keyboard-shortcut: ["/", "s"]
+    collapse-after: 3
+  navbar:
+    title: "DesignBuilder CTE"
+    background: light
+    right:
+      - text: "Toda la ayuda"
+        href: https://ayudacte.ecoeficiente.es/
+      - text: "Guía del plugin"
+        href: https://ayudacte.ecoeficiente.es/plugin/
+    left:
+      - text: "Preparar"
+        href: capitulos/03-flujo-general.qmd
+      - text: "Revisar"
+        href: capitulos/10-revision-validacion.qmd
+      - text: "Resolver"
+        href: capitulos/11-resolucion-problemas.qmd
+  sidebar:
+    title: "Manual de usuario"
+    style: docked
+    background: light
+    collapse-level: 2
+    pinned: true
+  bread-crumbs: true
+  back-to-top-navigation: true
+  page-navigation: true
+  page-footer:
+    left: "DesignBuilder CTE · Aurea Consulting"
+  chapters:
+    - index.qmd
+    - part: "Introducción y puesta en marcha"
+      chapters:
+        - capitulos/02-instalacion.qmd
+        - capitulos/03-flujo-general.qmd
+    - part: "Preparación del modelo"
+      chapters:
+        - capitulos/04-preparar-designbuilder.qmd
+        - capitulos/05-plugin.qmd
+    - part: "Aplicación y cálculo"
+      chapters:
+        - capitulos/06a-ejemplo-guiado.qmd
+        - capitulos/06-aplicacion.qmd
+        - capitulos/07-calculo.qmd
+    - part: "Documentación y expediente"
+      chapters:
+        - capitulos/08-documentacion.qmd
+        - capitulos/09-archivos.qmd
+    - part: "Revisión del certificado"
+      chapters:
+        - capitulos/10-revision-validacion.qmd
+    - part: "Referencia"
+      chapters:
+        - capitulos/11-resolucion-problemas.qmd
+        - capitulos/12-anexos.qmd
+
+format:
+  html:
+    html-math-method: mathml
+    brand: false
+    language:
+      toc-title-document: "En esta página"
+    theme:
+      light: [cosmo, styles/manual.scss]
+      dark: [darkly, styles/manual.scss, styles/manual-dark.scss]
+    respect-user-color-scheme: true
+    mainfont: "Segoe UI, system-ui, -apple-system, BlinkMacSystemFont, sans-serif"
+    fontsize: 17px
+    linestretch: 1.6
+    grid:
+      sidebar-width: 260px
+      body-width: 780px
+      margin-width: 220px
+      gutter-width: 32px
+    toc: true
+    toc-location: right-body
+    toc-depth: 3
+    number-sections: false
+    code-copy: true
+    anchor-sections: true
+    smooth-scroll: true
+    include-after-body: styles/navigation.html
+
+crossref:
+  fig-title: "Figura"
+  tbl-title: "Tabla"
+  sec-prefix: "apartado"

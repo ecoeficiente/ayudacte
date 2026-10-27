@@ -1,0 +1,126 @@
+# Archivos, revisiones y conservación {#sec-archivos}
+
+
+## Mapa de archivos
+
+| Archivo o carpeta | Contenido | Se necesita para |
+|---|---|---|
+| DSB | Modelo nativo de DesignBuilder | Editar y justificar el modelo original |
+| `dsbXML` | Representación intercambiable del modelo | Incorporar o recuperar el modelo del expediente |
+| IDF | Entrada EnergyPlus procesada | Calcular y relacionar resultados |
+| `.dbcte` | Modelo, IDF, adjuntos y documentos registrados | Intercambiar y revisar una revisión coherente |
+| `Resultados` | Simulaciones y procesamiento | Generar, diagnosticar y reproducir resultados |
+| `Documentación` | DOCX HE/HE1, XML y PDF visibles | Revisar y entregar documentos |
+| `<nombre>Log.txt` | Registro de operaciones junto al expediente | Localizar avisos y errores; aportar información a soporte |
+| XML base | Datos energéticos con medidas pendientes | Iniciar XML Medidas |
+| XML final | Certificado completo en XML | Validar y generar PDF |
+| PDF | Representación final del certificado | Consulta y entrega |
+
+## Modelo DSB
+
+Conserve el DSB que dio origen al expediente, junto con las bibliotecas y recursos personalizados necesarios. Es el formato nativo para continuar el modelado. Guárdelo antes de exportar y use nombres de revisión distintos; no sobrescriba el original con un modelo recuperado sin revisarlo.
+
+## IDF
+
+El IDF incluido en el expediente `.dbcte` es la entrada de EnergyPlus utilizada por DesignBuilder CTE. El plugin añade o transforma los datos requeridos durante la exportación.
+
+No edite manualmente el IDF de un expediente para corregir un dato que pertenece al DSB. La modificación rompe la continuidad del modelo y puede invalidar resultados y documentos.
+
+## Expediente DBCTE
+
+El `.dbcte` reúne el modelo DesignBuilder intercambiable, el IDF, imagen y plano, y los documentos incorporados al guardar. Las nuevas incorporaciones de documentos se limitan al XML de certificación y al par final XML/PDF. No contiene los DOCX HE/HE1, el DSB original, los resultados de simulación ni las fuentes externas de justificación. Los informes heredados de expedientes antiguos se conservan conforme a las reglas de vigencia.
+
+Abra y guarde el expediente desde DesignBuilder CTE. Para recuperar el modelo utilice **Extraer modelo dsbXML** o **Importar modelo desde DBCTE** en el plugin. El archivo extraído tiene extensión `.xml`.
+
+## Integridad y autenticidad
+
+La comprobación de integridad detecta archivos ausentes, incompatibles o que no concuerdan con el contenido declarado. Un expediente consistente no acredita la autoría, la veracidad del modelo ni la aceptación administrativa del certificado.
+
+## Revisiones
+
+Cada guardado actualiza la fecha del expediente; su identificador de revisión cambia cuando cambia el IDF. Los documentos anteriores pueden quedar obsoletos. Para conservar hitos, utilice nombres o carpetas distintos y mantenga separados sus resultados.
+
+Si **Documentación** contiene archivos con el mismo nombre y diferente contenido, pueden conservarse copias diferenciadas por revisión. Consulte **Documentos del expediente** después de guardar y reabrir para identificar las incorporadas. El procedimiento de guardado se explica en [Guardar expediente](06-aplicacion.qmd#sec-guardar-proyecto).
+
+## Carpeta Resultados
+
+Se crea junto al proyecto de salida. Contiene resultados y tablas EnergyPlus, datos EPDB, `Epdb.xml` y controles de vigencia, según el procedimiento. Conserve la carpeta completa: un archivo aparentemente intermedio puede ser necesario para regenerar documentos.
+
+Al trasladar el trabajo, manténgala junto al `.dbcte`. Si solo dispone del expediente, puede obtener resultados calculando de nuevo.
+
+## Carpetas donde se ejecutan las simulaciones {#sec-carpetas-simulacion}
+
+DesignBuilder CTE ejecuta las simulaciones en una carpeta propia para cada expediente, dentro de los datos locales del usuario de Windows. Para localizarlas, abra el Explorador de archivos, escriba esta ruta en su barra de direcciones y pulse Intro:
+
+```text
+%LOCALAPPDATA%\DesignBuilderCTE\Simulaciones
+```
+
+Dentro encontrará una carpeta con el identificador del expediente. Las revisiones del mismo `.dbcte` comparten ubicación; para un IDF directo, la ubicación depende de su ruta completa. El registro del expediente indica la carpeta utilizada. Dentro de ella, las subcarpetas dependen del cálculo:
+
+| Subcarpeta | Cálculo que permite revisar |
+|---|---|
+| `Residencial` | Edificio objeto residencial |
+| `Terciario` | Edificio objeto terciario |
+| `Demanda` | Demanda de calefacción y refrigeración |
+| `Referencia` | Edificio de referencia terciario |
+| `Qsol` | Control solar |
+| `OtrosCalculos` | Cálculos auxiliares, como CFI o propiedades de cerramientos |
+
+En la subcarpeta correspondiente puede consultar:
+
+- **`in.idf`**: modelo preparado para esa simulación, con las condiciones aplicadas por DesignBuilder CTE. Es el archivo que debe revisar para conocer qué se ha simulado realmente.
+- **`in.epw`**, cuando se utiliza: archivo climático de la simulación.
+- **`eplusout.err`**: avisos y errores de EnergyPlus.
+- **`eplusout.eso`** y **`eplustbl.csv`**: resultados y tablas generados, cuando la ejecución los produce.
+- **`eplusout.eio`**: información complementaria del modelo y del cálculo.
+
+Compruebe la fecha y hora de los archivos y relaciónelas con la operación que está revisando. Cada carpeta conserva la última ejecución de ese tipo para ese expediente, incluso al cerrarlo. Su contenido se sustituye al iniciar el siguiente cálculo del mismo tipo. Al terminar se retiran los archivos del motor y se conservan las entradas, resultados y diagnósticos. Si necesita conservar una ejecución concreta, copie su carpeta al terminar y antes de iniciar otro cálculo.
+
+Los archivos de trabajo pueden quedar incompletos si una simulación falla o se cancela. Para resolver el problema, consulte `eplusout.err` y el registro del expediente explicado en [Consultar el archivo de registro del expediente](11-resolucion-problemas.qmd#sec-log-expediente). Realice las correcciones en el modelo o en DesignBuilder CTE y vuelva a calcular; los cambios manuales en `in.idf` no se incorporan automáticamente al expediente.
+
+## Versiones de EnergyPlus
+
+La instalación incluye el paquete 23.1.0.002 de EnergyPlus. Al abrir o importar un modelo se selecciona la versión completa indicada en su IDF y su diccionario asociado. Si falta el paquete, el programa intenta descargarlo, muestra el progreso y permite cancelar. Solo se admiten paquetes publicados y comprobados para el procedimiento CTE; disponer de otra versión no autoriza a sustituir la requerida.
+
+Los paquetes verificados se conservan en `%LOCALAPPDATA%\DesignBuilderCTE\EnergyPlus`; sus diccionarios, en la subcarpeta `Diccionarios`. Una vez disponible el paquete, puede utilizarse sin conexión y permanece entre actualizaciones. La disponibilidad de nuevas versiones depende de su publicación en el servidor.
+
+Si la preparación falla o se cancela, el expediente anterior permanece abierto. No edite la línea `Version` para forzar otra versión del motor. Los resultados anteriores pueden requerir un nuevo cálculo cuando cambie el paquete utilizado.
+
+## Carpeta Documentación
+
+Reúne las copias visibles de HE/HE1, XML y PDF, y puede conservar documentos de revisiones anteriores. Su presencia no significa que estén incorporados al expediente. **Documentos del expediente** identifica los del último guardado.
+
+### Guardar una copia en otro destino
+
+Pulse **Guardar** y elija otro nombre o carpeta. Se copian los resultados que gestiona la aplicación y se publican los documentos incorporados al `.dbcte`. No se copia toda la carpeta original: traslade aparte los DOCX HE/HE1, registros, fuentes y demás archivos externos.
+
+Lea las advertencias y compruebe el destino. Si mueve únicamente el `.dbcte`, conserva su contenido, pero necesitará calcular de nuevo para disponer de resultados.
+
+## EPDB y registro
+
+Si falta `Epdb.xml` o es incompatible, la generación documental se detiene. Reprocese los resultados vigentes o calcule de nuevo cuando corresponda.
+
+El registro se guarda junto al expediente como `<nombre>Log.txt`. Para localizarlo y preparar una consulta de soporte, siga [Consultar el archivo de registro del expediente](11-resolucion-problemas.qmd#sec-log-expediente). Es externo al DBCTE y puede contener rutas o datos identificativos.
+
+## Copia y archivo
+
+Para el archivo de trabajo del autor es recomendable conservar el DSB de la revisión, el expediente y los archivos auxiliares. Una organización posible es:
+
+```text
+Entrega/
+├── Modelo.dsb
+├── Expediente.dbcte
+├── ExpedienteLog.txt
+├── Resultados/
+├── Documentación/
+│   ├── Informe_HE1.docx
+│   ├── Informe_HE.docx
+│   ├── Certificado_final.xml
+│   └── Certificado_final.pdf
+└── Fuentes_y_justificaciones/
+```
+
+Los nombres son orientativos. Lo importante es mantener la relación inequívoca entre cada archivo y revisión. El expediente final `.dbcte`, con el XML final y el PDF incorporados, permite al revisor volver a calcular la certificación sin disponer del DSB original ni de la carpeta Resultados del autor. Los informes HE/HE1 y otras justificaciones se facilitan aparte cuando formen parte de la documentación solicitada.
+
+Para cerrar la entrega, utilice la **Comprobación final de entrega** de [Generar la documentación](08-documentacion.qmd#sec-documentacion).

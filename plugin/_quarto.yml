@@ -1,0 +1,66 @@
+project:
+  type: book
+  output-dir: _build
+lang: es
+brand: false
+book:
+  site-url: https://ayudacte.ecoeficiente.es/plugin/
+  title: "Guía del plugin de DesignBuilder CTE"
+  subtitle: "Parámetros, puentes térmicos y creación del expediente"
+  author: "Aurea Consulting"
+  date: "2026-10-27"
+  search: true
+  navbar:
+    title: "DesignBuilder CTE · Plugin"
+    background: light
+    right:
+      - text: "Toda la ayuda"
+        href: https://ayudacte.ecoeficiente.es/
+      - text: "Guía de la aplicación"
+        href: https://ayudacte.ecoeficiente.es/aplicacion/
+    left:
+      - text: "Preparar"
+        href: capitulos/01-parametros.qmd
+      - text: "Revisar"
+        href: capitulos/03-calculadora.qmd
+      - text: "Resolver"
+        href: capitulos/04-expediente.qmd
+  sidebar:
+    style: docked
+    collapse-level: 2
+  page-navigation: true
+  bread-crumbs: true
+  page-footer:
+    left: "DesignBuilder CTE · Aurea Consulting"
+    right: "Guía del plugin · Octubre de 2026"
+  chapters:
+    - index.qmd
+    - capitulos/01-parametros.qmd
+    - capitulos/02-puentes.qmd
+    - capitulos/03-calculadora.qmd
+    - capitulos/04-expediente.qmd
+format:
+  html:
+    brand: false
+    theme:
+      light: [cosmo, styles/manual.scss]
+      dark: [darkly, styles/manual.scss, styles/manual-dark.scss]
+    mainfont: "Segoe UI, system-ui, sans-serif"
+    fontsize: 17px
+    respect-user-color-scheme: true
+    grid:
+      sidebar-width: 260px
+      body-width: 780px
+      margin-width: 220px
+      gutter-width: 32px
+    linestretch: 1.6
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    anchor-sections: true
+    include-after-body: styles/navigation.html
+
+crossref:
+  fig-title: Figura
+  tbl-title: Tabla
+  sec-prefix: apartado

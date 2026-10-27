@@ -1,0 +1,252 @@
+# Cálculo y resultados {#sec-calculo}
+
+## Requisitos previos
+
+Abra el expediente correcto y confirme la escala, ubicación y altitud antes de calcular. Debe existir al menos una zona habitable en residencial o una acondicionada en terciario. Use una carpeta escribible y cierre los archivos de resultados que otra aplicación pueda bloquear.
+
+## Ejecutar y seguir el progreso
+
+1. Abra **Cálculos y Documentación**.
+2. Pulse **Calcular**.
+3. Lea el mensaje de la ventana de progreso.
+4. Espere a que finalicen todas las simulaciones y el procesamiento.
+5. Revise el mensaje final.
+6. Compruebe la carpeta **Resultados** y el registro.
+
+Al terminar correctamente, los resultados quedan disponibles para generar el informe HE y el XML base. Si sus botones siguen deshabilitados, compruebe la confirmación de controles solares específicos. Genere los documentos mediante sus botones; completar la simulación no crea automáticamente los documentos de entrega.
+
+Mientras se abre, guarda, importa, calcula o genera documentación, las operaciones incompatibles quedan bloqueadas para evitar que cambie el modelo durante el proceso.
+
+La duración depende de la geometría, número de zonas, sistemas y equipo. Un tiempo largo no implica por sí mismo un error. Si la interfaz informa de la fase activa, espere o cancele de forma controlada.
+
+## Cancelar
+
+Use el control de cancelación de la ventana de progreso. La aplicación solicita la detención de las operaciones en curso y evita utilizar como válidos los resultados incompletos.
+
+Después de cancelar:
+
+1. Espere al mensaje de cancelación.
+2. Revise el registro si el proceso no se detuvo limpiamente.
+3. Corrija la causa o las entradas.
+4. Ejecute un cálculo completo antes de generar HE o XML.
+
+No cierre forzosamente la aplicación mientras está escribiendo resultados salvo que no responda y se hayan agotado las opciones normales. Una terminación forzada puede dejar archivos parciales que deben descartarse.
+
+Al iniciar un cálculo nuevo dejan de ser válidos los resultados anteriores. Si falla o se cancela, complete una nueva ejecución antes de generar HE o XML; no se recupera automáticamente el cálculo previo como válido. La misma precaución se aplica a un nuevo cálculo solar para HE1.
+
+## Qué realiza el cálculo
+
+**Calcular** prepara los modelos necesarios, ejecuta EnergyPlus y procesa los resultados para obtener los indicadores energéticos. Según el procedimiento puede incluir:
+
+- edificio objeto residencial o terciario;
+- edificio de referencia en terciario;
+- simulación específica para control solar;
+- recopilación de sistemas, demandas y consumos;
+- generación del fragmento EPDB utilizado por HE y XML.
+
+El cálculo energético y la cumplimentación administrativa son procesos distintos. Guardar el proyecto no demuestra que existan resultados válidos; completar un cálculo no demuestra que los datos administrativos sean correctos.
+
+### Cuándo volver a calcular
+
+Consulte la tabla **Validez e invalidación de resultados** de este capítulo cuando modifique el proyecto. Después de actualizar el programa, ejecute **Calcular** si los resultados anteriores ya no se reconocen como vigentes.
+
+### Actividad y ocupación en el cálculo del CFI
+
+El CFI representa la carga interna media utilizada por el procedimiento. El selector **Mes CFI**, en **Datos del modelo**, elige el mes para su cálculo inicial; no cambia el mes del control solar, que es julio.
+
+Si aparece un aviso sobre el CFI, revise la actividad metabólica en **Actividad**: para este cálculo debe mantener un valor constante. El horario de ocupación puede variar. El mensaje identifica el horario o la zona que debe comprobar en el modelo antes de continuar.
+
+## Resultados del edificio objeto
+
+El procesamiento obtiene demandas, energía final por servicio y vector, energía primaria no renovable, emisiones, renovables, sistemas y horas fuera de consigna. Para interpretar valores por metro cuadrado, compruebe el área de referencia y el alcance certificado.
+
+## Transmisión hacia espacios no habitables {#sec-transmision-no-habitables}
+
+Los espacios no habitables influyen en las pérdidas de calor de los recintos con los que están en contacto. El programa tiene en cuenta sus cerramientos y su estanqueidad al realizar el cálculo.
+
+Antes de calcular, revise en DesignBuilder y en el plugin:
+
+- la clasificación del espacio y su pertenencia a la envolvente;
+- el valor de **Estanqueidad**;
+- los cerramientos, huecos y particiones que lo delimitan;
+- la conexión con los espacios interiores y con el exterior.
+
+Si aparece un aviso sobre un intercambio de aire o una conexión que no puede interpretarse, revise el elemento señalado en el modelo, vuelva a exportar y calcule de nuevo.
+
+## Infiltraciones en residencial {#sec-infiltraciones-residencial}
+
+DesignBuilder CTE prepara automáticamente las infiltraciones del procedimiento residencial a partir de la envolvente, la ventilación y los datos de permeabilidad. La configuración de infiltraciones del modelo original se sustituye al calcular.
+
+Compruebe la clase de permeabilidad de los huecos y, cuando corresponda, la permeabilidad de opacos introducida en **Datos del Edificio**. Si dispone de un valor justificado de **n50 adoptado**, introdúzcalo en **Datos del Edificio > Características**; el programa lo utiliza para ajustar las infiltraciones.
+
+Después de introducir, modificar o retirar n50, guarde el expediente y vuelva a calcular. Revise en HE1 si se muestra el valor adoptado o la estimación del programa; consulte [Interpretar n50 en HE1](07-calculo.qmd#sec-revisar-n50).
+
+### Interpretar n50 en HE1 {#sec-revisar-n50}
+
+Distinga dos situaciones:
+
+- **Con n50 adoptado en Datos del Edificio:** el informe HE1 utiliza directamente ese número y lo identifica como valor adoptado por el usuario. Compruebe su justificación, que representa el volumen habitable modelado y que se ha recalculado después de introducirlo o cambiarlo. Este dato prevalece sobre la permeabilidad manual de opacos para ajustar las infiltraciones, pero conserva las permeabilidades originales de los elementos.
+- **Sin n50 adoptado:** las infiltraciones utilizan las permeabilidades previstas o introducidas. El n50 de HE1 se estima mediante la geometría, las permeabilidades de huecos y un coeficiente de referencia **Co** para los opacos, que muestra el informe:
+
+| Tipo de certificado y dato de opacos | Co aplicado, m³/(h·m²) |
+|---|---:|
+| Existente, campo vacío o valor igual o mayor que 29 | 29 |
+| Existente, valor de proyecto menor que 29 | 16 |
+| Nuevo, ampliación o reforma | 16 |
+
+La tabla se aplica a la estimación, no al caso de n50 adoptado. No espere que Co reproduzca exactamente la permeabilidad de proyecto. Para revisar la estimación, compruebe áreas exteriores de opacos, ventanas y puertas, permeabilidad y volumen interno de todas las zonas interiores a la envolvente, con sus multiplicadores. No confunda este volumen con el volumen habitable utilizado para ajustar infiltraciones con n50 adoptado.
+
+Compruebe la clase exportada de las ventanas: si falta, se adopta clase 2 (27 m³/(h·m²)). El intercambio de aire del XML se expresa en ren/h y utiliza el volumen interno de todas las zonas interiores a la envolvente. El n50 se expresa a una presión de 50 Pa: no es la tasa de renovación en las condiciones normales de funcionamiento.
+
+## Control de infiltraciones en terciario {#sec-infiltraciones-terciario}
+
+El programa adapta las infiltraciones al funcionamiento de la ventilación exterior. Por ello es importante que el modelo represente correctamente los caudales y los horarios de los sistemas.
+
+Revise en **Sistema HVAC** el aporte de aire exterior, la disponibilidad de los equipos y sus horarios. Ante un aviso de horario o referencia incorrecta, corrija el elemento indicado en DesignBuilder y genere de nuevo el expediente.
+
+## Interpretar demanda, consumo y rendimiento {#sec-interpretar-resultados}
+
+La **demanda** es el calor o frío que necesita el edificio; el **consumo** es la energía que utilizan sus sistemas para atenderlo. El rendimiento relaciona la energía aportada con la consumida. Estos valores pueden diferir por las características de los equipos, las pérdidas y las condiciones de funcionamiento.
+
+Para comparar dos soluciones, compruebe que se refieren al mismo edificio, superficie, clima, uso y servicios. Revise también las horas fuera de consigna: un sistema que no cubre las necesidades no debe valorarse solo por su menor consumo.
+
+### Demanda sensible y recuperación de calor {#demanda-sensible-y-recuperación-de-calor}
+
+La demanda incluye la recuperación sensible de la ventilación, con la efectividad automática o manual configurada por zona. Consulte [Recuperación de calor para demanda](05-plugin.qmd#sec-recuperacion-demanda-plugin) para conocer el cálculo, ver un ejemplo y configurar la herencia.
+
+Su efecto ya está incluido en las demandas sensibles del XML y en las utilizadas para la alternativa de K: no lo descuente de nuevo. Este ajuste no modifica el modelo de consumo, el edificio de referencia ni Qsol.
+
+### Horas ocupadas y fuera de consigna
+
+Las horas fuera de consigna indican períodos de ocupación en los que no se alcanzan las temperaturas previstas. Si el resultado es elevado o la aplicación muestra un aviso, revise horarios, consignas y capacidad de los equipos. Siga las comprobaciones del apartado **Horas fuera de consigna** antes de activar sistemas de sustitución.
+
+### Combustibles y auxiliares
+
+Al comparar consumos y rendimientos, utilice las mismas unidades y la misma base energética. DesignBuilder CTE realiza las conversiones necesarias para los informes; no aplique correcciones adicionales a sus valores.
+
+Compruebe que bombas y ventiladores correspondan a los servicios y circuitos del proyecto. Si aparecen consumos sin servicio definido o avisos de asignación, revise las conexiones señaladas y vuelva a calcular cuando sea necesario.
+
+### Auxiliares de recuperación y humidificación
+
+Los equipos de recuperación y humidificación pueden consumir electricidad auxiliar además de la energía principal del sistema. Téngala en cuenta al revisar los consumos. Si la aplicación detecta una incoherencia, consulte el registro y compruebe el equipo o circuito indicado.
+
+### ACS, acumulación y solar
+
+Revise que la instalación cubra la demanda de ACS a la temperatura prevista. Si aparece un **Sistema de sustitución ACS**, compruebe el generador, su disponibilidad, la temperatura y las conexiones del depósito: la simulación puede terminar aunque el sistema real no cubra toda la demanda.
+
+En instalaciones compartidas con calefacción, revise ambos servicios. La energía producida por el generador puede diferir de la entregada al agua de consumo por las pérdidas de acumulación y distribución.
+
+Compruebe las aportaciones solares y evite introducir manualmente una producción ya representada en el modelo. En el XML pueden aparecer por separado la bomba de calor de ACS y su apoyo, o un equipo asociado a varios servicios; revise los servicios y consumos antes de considerar que existe una duplicación.
+
+### Potencias y rendimientos
+
+Si un equipo se dimensiona automáticamente, la documentación utiliza el resultado de EnergyPlus. Una potencia de 0 kW puede indicar ausencia de carga de dimensionado; revise circuitos, condiciones de diseño y avisos antes de aceptarla. Si faltan datos de dimensionado necesarios, vuelva a simular.
+
+Los rendimientos de sustitución que permiten contrastar la documentación son:
+
+| Servicio | Residencial | Terciario |
+|---|---|---|
+| Calefacción | Gas natural; 102,11 % sobre PCI, equivalente a 0,92 sobre PCS | 70 % sobre PCI |
+| Refrigeración | 2,60 | 1,70 |
+
+En estos apoyos se considera igual el rendimiento nominal y estacional. La refrigeración es eléctrica y no requiere conversión PCI/PCS. Para ACS, consulte la hipótesis de sustitución en [Interpretar demanda, consumo y rendimiento](07-calculo.qmd#sec-interpretar-resultados).
+
+## Edificio de referencia
+
+En terciario, el procedimiento utiliza un edificio de referencia para obtener indicadores comparativos. DesignBuilder CTE lo genera a partir del edificio objeto aplicando las transformaciones previstas por el procedimiento.
+
+La revisión debe comprobar que:
+
+- la escala seleccionada es terciaria;
+- existen zonas acondicionadas;
+- las condiciones de uso e iluminación del objeto son correctas;
+- se han generado los resultados de referencia;
+- no se han mezclado resultados de otra revisión.
+
+El edificio de referencia se prepara automáticamente. Revise su correspondencia con el caso objeto y los avisos del cálculo; no necesita crear ni editar un segundo modelo para obtenerlo.
+
+### Huecos del edificio de referencia
+
+Norte, nordeste y noroeste se agrupan en una orientación asimilada para el acristalamiento de referencia. Su límite de ventanas se aplica por grupo y el de lucernarios respecto a la cubierta. La U del vidrio y la del hueco completo pueden diferir por el marco y otros elementos.
+
+## Control solar y HE1
+
+El indicador `qsol;jul` permite revisar el control solar de julio en el informe HE1 y se expresa en kWh/m²·mes. Para que represente el proyecto, compruebe:
+
+- geometría y orientación de los huecos;
+- factor solar de vidrio y protección;
+- sombras geométricas;
+- controles de protecciones móviles;
+- clima y superficie de referencia.
+
+Al generar HE1, si ya existen resultados de control solar, la aplicación puede preguntar si desea volver a simular. Reutilícelos únicamente cuando el modelo, el clima y las propiedades solares no hayan cambiado y la aplicación los reconozca como completos.
+
+Vuelva a simular si cambia:
+
+- geometría o superficie de referencia;
+- grupo HVAC, Ocupada, pertenencia a la envolvente, estanqueidad o volumen de una zona;
+- huecos, vidrio, marco o factor solar;
+- sombras o protecciones;
+- periodo de aplicación de sombras;
+- ubicación o zona climática;
+- cualquier dato que la aplicación identifique como incompatible.
+
+## Protecciones con controles específicos
+
+Se consideran convencionales los controles por irradiación incidente con umbrales de 200, 300 o 500 W/m². Cuando se detectan otros controles, umbrales o definiciones incompletas, la página principal muestra una confirmación. Antes de marcarla:
+
+1. Identifique los huecos afectados en DesignBuilder.
+2. Revise la protección y su control.
+3. Compruebe que el comportamiento representa el proyecto o edificio existente.
+4. Conserve la documentación que lo justifica.
+5. Marque la confirmación.
+
+La confirmación habilita la documentación dependiente, no modifica el modelo. Debe repetirse al volver a abrir el proyecto.
+
+En residencial, el cálculo incorpora además las condiciones de oscurecimiento previstas por el procedimiento. Mantenga correctamente definidas las protecciones del proyecto y revise cualquier aviso de confirmación.
+
+## Horas fuera de consigna
+
+Durante el procesamiento, la aplicación comprueba el tiempo en el que las zonas no alcanzan las consignas. Si supera el límite aplicado por el procedimiento, la generación se detiene y solicita activar sistemas suplementarios o corregir el modelo.
+
+Antes de activar sustitución, compruebe:
+
+- potencia y dimensionado;
+- disponibilidad y horario de los generadores;
+- consignas y calendario;
+- conexión entre equipos y zonas;
+- caudales y temperaturas de los circuitos;
+- zonas que deberían estar acondicionadas.
+
+Si el modelo representa correctamente una carencia que debe cubrirse mediante sistemas ficticios del procedimiento, active **Sistemas de sustitución** y vuelva a calcular.
+
+## Validez e invalidación de resultados
+
+Los resultados deben corresponder al modelo y a las condiciones actuales. Utilice esta distinción:
+
+| Cambio | Acción necesaria |
+|---|---|
+| Geometría, construcciones, HVAC, puentes, ventilación o sombras simuladas | Exportar el modelo si procede y **Calcular** |
+| Grupo HVAC, Ocupada, pertenencia a la envolvente, estanqueidad o volumen de zona | Exportar de nuevo, **Calcular** y regenerar Qsol y los documentos afectados |
+| Escala residencial/terciaria, provincia, altitud, clima o permeabilidad de opacos | **Calcular** antes de documentar |
+| n50 adoptado: introducir, cambiar o retirar | Guardar el expediente, **Calcular** y regenerar informes y XML |
+| Reflectancia de los materiales | Guardar el expediente, **Calcular** y regenerar informes y XML |
+| Activación o desactivación de sistemas de sustitución, o meses de sombreado | **Calcular** antes de documentar |
+| Producciones adicionales o factores de conversión | **Reprocesar EPDB / HE / XML** con resultados válidos |
+| Dirección, catastro o certificador | Regenerar los documentos afectados y guardar; no obliga a simular |
+| Irradiación manual de ACS y su fuente | Regenerar documentación con el dato actualizado |
+| Modelo o clima del cálculo solar | Regenerar Qsol al producir HE1 |
+
+Los controles de validez incluyen el tipo de zona, su pertenencia a la envolvente, la estanqueidad y el volumen.
+
+La validez de la simulación y la vigencia de los documentos son distintas: un cambio administrativo puede exigir documentos nuevos sin necesitar otra simulación. No copie resultados de otro expediente para forzar su reutilización. Si la aplicación no reconoce los resultados como compatibles o completos, vuelva a calcular.
+
+## Carpeta Resultados
+
+Los resultados se guardan fuera del `.dbcte`. Mantenga la carpeta **Resultados** de esa revisión para reutilizarlos; si solo recibe el expediente, puede calcularlos de nuevo. Las rutas de trabajo e interpretación de sus archivos se describen en [Archivos, revisiones y conservación](09-archivos.qmd#sec-archivos).
+
+## Reprocesar sin simular
+
+Después de cambiar producciones adicionales o factores, pulse **Reprocesar EPDB / HE / XML**. Reutiliza resultados compatibles, vuelve a generar EPDB, produce el informe HE externo y registra el XML base para incorporarlo al guardar el expediente.
+
+El reprocesado no completa XML Medidas ni genera el certificado final. Si cambió una entrada de simulación, use **Calcular** y continúe después con la documentación.

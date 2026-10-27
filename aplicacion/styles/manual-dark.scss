@@ -1,0 +1,32 @@
+/*-- scss:defaults --*/
+
+$primary: #63b3ff !default;
+$body-bg: #181b20 !default;
+$body-color: #f1f4f8 !default;
+$headings-color: #f1f4f8 !default;
+$link-color: #8cc8ff !default;
+$sidebar-bg: #22272e !default;
+$sidebar-fg: #f1f4f8 !default;
+$sidebar-hl: #8cc8ff !default;
+$navbar-bg: #181b20 !default;
+$navbar-fg: #f1f4f8 !default;
+$navbar-hl: #8cc8ff !default;
+$toc-color: #b9c2cf !default;
+$toc-active-border: #63b3ff !default;
+$border-color: #414a56 !default;
+$code-color: #8cc8ff !default;
+$code-bg: #222f40 !default;
+
+/*-- scss:rules --*/
+
+body.quarto-dark {
+  --manual-bg: #181b20;
+  --manual-panel: #22272e;
+  --manual-text: #f1f4f8;
+  --manual-muted: #b9c2cf;
+  --manual-accent: #8cc8ff;
+  --manual-border: #414a56;
+  --manual-tint: #22364b;
+  --manual-focus: #8cc8ff;
+  --manual-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}

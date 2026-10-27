@@ -1,0 +1,106 @@
+# Instalación y configuración inicial {#sec-instalacion}
+
+## Requisitos previos
+
+Necesita Windows, una instalación funcional y licenciada de DesignBuilder compatible con la distribución de DesignBuilder CTE, y una licencia válida de esta aplicación. La carpeta de trabajo debe permitir escritura y disponer de espacio para las simulaciones. El tiempo y espacio necesarios dependen del modelo, especialmente de sus zonas y sistemas HVAC.
+
+## Instalar DesignBuilder CTE
+
+1. Cierre DesignBuilder y cualquier instancia de DesignBuilder CTE.
+2. Ejecute el instalador MSI suministrado. Instala para todos los usuarios del equipo y requiere permisos de administrador.
+3. Revise la carpeta de destino y complete la instalación.
+4. Inicie DesignBuilder CTE.
+5. Si aparece una advertencia de seguridad de Windows, compruebe que el instalador procede del canal de distribución autorizado antes de continuar.
+
+Si el instalador solicita el entorno de escritorio .NET 8 de 64 bits, complete su instalación. Ese paso puede necesitar conexión a Internet. Una vez instalados los recursos, la generación de los informes HE no necesita conexión.
+
+Al iniciarse, la aplicación comprueba que puede cargar su configuración. Un fallo durante esta fase muestra un mensaje de inicio y cierra la aplicación. Conserve el texto completo si necesita solicitar soporte.
+
+## Instalar o cambiar la licencia
+
+Abra **Configuración**. El bloque **Licencia** muestra el estado y, cuando están disponibles, el titular, empresa, correo, identificador y fecha de validez.
+
+Para instalar una licencia:
+
+1. Pulse **Instalar/Cambiar licencia**.
+2. Seleccione el archivo de licencia entregado.
+3. Compruebe que la aplicación muestra un estado válido y los datos esperados.
+4. Cierre y vuelva a abrir la aplicación si el cambio no se refleja inmediatamente.
+
+**Abrir carpeta de licencia** permite localizar el archivo instalado. No modifique su contenido.
+
+Si la licencia aparece como inválida, caducada o no verificable, instale un archivo válido antes de continuar.
+
+## Instalar el plugin y la plantilla
+
+La aplicación distribuye conjuntamente el plugin y una plantilla para DesignBuilder. En el primer arranque después de instalar o actualizar DesignBuilder CTE, intenta copiarlos automáticamente a las carpetas de DesignBuilder.
+
+El bloque **Integración con DesignBuilder** de **Configuración** muestra si ambos recursos están actualizados, no están instalados, requieren reparación o no pueden comprobarse. Para reparar una instalación ausente, incompleta o desactualizada:
+
+1. Cierre todas las ventanas de DesignBuilder.
+2. En DesignBuilder CTE, abra **Configuración**.
+3. Pulse **Reparar o reinstalar plugin y plantilla**.
+4. Espere al mensaje de finalización.
+5. Abra DesignBuilder y cargue un modelo.
+6. Compruebe que aparece el menú de DesignBuilder CTE con los comandos descritos en [Menú del plugin](05-plugin.qmd#sec-menu-plugin).
+
+La plantilla incluida reúne las condiciones operacionales de residencial y terciario del CTE. Puede utilizarla como punto de partida, pero no es imprescindible para trabajar con DesignBuilder CTE. En terciario puede emplear otras condiciones operacionales, definiéndolas en el modelo según el uso del edificio. En residencial, al seleccionar una escala residencial en **Datos del Edificio > Certificado**, el procedimiento aplica automáticamente las condiciones residenciales, con independencia de la plantilla utilizada en DesignBuilder.
+
+La plantilla resulta útil si también desea analizar el modelo directamente en DesignBuilder con esas condiciones. Si decide utilizarla, elija la versión incluida en la distribución y reinicie DesignBuilder después de actualizarla.
+
+**Carpeta de plugin y plantilla** abre los recursos suministrados dentro de la instalación de DesignBuilder CTE. No es la carpeta de plugins activos de DesignBuilder. Utilícela para consultar el material distribuido; compruebe la integración mediante su estado y el menú de DesignBuilder.
+
+::: {.callout-warning title="DesignBuilder debe estar cerrado" icon=false}
+Una DLL puede quedar bloqueada mientras DesignBuilder está abierto. Si la instalación o sustitución del plugin falla, cierre todas sus instancias y repita la operación.
+:::
+
+## Instalar los climas normativos
+
+Instalar estos climas en DesignBuilder es opcional: DesignBuilder CTE utiliza sus propios archivos climáticos normativos durante el cálculo. Pueden ser útiles para realizar análisis directamente en DesignBuilder con los mismos datos climáticos utilizados por DesignBuilder CTE.
+
+La opción **Instalar climas normativos** copia los archivos `.epw`, `.ddy` y `.stat` incluidos con DesignBuilder CTE a `C:\ProgramData\DesignBuilder\Weather Data`. De esta forma quedan disponibles para simular directamente desde DesignBuilder y para las plantillas que los referencien.
+
+La carpeta `Weather Data` debe existir previamente. DesignBuilder CTE no la crea: si no la encuentra, cancela la operación sin extraer archivos y solicita comprobar la instalación de DesignBuilder.
+
+Antes de copiar, la aplicación compara el contenido completo del paquete con la carpeta de destino. Los archivos ausentes se instalan y los idénticos se conservan sin reescribir. Si algún nombre ya existe con contenido diferente, se muestra el número de coincidencias y debe elegirse entre **Reemplazar** y **Cancelar**. Al cancelar no se copia ningún archivo, incluidos los que estaban ausentes.
+
+La operación solo gestiona los nombres incluidos en el paquete normativo y no elimina otros archivos meteorológicos. No edite estos archivos ni los sustituya por copias de otra distribución, porque una plantilla puede depender de su nombre y contenido normativo.
+
+## Verificar la instalación
+
+Abra DesignBuilder CTE y compruebe la licencia. Con un modelo cargado en DesignBuilder, abra **Asignar parámetros CTE** desde el menú del plugin. Si ambas aplicaciones funcionan y puede crear el expediente en su carpeta de trabajo, continúe con [El proceso de trabajo](03-flujo-general.qmd#sec-flujo-general). Si falta el menú, repare la integración como se indica arriba.
+
+## Tema visual y versión
+
+En **Configuración > Apariencia** puede seleccionarse tema claro, oscuro o el predeterminado de Windows. El tema no modifica los datos ni los resultados; elija el que permita distinguir con mayor claridad campos y avisos.
+
+La misma página agrupa **Licencia**, **Integración con DesignBuilder** y **Acerca de**.
+
+En **Avanzado** puede activar el modo de diagnóstico para obtener resultados más detallados al verificar los modelos.
+
+La sección **Acerca de** muestra la versión pública de DesignBuilder CTE. Registre también la versión de DesignBuilder desde su ventana **Ayuda > Acerca de** cuando documente una incidencia o archive un expediente reproducible.
+
+## Reparar o actualizar
+
+Si el plugin desaparece, una herramienta externa no se encuentra o la aplicación deja de iniciar después de una instalación incompleta:
+
+1. Conserve los proyectos y licencias.
+2. Cierre DesignBuilder y DesignBuilder CTE.
+3. Ejecute la reparación o reinstalación del paquete oficial.
+4. Repare el plugin desde **Configuración** mediante **Reparar o reinstalar plugin y plantilla**.
+5. Compruebe la versión y el menú antes de abrir un expediente de producción.
+
+No sustituya aisladamente `xml-medidas.exe`, XMLCert u otros recursos con copias de procedencia distinta. El conjunto distribuido está preparado para trabajar con la estructura XML admitida por la aplicación.
+
+## Desinstalar
+
+La desinstalación de DesignBuilder CTE no debe utilizarse como método de borrado de proyectos. Antes de desinstalar:
+
+- cierre las aplicaciones;
+- conserve DSB, `.dbcte`, **Resultados** y **Documentación**;
+- conserve la licencia si va a reinstalar en el mismo equipo;
+- anote la versión utilizada para los expedientes archivados.
+
+Si desinstaló con DesignBuilder abierto, reinicie Windows antes de reinstalar o comprobar el plugin. Si sigue apareciendo, solicite soporte indicando su ubicación desde **Carpeta de plugin y plantilla**.
+
+Los climas normativos copiados a `Weather Data` se conservan al desinstalar DesignBuilder CTE, porque pueden seguir siendo utilizados por modelos de DesignBuilder.
