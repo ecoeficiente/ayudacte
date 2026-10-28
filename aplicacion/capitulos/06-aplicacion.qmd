@@ -20,10 +20,6 @@ Sin proyecto abierto, la pantalla de cálculo ofrece abrir uno y conserva el acc
 
 ### Consultar la ayuda {#sec-ayuda}
 
-::: {.callout-note}
-La actualización de pruebas del 27 de octubre de 2026 incorpora estos accesos. Si no aparecen en su versión instalada, consulte directamente <https://ayudacte.ecoeficiente.es/aplicacion/>.
-:::
-
 Pulse **Ayuda (F1)** en la barra superior o **F1** para abrir la explicación de la pantalla visible en el navegador predeterminado. **Manual de usuario**, junto a Configuración, abre el inicio de la guía. La ayuda está disponible sin un proyecto cargado y no guarda ni modifica el expediente.
 
 Se necesita conexión a Internet. Si el programa no puede iniciar el navegador, muestra la dirección para abrirla manualmente. Si el navegador se abre pero no carga la página, compruebe la conexión.
@@ -55,21 +51,9 @@ La aplicación comprueba que el expediente es compatible, está completo y sus a
 
 **Expediente DBCTE consistente** significa que el contenido supera esa comprobación. No equivale a una firma digital ni acredita la identidad del autor o la exactitud técnica del certificado.
 
-### Apertura desde el Explorador de Windows {#abrir-desde-windows}
+### Localizar y abrir el expediente {#abrir-desde-windows}
 
-**Próxima actualización, pendiente de distribución y de validación del instalador:** los archivos `.dbcte` mostrarán el icono de DesignBuilder CTE y podrán abrirse con doble clic. Esta apertura corresponde a la aplicación de expedientes, no al programa de modelado DesignBuilder.
-
-Si la aplicación está cerrada, se iniciará y abrirá el expediente. Si ya está abierta, se utilizará la misma ventana, restaurándola si estaba minimizada. Abrir de nuevo el mismo archivo solo activa la ventana; no vuelve a leerlo ni descarta lo que se esté editando.
-
-Al abrir otro proyecto, tanto mediante doble clic como desde **Abrir proyecto**, se ofrecerán tres opciones:
-
-- **Guardar:** elegir el destino y guardar el proyecto actual antes de abrir el siguiente. Si se cancela el guardado o este falla, no se cambia de proyecto.
-- **Descartar:** continuar sin guardar las modificaciones del proyecto actual.
-- **Cancelar:** conservar el proyecto abierto.
-
-La pregunta se mostrará siempre que haya otro proyecto abierto, aunque no recuerde haberlo modificado. Si hay un cálculo, una apertura u otra operación en curso, espere a que termine y repita el doble clic.
-
-Si Windows abre otra aplicación o muestra un icono diferente, pulse con el botón derecho sobre un `.dbcte`, elija **Abrir con > Elegir otra aplicación**, seleccione **DesignBuilder CTE** y confirme que desea usarla siempre para ese formato. La instalación respeta una elección anterior de aplicación predeterminada. Si el icono no se actualiza, cierre y vuelva a abrir la ventana del Explorador. Esta asociación no afecta a los archivos `.idf`.
+Localice el archivo `.dbcte` en su carpeta de trabajo. Inicie DesignBuilder CTE, pulse **Abrir proyecto** y seleccione ese archivo. Para recuperar el modelo en DesignBuilder, utilice **Importar modelo desde DBCTE** en el plugin.
 
 ### Procesamiento inicial
 

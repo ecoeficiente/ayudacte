@@ -4,7 +4,7 @@ El plugin prepara los datos que DesignBuilder CTE necesita del modelo de DesignB
 
 Esta guía sigue el mismo recorrido que la guía de la aplicación: objetivo, acciones, resultado esperado y comprobación. Está dirigida a quien prepara el modelo y a quien necesita revisar cómo se obtuvo el expediente.
 
-Revisión de contenido: **27 de octubre de 2026**. Incluye la configuración avanzada de recuperación sensible para demanda, con cálculo automático o porcentaje manual heredable. Los nombres de pestañas y nodos corresponden a la interfaz en español: **Actividad**, **Cerramientos**, **Huecos**, **Iluminación**, **HVAC** y **Sistema HVAC**.
+Los nombres de pestañas y nodos corresponden a la interfaz en español: **Actividad**, **Cerramientos**, **Huecos**, **Iluminación**, **HVAC** y **Sistema HVAC**.
 
 ::: {.callout-note title="Cómo utilizar esta guía"}
 Las capturas muestran los formularios reales del plugin y ejemplos de consulta. El caso práctico utiliza una vivienda y la captura de parámetros muestra un edificio de evaluación. Los valores del ejercicio no constituyen una validación técnica del edificio. La exportación completa y la reimportación deben verificarse en cada expediente.
@@ -25,12 +25,6 @@ Las capturas muestran los formularios reales del plugin y ejemplos de consulta. 
 5. Revise primero los parámetros; después, los puentes; por último, cree el expediente.
 
 Mantenga el modelo original como referencia. Las cifras de la vivienda sirven para aprender a manejar los controles, no como valores recomendados para otro edificio.
-
-::: {.callout-note title="Comprobar el plugin instalado" icon=false}
-**Próxima actualización, pendiente de distribución; no incluida en el MSI RC3 ya entregado.** DesignBuilder CTE comprobará al iniciar que el plugin y la plantilla coincidan con los de su instalación. Si avisa de una diferencia, cierre DesignBuilder, pulse **Abrir Configuración** y después **Reparar o reinstalar plugin y plantilla**. Vuelva a abrir DesignBuilder para cargar el plugin actualizado. **Ahora no** permite continuar y posponer la reparación.
-
-La reparación reconocerá las ubicaciones `User Plugins/DesignBuilder CTE` y `User Plugins/DBCTE`: reutiliza la antigua cuando es la única existente y actualiza ambas si ya coexisten. Una copia antigua puede explicar que falten opciones nuevas aunque se haya instalado una versión reciente de la aplicación. Consulte [Instalar el plugin y la plantilla](https://ayudacte.ecoeficiente.es/aplicacion/capitulos/02-instalacion.html#instalar-el-plugin-y-la-plantilla).
-:::
 
 ## Mapa de comandos de la versión actual
 
@@ -68,10 +62,6 @@ Exportar un archivo `.ctepsi` conserva los cálculos elegidos como archivo indep
 
 ## Consultar la ayuda {#sec-ayuda}
 
-::: {.callout-note}
-La actualización de pruebas del 27 de octubre de 2026 incorpora los botones de ayuda. Si todavía no aparecen, consulte <https://ayudacte.ecoeficiente.es/plugin/>.
-:::
-
 El menú **DesignBuilder CTE → Ayuda** abre esta guía, incluso sin modelo. Cada ventana del plugin dispone de un botón **Ayuda** que abre el apartado correspondiente en el navegador: parámetros, puentes térmicos, cálculos y sus diálogos de reparto, carga, destinos, ponderación y detalle constructivo.
 
 Consultar la ayuda no acepta el diálogo, guarda el modelo ni aplica cálculos. El plugin no asigna la tecla F1; el acceso F1 corresponde a la aplicación independiente DesignBuilder CTE. Los selectores de archivos de Windows conservan sus controles habituales.
@@ -79,7 +69,3 @@ Consultar la ayuda no acepta el diálogo, guarda el modelo ni aplica cálculos. 
 La ayuda requiere Internet. Si no puede iniciarse el navegador, el aviso muestra la dirección para consultarla manualmente.
 
 ![El botón Ayuda permanece visible en la parte inferior de Parámetros CTE.](assets/ayuda-parametros.png){fig-alt="Ventana de parámetros con el botón Ayuda junto a las acciones inferiores."}
-
-::: {.callout-note title="Candidata 1.0.0-rc.1 — pruebas controladas"}
-Edición preparada para el grupo de pruebas; todavía no publicada. Use el paquete RC1 entregado por el desarrollador, compatible con EnergyPlus 23.1.0.002. Conserve una copia de sus expedientes. La validación física de ventiladores HPWH compartidos queda fuera del alcance acreditado. Compruebe exportación, apertura, cálculo, documentos, guardado y reapertura; comunique incidencias indicando la versión completa y el diagnóstico.
-:::

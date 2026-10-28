@@ -41,14 +41,9 @@ El nombre elegido no acredita que se haya creado el archivo. La exportación deb
 
 **Comprobación final:** abra el archivo generado en la aplicación, compruebe el edificio y revise su estado. La captura muestra el inicio del procedimiento; no acredita una exportación terminada.
 
-### Abrir el expediente creado desde Windows
+### Abrir el expediente en DesignBuilder CTE {#abrir-el-expediente-creado-desde-windows}
 
-**Próxima actualización, pendiente de distribución y de validación del instalador:** una vez completada la exportación, podrá abrir el `.dbcte` con doble clic desde el Explorador. El archivo mostrará el icono de DesignBuilder CTE y se abrirá en la aplicación de expedientes. Para recuperar el modelo en DesignBuilder, siga usando **Importar modelo desde DBCTE**, explicado más abajo.
-
-Si DesignBuilder CTE ya tiene otro proyecto abierto, ofrecerá **Guardar**, **Descartar** o **Cancelar**. Cancelar el guardado o un fallo al guardar impide cambiar de proyecto. Si el mismo expediente ya está abierto, solo se activa su ventana. Si hay una operación en curso, espere a que termine y repita la apertura.
-
-Si Windows no lo abre en DesignBuilder CTE, use **Abrir con > Elegir otra aplicación** y selecciónela como aplicación habitual para `.dbcte`. Conserve el expediente exportado y compruebe su estado después de abrirlo; el icono no acredita que el contenido sea válido.
-
+Una vez completada la exportación, inicie DesignBuilder CTE, pulse **Abrir proyecto** y seleccione el `.dbcte`. Para recuperar el modelo en DesignBuilder, utilice **Importar modelo desde DBCTE**, explicado más abajo.
 
 ## Cancelar una solicitud pendiente
 

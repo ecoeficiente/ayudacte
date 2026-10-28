@@ -67,7 +67,3 @@ Para situarse, lea **El proceso de trabajo**. Si ya dispone de un expediente exp
 Los nombres de páginas y botones aparecen en **negrita**; los archivos y extensiones, como `código`. Los datos de las capturas son ejemplos y deben sustituirse por los del proyecto. Los avisos se sitúan junto a la operación que afectan.
 
 La corrección técnica del modelo y de la documentación corresponde al técnico. El estado de consistencia del expediente confirma la integridad de su contenido, no la exactitud de los datos ni la autoría del certificado.
-
-::: {.callout-note title="Candidata 1.0.0-rc.1 — pruebas controladas"}
-Edición preparada para el grupo de pruebas; todavía no publicada. Use el paquete RC1 entregado por el desarrollador, compatible con EnergyPlus 23.1.0.002. Conserve una copia de sus expedientes. La validación física de ventiladores HPWH compartidos queda fuera del alcance acreditado. Compruebe exportación, apertura, cálculo, documentos, guardado y reapertura; comunique incidencias indicando la versión completa y el diagnóstico.
-:::

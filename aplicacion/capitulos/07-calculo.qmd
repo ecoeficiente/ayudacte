@@ -6,8 +6,6 @@ Abra el expediente correcto y confirme la escala, ubicación y altitud antes de 
 
 ## Puentes térmicos exportados {#sec-puentes-exportados}
 
-Este comportamiento corresponde a la actualización de pruebas del 27 de octubre de 2026.
-
 La aplicación utiliza las longitudes y los valores Ψ guardados por el plugin para cada zona, tanto en expedientes actuales como en los antiguos compatibles. No vuelve a medir las longitudes a partir de la geometría. La simulación, HE1 y el XML utilizan esos mismos datos, teniendo en cuenta los multiplicadores de zona.
 
 Por ejemplo, una longitud de 10 m con Ψ = 0,4 W/(m·K) aporta 4 W/K por instancia de zona. Si el multiplicador de zona es 3, aporta 12 W/K al total. Revise las longitudes, los signos de Ψ y los multiplicadores antes de exportar.
@@ -87,32 +85,7 @@ Si aparece un aviso sobre un intercambio de aire o una conexión que no puede in
 
 ### Cámaras sanitarias {#sec-camaras-sanitarias}
 
-**Preparado para la próxima entrega de pruebas; todavía no distribuido.** Identifique **Cámara sanitaria** en los parámetros de zona del plugin. Esta selección es independiente de **Pertenencia a la envolvente térmica**:
-
-- Si la cámara está dentro, se comprueban sus cerramientos exteriores y contra el terreno; el forjado hacia la vivienda queda como separación interior.
-- Si está fuera, se comprueba la U del suelo sobre la cámara. Esa partición no cuenta para K ni para la superficie de compacidad del procedimiento simplificado.
-
-El programa obtiene del IDF superficie, altura, perímetro expuesto, longitud característica B′ = 2A/P y resistencia de las capas Rf. Admite suelo y techo horizontales, altura uniforme y contorno reconstruible. No suma las aristas de subdivisiones interiores ni agrupa cámaras independientes por compartir cota.
-
-La renovación de aire procede exclusivamente de **Estanqueidad**: los niveles 1, 2, 3, 4 y 5 representan respectivamente 0; 0,5; 1; 5 y 10 renovaciones por hora. Los horarios de ventilación del modelo no sustituyen esta selección. Para el procedimiento de cámara ventilada se utilizan los niveles 3–5; los niveles 1–2 no declaran aberturas de ventilación al exterior.
-
-Con **Profundidad de la cámara (m): Auto**, el programa adopta el terreno en **Z = 0 del modelo**. Calcula la profundidad desde esa cota hasta el suelo de la cámara, después de aplicar las transformaciones de zona del IDF. Un suelo en Z = −0,50 m tiene profundidad 0,50 m; a cota cero o superior se considera profundidad cero.
-
-**Terrenos elevados:** los bloques de componente de tipo terreno dibujados por encima de Z = 0 no elevan esta referencia automática. Si los ha utilizado, revise la profundidad real y el método y resultado de U de la cámara en los informes HE/HE1. Introduzca la profundidad correcta en el plugin, vuelva a exportar y calcular, y regenere el DOCX; si el caso queda fuera del procedimiento automático, documente una U justificada y corrija las justificaciones del informe. El DOCX identifica la referencia de profundidad utilizada.
-
-| Cámara ventilada fuera de la envolvente | Procedimiento |
-|---|---|
-| Altura ≤ 1 m y profundidad ≤ 0,5 m | Tabla 9 del DA DB-HE/1 |
-| Altura > 1 m y profundidad ≤ 0,5 m | Apartado 2.1.1 del DA DB-HE/1 |
-| Profundidad > 0,5 m | Balance general del coeficiente b, con renovación obtenida de Estanqueidad |
-
-La tabla 9 se interpola dentro de su dominio. Si la resistencia real del forjado supera 3 m²·K/W, el programa considera Rf = 3 como **simplificación conservadora**: desprecia el exceso de resistencia, sin extrapolar la tabla ni modificar las capas físicas de EnergyPlus. El DOCX muestra la Rf real, la considerada y el motivo. Esta simplificación del programa se aplica exclusivamente a la tabla 9; las ramas de cámara alta y balance general utilizan la resistencia real.
-
-B′ < 1 m sigue requiriendo U justificada; B′ ≥ 36 m utiliza la fila prevista. Por ejemplo, con B′ = 4 m y Rf real = 4,28 se considera Rf = 3 y se obtiene U = 0,27 W/(m²·K). Toda la columna Rf = 3 da valores entre 0,23 y 0,29, inferiores al límite UT más exigente de HE1 (0,59). Esto permite verificar la U de este suelo dentro del dominio del procedimiento; no acredita por sí solo el cumplimiento íntegro de HE1 ni el de los cerramientos exteriores de una cámara incluida en la envolvente.
-
-Si el diagnóstico indica geometría no soportada, falta de aberturas según Estanqueidad o parámetros fuera de tabla, seleccione en la superficie de suelo **Método U del suelo sanitario: Justificada**. Complete una U equivalente positiva, el método contrastado y la referencia del documento justificativo. No se adopta otro método automáticamente. Esta U no sustituye las capas físicas del modelo de EnergyPlus.
-
-El DOCX detalla parámetros, método y procedencia de U. Al cambiar geometría, Estanqueidad, profundidad o justificación, exporte de nuevo, calcule y regenere la documentación. Consulte [los parámetros de cámara en el plugin](https://ayudacte.ecoeficiente.es/plugin/capitulos/01-parametros.html#sec-camaras-sanitarias).
+Revise la geometría, los cerramientos y la pertenencia a la envolvente térmica de la cámara en el modelo. Contraste las transmitancias y las justificaciones del informe con la solución constructiva del proyecto. Conserve la documentación técnica utilizada para justificar los valores adoptados.
 
 ## Infiltraciones en residencial {#sec-infiltraciones-residencial}
 
