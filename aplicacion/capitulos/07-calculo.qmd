@@ -85,6 +85,31 @@ Antes de calcular, revise en DesignBuilder y en el plugin:
 
 Si aparece un aviso sobre un intercambio de aire o una conexión que no puede interpretarse, revise el elemento señalado en el modelo, vuelva a exportar y calcule de nuevo.
 
+### Cámaras sanitarias {#sec-camaras-sanitarias}
+
+**Preparado para la próxima entrega de pruebas; todavía no distribuido.** Identifique **Cámara sanitaria** en los parámetros de zona del plugin. Esta selección es independiente de **Pertenencia a la envolvente térmica**:
+
+- Si la cámara está dentro, se comprueban sus cerramientos exteriores y contra el terreno; el forjado hacia la vivienda queda como separación interior.
+- Si está fuera, se comprueba la U del suelo sobre la cámara. Esa partición no cuenta para K ni para la superficie de compacidad del procedimiento simplificado.
+
+El programa obtiene del IDF superficie, altura, perímetro expuesto, longitud característica B′ = 2A/P y resistencia de las capas Rf. Admite suelo y techo horizontales, altura uniforme y contorno reconstruible. No suma las aristas de subdivisiones interiores ni agrupa cámaras independientes por compartir cota.
+
+La renovación de aire procede exclusivamente de **Estanqueidad**: los niveles 1, 2, 3, 4 y 5 representan respectivamente 0; 0,5; 1; 5 y 10 renovaciones por hora. Los horarios de ventilación del modelo no sustituyen esta selección. Para el procedimiento de cámara ventilada se utilizan los niveles 3–5; los niveles 1–2 no declaran aberturas de ventilación al exterior.
+
+La profundidad se deduce de una transición terreno/exterior inequívoca. Si no existe, introduzca únicamente **Profundidad de la cámara (m)** en el plugin, medida respecto al terreno real. La cota Z = 0 del modelo no define por sí sola ese nivel.
+
+| Cámara ventilada fuera de la envolvente | Procedimiento |
+|---|---|
+| Altura ≤ 1 m y profundidad ≤ 0,5 m | Tabla 9 del DA DB-HE/1 |
+| Altura > 1 m y profundidad ≤ 0,5 m | Apartado 2.1.1 del DA DB-HE/1 |
+| Profundidad > 0,5 m | Balance general del coeficiente b, con renovación obtenida de Estanqueidad |
+
+La tabla 9 se interpola dentro de su dominio: no se extrapola para Rf > 3 m²·K/W ni B′ < 1 m; B′ ≥ 36 m utiliza la fila prevista. Por ejemplo, B′ = 4 m y Rf = 3 producen U = 0,27 W/(m²·K). Una resistencia de 4,28 queda fuera de esa tabla.
+
+Si el diagnóstico indica geometría no soportada, falta de aberturas según Estanqueidad o parámetros fuera de tabla, seleccione en la superficie de suelo **Método U del suelo sanitario: Justificada**. Complete una U equivalente positiva, el método contrastado y la referencia del documento justificativo. No se adopta otro método automáticamente. Esta U no sustituye las capas físicas del modelo de EnergyPlus.
+
+El DOCX detalla parámetros, método y procedencia de U. Al cambiar geometría, Estanqueidad, profundidad o justificación, exporte de nuevo, calcule y regenere la documentación. Consulte [los parámetros de cámara en el plugin](https://ayudacte.ecoeficiente.es/plugin/capitulos/01-parametros.html#sec-camaras-sanitarias).
+
 ## Infiltraciones en residencial {#sec-infiltraciones-residencial}
 
 DesignBuilder CTE prepara automáticamente las infiltraciones del procedimiento residencial a partir de la envolvente, la ventilación y los datos de permeabilidad. La configuración de infiltraciones del modelo original se sustituye al calcular.

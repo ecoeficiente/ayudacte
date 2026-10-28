@@ -137,6 +137,29 @@ Solo se aplica a zonas acondicionadas con ventilación exterior atendida por un 
 
 La equivalencia considera únicamente el calor sensible, no el intercambio de humedad. Es una aproximación: no reproduce en detalle los horarios propios del recuperador, el desescarche ni todos sus controles. Tomar el menor rendimiento no garantiza por sí solo una demanda anual más desfavorable.
 
+## Cámaras sanitarias {#sec-camaras-sanitarias}
+
+**Preparado para la próxima entrega de pruebas; todavía no distribuido.** En una zona no habitable, seleccione **Tipo de espacio no habitable: Cámara sanitaria**. Mantenga **Pertenencia a la envolvente térmica** conforme al límite térmico definido en el proyecto. La selección de cámara no cambia esa pertenencia ni convierte el espacio en habitable.
+
+| Campo | Nivel | Cómo utilizarlo |
+|---|---|---|
+| Tipo de espacio no habitable | Zona | General o Cámara sanitaria; General es el valor inicial |
+| Profundidad de la cámara (m) | Zona | Auto; introduzca metros respecto al terreno solo si el programa no puede deducir una transición inequívoca |
+| Método U del suelo sanitario | Superficie de suelo | Automático o Justificada |
+| U justificada del suelo sanitario | Superficie de suelo | U equivalente positiva en W/(m²·K), solo para Justificada |
+| Método de justificación de U sanitaria | Superficie de suelo | Método contrastado utilizado para obtener esa U |
+| Referencia documental de U sanitaria | Superficie de suelo | Documento y apartado que justifican el valor |
+
+No es necesario introducir área, altura, perímetro ni resistencia del forjado: se obtienen de la geometría y de las capas del IDF. El cálculo automático admite suelo y techo horizontales, altura uniforme y contorno reconstruible; los casos restantes requieren U justificada.
+
+**Estanqueidad** es la fuente de renovación de aire de la cámara. Los niveles 1–5 corresponden a 0; 0,5; 1; 5 y 10 renovaciones por hora. Los niveles 3–5 declaran aberturas o juntas abiertas y permiten seleccionar el procedimiento de cámara ventilada. No añada otro dato de ventilación para esta comprobación ni confunda Estanqueidad con n50 o con la clase de permeabilidad de ventanas.
+
+Con la cámara fuera de la envolvente, el programa comprueba la U del forjado superior. Para una cámara ventilada de altura ≤ 1 m y profundidad ≤ 0,5 m utiliza la tabla 9 del DA DB-HE/1. Si Rf > 3 m²·K/W o B′ < 1 m, no extrapola: solicita U justificada. Las cámaras más altas o más profundas siguen los procedimientos indicados en [el cálculo de cámaras sanitarias](https://ayudacte.ecoeficiente.es/aplicacion/capitulos/07-calculo.html#sec-camaras-sanitarias).
+
+Ejemplo: una cámara de 8 × 8 m y 0,50 m de altura aporta A = 64 m², P = 32 m y B′ = 4 m. Con Estanqueidad 3 se considera 1 renovación/hora. Si el forjado tiene Rf ≈ 4,28, su U requiere un método justificado porque supera el dominio de resistencia de la tabla 9. No reduzca el aislamiento ni altere las capas para forzar un resultado tabulado.
+
+Para **Justificada**, complete valor, método y referencia; no se aceptan los textos iniciales «Sin indicar». Guarde los parámetros y el DSB, vuelva a crear el expediente y calcule en DesignBuilder CTE. El DOCX identifica los valores adoptados por el técnico.
+
 ## Marcar una reforma
 
 | Marca | Cuándo corresponde |

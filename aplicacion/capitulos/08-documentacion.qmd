@@ -49,6 +49,16 @@ Los informes HE y HE1 muestran el ámbito declarado y un resumen de las comproba
 - **No aplicable**: la comprobación queda fuera del ámbito declarado; no es un incumplimiento.
 - **Pendiente de datos**: falta información para determinar la aplicación o el resultado. El informe se identifica como diagnóstico incompleto.
 
+### Tabla 3.2 y verificación del técnico {#sec-tabla32}
+
+**Preparado para la próxima entrega de pruebas; todavía no distribuido.** Los informes HE y HE1 en DOCX incluyen **Limitación de descompensaciones**, con estado **Verificación a cargo del técnico**. Este estado identifica una justificación externa; no significa que la partición cumpla ni que se haya determinado su no aplicabilidad.
+
+Revise las divisorias entre unidades del mismo o distinto uso y entre unidades de uso y zonas comunes. El informe presenta los límites de la tabla 3.2 de HE1 para la zona climática de invierno y una tabla editable para documentar partición, unidades o zonas que separa, aplicabilidad, U, límite y resultado con su justificación. Complete esa tabla o adjunte una justificación identificada. En reformas, revise también qué particiones están afectadas por la intervención.
+
+La aplicación no identifica unidades de uso. La habitabilidad de una zona y su pertenencia a la envolvente no bastan para decidir esta condición. Una partición interior puede necesitar esta comprobación aunque no intervenga en U de envolvente o K. Los campos vacíos no acreditan cumplimiento; el documento requiere completar las verificaciones externas antes de integrarlo en la justificación de HE1.
+
+### Alcance de las comprobaciones automáticas
+
 Cada resultado incluye su motivo y referencia. El informe comprueba los apartados que enumera; no acredita por sí solo la totalidad del DB-HE. Los valores calculados se conservan aunque una exigencia no sea aplicable.
 
 En reformas, U se comprueba en los elementos afectados, mientras que K y control solar requieren renovar más del 25 % de la envolvente final. HE0 exige además renovar la generación térmica. La comprobación n50 se limita a edificios nuevos de uso residencial privado con superficie útil total superior a 120 m², además de las condiciones generales de aplicación.
