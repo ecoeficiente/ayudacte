@@ -32,10 +32,12 @@ El plugin comprueba las cinco primeras opciones; la selección del edificio comp
 3. Lea el aviso: la **siguiente exportación IDF** incorporará los datos CTE y el modelo XML.
 4. Ejecute la exportación de archivo IDF de EnergyPlus para simulación desde DesignBuilder.
 5. Atienda los avisos de validación; corrija el modelo si alguno impide continuar.
-6. Espere la confirmación de creación correcta.
+6. Compruebe el mensaje **Expediente creado correctamente** y la ruta indicada.
 7. Abra el `.dbcte` en DesignBuilder CTE y compruebe su estado.
 
 El nombre elegido no acredita que se haya creado el archivo. La exportación debe finalizar correctamente. Conserve la correspondencia entre DSB y DBCTE y utilice nombres de revisión claros.
+
+Cada solicitud genera un solo expediente. Para volver a generarlo, prepare una nueva solicitud con **Crear expediente DBCTE** antes de exportar el IDF de simulación. Puede elegir el mismo destino si desea actualizarlo.
 
 ![Selección real de nombre y destino para preparar el expediente DBCTE.](../assets/14-expediente.jpg){width=100% fig-alt="Selección real de nombre y destino para preparar el expediente DBCTE."}
 
@@ -51,7 +53,7 @@ Si Windows no lo abre en DesignBuilder CTE, use **Abrir con > Elegir otra aplica
 
 ## Cancelar una solicitud pendiente
 
-Tras elegir destino, el menú ofrece **Cancelar creación del expediente**. Úselo si no quiere que la siguiente exportación complete esa solicitud. Después, vuelva a iniciar **Crear expediente DBCTE** para preparar otro destino.
+Pulse **Cancelar creación del expediente** si no quiere que la siguiente exportación complete la solicitud preparada. Después, vuelva a iniciar **Crear expediente DBCTE** para preparar otro destino. Ambos comandos permanecen disponibles con un modelo abierto; si no hay una solicitud pendiente, el plugin lo indica al pulsar Cancelar.
 
 Cancelar la solicitud no borra un expediente previamente creado.
 
@@ -83,6 +85,10 @@ Esta operación recupera el modelo incluido en el expediente. No recupera result
 
 ## Problemas habituales
 
+Si falta el aviso de creación, pulse **Crear expediente DBCTE** para comprobar el estado: si muestra una solicitud pendiente, revise el destino y complete la exportación IDF de **Simulación**; si abre el selector de destino, prepare una nueva solicitud. Compruebe la fecha del archivo antes de utilizarlo. Si la primera exportación de una solicitud sigue sin generar el expediente, conserve la hora del intento y cualquier mensaje de error para comunicar la incidencia.
+
+En versiones anteriores, el menú puede seguir mostrando **Cancelar creación del expediente** después de terminar y ocultar **Crear expediente DBCTE**. En ese caso, pulse **Cancelar**, prepare una nueva solicitud con **Crear expediente DBCTE** y exporte el IDF de simulación. Actualice el plugin para disponer de ambos comandos y de la comprobación del estado al pulsarlos.
+
 | Situación | Qué revisar |
 |---|---|
 | No aparecen comandos del plugin | Modelo cargado, instalación y selección del edificio |
@@ -93,7 +99,7 @@ Esta operación recupera el modelo incluido en el expediente. No recupera result
 | Ψ nuevo no llega al encuentro | Aceptación del cálculo, asignación y guardado final |
 | Hay revisión más reciente | Revisar y reasignar la nueva revisión |
 | No se puede eliminar un cálculo | Tiene asignaciones activas |
-| No se crea el DBCTE tras elegir nombre | Falta exportación IDF completa o hay validaciones pendientes |
+| No se crea el DBCTE tras elegir nombre | Pulse Crear expediente DBCTE para comprobar la solicitud; revise destino, exportación IDF de Simulación y validaciones |
 | Se rechaza la inclusión de bibliotecas | Configurar XML con 1-Ninguno y repetir la solicitud |
 | n50 no coincide con el informe | Comprobar n50 adoptado en Datos del Edificio y el último cálculo |
 | n50 no puede repartir el caudal | Comprobar que existen opacos exteriores o fugas iniciales en huecos y puertas |

@@ -83,8 +83,12 @@ Corrija el campo señalado y pulse **Guardar**. Si no quiere conservar los cambi
 | Se exportó una selección parcial | El ámbito no era el edificio completo; el plugin no comprueba esta selección | Seleccione el edificio completo y repita la exportación |
 | No permite crear expediente | El DSB no está guardado | Guarde el DSB y repita |
 | Advierte sobre `dsbXML` | Datos de biblioteca con valor distinto | Seleccione **1-Ninguno** en la opción de inclusión de bibliotecas XML |
-| El expediente queda pendiente | No se completó la siguiente exportación IDF | Complete la exportación IDF; para cambiar el destino, cancele la solicitud y vuelva a crearla |
+| No aparece el aviso de creación | La solicitud sigue pendiente o ya terminó en una exportación anterior | Pulse **Crear expediente DBCTE**: si muestra una solicitud pendiente, complete el IDF de **Simulación**; si abre el selector, prepare una nueva solicitud |
 | No se puede escribir el destino | Carpeta protegida, red o archivo abierto | Use una carpeta local escribible y cierre el archivo |
+
+Cada solicitud genera un solo expediente. Compruebe el mensaje **Expediente creado correctamente**, la ruta y la fecha del archivo antes de utilizarlo. Si la primera exportación de una solicitud sigue sin generar el expediente, conserve la hora del intento y cualquier mensaje de error para comunicar la incidencia.
+
+En versiones anteriores del plugin, el menú puede seguir mostrando **Cancelar creación del expediente** después de terminar y ocultar **Crear expediente DBCTE**. Pulse **Cancelar**, prepare una nueva solicitud con **Crear expediente DBCTE** y exporte el IDF de simulación. Actualice el plugin para disponer de ambos comandos y de la comprobación del estado al pulsarlos.
 
 ## Apertura de proyectos
 

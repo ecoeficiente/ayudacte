@@ -6,8 +6,6 @@ Con el modelo preparado, utilice el plugin para asignar parámetros CTE, revisar
 
 Con el modelo cargado, abra **DesignBuilder CTE** en la barra superior.
 
-![Menú del plugin con el modelo cargado.](../assets/plugin/01-menu.jpg){width=40% fig-alt="Menú del plugin con el modelo cargado."}
-
 | Comando | Para qué sirve |
 |---|---|
 | Asignar parámetros CTE | Completar parámetros del edificio y excepciones por niveles |
@@ -17,7 +15,7 @@ Con el modelo cargado, abra **DesignBuilder CTE** en la barra superior.
 | Calculadora de puentes térmicos | Organizar cálculos Ψ del edificio y asignarlos a encuentros |
 | Importar modelo desde DBCTE | Recuperar en DesignBuilder el modelo incluido en un expediente |
 
-**Crear expediente DBCTE** y **Cancelar creación del expediente** aparecen en estados alternativos. Elegir un destino prepara la solicitud; el expediente se completa después de la exportación IDF.
+Con un modelo abierto, **Crear expediente DBCTE** y **Cancelar creación del expediente** están disponibles. Su presencia no indica que haya una solicitud pendiente. Al pulsar **Crear expediente DBCTE**, se elige el destino; si ya hay una solicitud pendiente, el plugin muestra su ruta y explica cómo completarla o cancelarla. Elegir un destino prepara la solicitud; el expediente se completa después de la exportación IDF.
 
 La carga de longitudes está dentro de **Editar puentes térmicos**, mediante **Cargar longitudes de zonas…**.
 
@@ -357,10 +355,12 @@ Si la inclusión de bibliotecas sigue activada o no puede comprobarse, el plugin
 3. Lea el aviso: la siguiente exportación IDF incorporará los datos CTE y el modelo XML.
 4. Ejecute la exportación de archivo IDF de EnergyPlus para simulación desde DesignBuilder.
 5. Corrija los avisos que impidan continuar.
-6. Espere la confirmación de creación correcta.
+6. Compruebe el mensaje **Expediente creado correctamente** y la ruta indicada.
 7. Abra el `.dbcte` en DesignBuilder CTE y compruebe el edificio y su estado.
 
-El nombre elegido prepara el destino; compruebe la confirmación de creación y la apertura del archivo al terminar la exportación. Si se cancela o falla la exportación, repita el procedimiento.
+El nombre elegido prepara el destino; compruebe la confirmación de creación y la apertura del archivo al terminar la exportación. Si se cancela o falla la exportación, pulse **Crear expediente DBCTE** para comprobar si la solicitud sigue pendiente y complete la exportación IDF de **Simulación**.
+
+Cada solicitud genera un solo expediente. Para volver a generarlo, prepare una nueva solicitud con **Crear expediente DBCTE** antes de exportar el IDF de simulación. Puede elegir el mismo destino si desea actualizarlo.
 
 Después de exportar, puede abrir el `.dbcte` con doble clic desde el Explorador. DesignBuilder CTE utiliza una sola ventana y permite guardar, descartar o cancelar antes de cambiar de proyecto. Consulte [Abrir desde Windows](06-aplicacion.qmd#abrir-desde-windows).
 
@@ -368,7 +368,7 @@ Para identificar una cámara sanitaria y declarar su profundidad o una U justifi
 
 ### Cancelar una creación pendiente
 
-Tras elegir destino, el menú ofrece **Cancelar creación del expediente**. Utilícelo para retirar la solicitud y evitar que la siguiente exportación complete ese destino. Después puede volver a iniciar **Crear expediente DBCTE**.
+Pulse **Cancelar creación del expediente** para retirar la solicitud y evitar que la siguiente exportación complete ese destino. Después puede volver a iniciar **Crear expediente DBCTE**. Ambos comandos permanecen disponibles con un modelo abierto; si no hay una solicitud pendiente, el plugin lo indica al pulsar Cancelar.
 
 Cancelar la solicitud no borra un expediente que ya se haya creado.
 

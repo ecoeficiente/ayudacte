@@ -34,8 +34,6 @@ Mantenga el modelo original como referencia. Las cifras de la vivienda sirven pa
 
 ## Mapa de comandos de la versión actual
 
-![Menú real del plugin con el modelo cargado.](assets/01-menu.jpg){width=40% fig-alt="Menú real del plugin con el modelo cargado."}
-
 | Comando | Para qué sirve | Resultado |
 |---|---|---|
 | Asignar parámetros CTE | Editar parámetros y excepciones en la jerarquía | Datos CTE guardados en el modelo |
@@ -45,7 +43,7 @@ Mantenga el modelo original como referencia. Las cifras de la vivienda sirven pa
 | Cancelar creación del expediente | Retirar la solicitud pendiente | La siguiente exportación ya no completa esa solicitud |
 | Importar modelo desde DBCTE | Recuperar el modelo contenido en un expediente | Modelo nuevo en DesignBuilder |
 
-**Crear expediente** y **Cancelar creación** corresponden a estados alternativos. Elegir un destino no significa que el expediente ya esté creado: falta completar la exportación IDF.
+Con un modelo abierto, **Crear expediente DBCTE** y **Cancelar creación del expediente** están disponibles. Su presencia no indica que haya una solicitud pendiente. Al pulsar **Crear expediente DBCTE**, se elige el destino; si ya hay una solicitud pendiente, el plugin muestra su ruta y explica cómo completarla o cancelarla. Elegir un destino no significa que el expediente ya esté creado: falta completar la exportación IDF.
 
 ## Los tres niveles de guardado
 
