@@ -106,7 +106,9 @@ Con **Profundidad de la cámara (m): Auto**, el programa adopta el terreno en **
 | Altura > 1 m y profundidad ≤ 0,5 m | Apartado 2.1.1 del DA DB-HE/1 |
 | Profundidad > 0,5 m | Balance general del coeficiente b, con renovación obtenida de Estanqueidad |
 
-La tabla 9 se interpola dentro de su dominio: no se extrapola para Rf > 3 m²·K/W ni B′ < 1 m; B′ ≥ 36 m utiliza la fila prevista. Por ejemplo, B′ = 4 m y Rf = 3 producen U = 0,27 W/(m²·K). Una resistencia de 4,28 queda fuera de esa tabla.
+La tabla 9 se interpola dentro de su dominio. Si la resistencia real del forjado supera 3 m²·K/W, el programa considera Rf = 3 como **simplificación conservadora**: desprecia el exceso de resistencia, sin extrapolar la tabla ni modificar las capas físicas de EnergyPlus. El DOCX muestra la Rf real, la considerada y el motivo. Esta simplificación del programa se aplica exclusivamente a la tabla 9; las ramas de cámara alta y balance general utilizan la resistencia real.
+
+B′ < 1 m sigue requiriendo U justificada; B′ ≥ 36 m utiliza la fila prevista. Por ejemplo, con B′ = 4 m y Rf real = 4,28 se considera Rf = 3 y se obtiene U = 0,27 W/(m²·K). Toda la columna Rf = 3 da valores entre 0,23 y 0,29, inferiores al límite UT más exigente de HE1 (0,59). Esto permite verificar la U de este suelo dentro del dominio del procedimiento; no acredita por sí solo el cumplimiento íntegro de HE1 ni el de los cerramientos exteriores de una cámara incluida en la envolvente.
 
 Si el diagnóstico indica geometría no soportada, falta de aberturas según Estanqueidad o parámetros fuera de tabla, seleccione en la superficie de suelo **Método U del suelo sanitario: Justificada**. Complete una U equivalente positiva, el método contrastado y la referencia del documento justificativo. No se adopta otro método automáticamente. Esta U no sustituye las capas físicas del modelo de EnergyPlus.
 
