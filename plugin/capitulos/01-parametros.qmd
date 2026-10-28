@@ -144,13 +144,15 @@ La equivalencia considera únicamente el calor sensible, no el intercambio de hu
 | Campo | Nivel | Cómo utilizarlo |
 |---|---|---|
 | Tipo de espacio no habitable | Zona | General o Cámara sanitaria; General es el valor inicial |
-| Profundidad de la cámara (m) | Zona | Auto; introduzca metros respecto al terreno solo si el programa no puede deducir una transición inequívoca |
+| Profundidad de la cámara (m) | Zona | Auto toma el terreno en Z = 0; introduzca la profundidad real en metros si esa referencia no corresponde al proyecto |
 | Método U del suelo sanitario | Superficie de suelo | Automático o Justificada |
 | U justificada del suelo sanitario | Superficie de suelo | U equivalente positiva en W/(m²·K), solo para Justificada |
 | Método de justificación de U sanitaria | Superficie de suelo | Método contrastado utilizado para obtener esa U |
 | Referencia documental de U sanitaria | Superficie de suelo | Documento y apartado que justifican el valor |
 
 No es necesario introducir área, altura, perímetro ni resistencia del forjado: se obtienen de la geometría y de las capas del IDF. El cálculo automático admite suelo y techo horizontales, altura uniforme y contorno reconstruible; los casos restantes requieren U justificada.
+
+En **Auto**, un suelo de cámara en Z = −0,50 m tiene profundidad 0,50 m; a cota cero o superior se considera profundidad cero. Se utilizan cotas globales, después de transformar las coordenadas de zona. **Los bloques de componente de tipo terreno por encima de Z = 0 no se reconocen como una elevación del terreno para esta profundidad.** En esos modelos, compruebe y corrija la profundidad en el plugin, vuelva a exportar y calcular, y revise los resultados y justificaciones de los informes HE/HE1. Si la geometría no permite el cálculo automático, utilice U justificada. No basta con dibujar el bloque de terreno para que el informe incorpore esa corrección.
 
 **Estanqueidad** es la fuente de renovación de aire de la cámara. Los niveles 1–5 corresponden a 0; 0,5; 1; 5 y 10 renovaciones por hora. Los niveles 3–5 declaran aberturas o juntas abiertas y permiten seleccionar el procedimiento de cámara ventilada. No añada otro dato de ventilación para esta comprobación ni confunda Estanqueidad con n50 o con la clase de permeabilidad de ventanas.
 

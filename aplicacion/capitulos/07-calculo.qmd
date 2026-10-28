@@ -96,7 +96,9 @@ El programa obtiene del IDF superficie, altura, perímetro expuesto, longitud ca
 
 La renovación de aire procede exclusivamente de **Estanqueidad**: los niveles 1, 2, 3, 4 y 5 representan respectivamente 0; 0,5; 1; 5 y 10 renovaciones por hora. Los horarios de ventilación del modelo no sustituyen esta selección. Para el procedimiento de cámara ventilada se utilizan los niveles 3–5; los niveles 1–2 no declaran aberturas de ventilación al exterior.
 
-La profundidad se deduce de una transición terreno/exterior inequívoca. Si no existe, introduzca únicamente **Profundidad de la cámara (m)** en el plugin, medida respecto al terreno real. La cota Z = 0 del modelo no define por sí sola ese nivel.
+Con **Profundidad de la cámara (m): Auto**, el programa adopta el terreno en **Z = 0 del modelo**. Calcula la profundidad desde esa cota hasta el suelo de la cámara, después de aplicar las transformaciones de zona del IDF. Un suelo en Z = −0,50 m tiene profundidad 0,50 m; a cota cero o superior se considera profundidad cero.
+
+**Terrenos elevados:** los bloques de componente de tipo terreno dibujados por encima de Z = 0 no elevan esta referencia automática. Si los ha utilizado, revise la profundidad real y el método y resultado de U de la cámara en los informes HE/HE1. Introduzca la profundidad correcta en el plugin, vuelva a exportar y calcular, y regenere el DOCX; si el caso queda fuera del procedimiento automático, documente una U justificada y corrija las justificaciones del informe. El DOCX identifica la referencia de profundidad utilizada.
 
 | Cámara ventilada fuera de la envolvente | Procedimiento |
 |---|---|

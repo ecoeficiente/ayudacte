@@ -2,4 +2,6 @@
 
 Secciones preparadas y marcadas como todavía no distribuidas en la aplicación (cálculo y documentación) y el plugin (parámetros). La tabla 3.2 se justifica externamente en los DOCX; no se gestionan unidades de uso. La ventilación de cámaras procede de Estanqueidad, no de horarios.
 
+Actualización de la profundidad automática: terreno en Z = 0 global. Ambas guías explican que los bloques de componente de tipo terreno elevados no cambian esa referencia y que el modelador debe corregir la profundidad y revisar/regenerar los informes HE/HE1. Rf > 3 sigue requiriendo justificación; la comparación conservadora con Rf = 3 se ha estudiado, sin activar todavía un truncamiento automático.
+
 Coordinar estas secciones con la entrega del programa y plugin actualizados. No publicar automáticamente. Al entregar, retirar el aviso de preparación de las tres secciones, regenerar/revisar ambas guías y sus PDF. Conservar las anclas `sec-tabla32` y `sec-camaras-sanitarias`.
