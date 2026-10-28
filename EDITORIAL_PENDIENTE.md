@@ -132,3 +132,14 @@ Seleccione la actuación, el ámbito representado por el modelo y el uso del edi
 En expedientes guardados con versiones anteriores puede faltar la altitud personalizada o el alcance parcial. En ese caso se toma la altitud del municipio y aparece Edificio completo. Revise ambos campos y guarde el expediente: los valores que no llegaron a guardarse no pueden recuperarse automáticamente.
 
 Revisión de la guía del plugin: el recorrido de exportación no cambia. La revisión y cumplimentación del ámbito corresponde a la aplicación; no se añade una confirmación en el plugin. Al distribuir, sustituir las instrucciones anteriores de confirmación en la guía de aplicación y regenerar y revisar su HTML y PDF. Esta preparación editorial no cambia las guías ni los PDF publicados.
+
+
+## Importación y preparación de informes — pendiente de distribución
+
+Añadir al apartado de importación de la guía de aplicación:
+
+Al importar datos de otro expediente o cambiar los datos del edificio, el programa vuelve a preparar el modelo necesario para los informes. Si los cambios afectan a la simulación, deberá calcular de nuevo antes de generar documentación que dependa de sus resultados.
+
+Las imágenes y los planos incorporados a un DBCTE se recuperan desde sus adjuntos, incluso si los datos conservan un nombre anterior o una ruta del equipo de origen. Se mantienen al importar, guardar y volver a abrir el proyecto.
+
+Revisada también la guía del plugin: no cambia la exportación ni se añade ningún paso. Integrar estos textos con la distribución de la corrección; HTML y PDF actuales permanecen sin cambios.
