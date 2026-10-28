@@ -56,7 +56,21 @@ DesignBuilder CTE ejecuta las simulaciones en una carpeta propia para cada exped
 %LOCALAPPDATA%\DesignBuilderCTE\Simulaciones
 ```
 
-Dentro encontrará una carpeta con el identificador del expediente. Las revisiones del mismo `.dbcte` comparten ubicación; para un IDF directo, la ubicación depende de su ruta completa. El registro del expediente indica la carpeta utilizada. Dentro de ella, las subcarpetas dependen del cálculo:
+Dentro encontrará una carpeta con el identificador del expediente. Las revisiones del mismo `.dbcte` comparten ubicación; para un IDF directo, la ubicación depende de su ruta completa. El nombre de la carpeta no muestra el nombre del archivo `.dbcte`: para conocer la correspondencia, consulte su registro siguiendo estos pasos.
+
+### Localizar la carpeta de un expediente desde su log {#sec-localizar-simulacion-log}
+
+1. Abra la carpeta donde está guardado el expediente y localice **`<nombre>Log.txt`**. Por ejemplo, para `Vivienda.dbcte`, abra `ViviendaLog.txt` con el Bloc de notas.
+2. Pulse **Ctrl+F** y busque **`Simulaciones\`**. La aplicación escribe la ruta al preparar cada simulación, en un mensaje que comienza por `EnergyPlus` e incluye `SHA-256` y `simulación`.
+3. Seleccione la entrada cuya **fecha, hora y tipo de cálculo** correspondan a la ejecución que quiere revisar. Puede haber varias entradas para el mismo expediente.
+4. Copie la **ruta completa que aparece después de `simulación`**, desde la letra de unidad hasta el final de la carpeta, y péguela en la barra de direcciones del Explorador. La ruta termina en el tipo de cálculo, por ejemplo `Qsol` o `Residencial`.
+5. En esa carpeta, abra **`in.idf`** para revisar el modelo simulado o **`eplusout.err`** para consultar los avisos y errores de EnergyPlus. Suba un nivel si desea ver las otras simulaciones del mismo expediente.
+
+Si no encuentra la entrada, compruebe que está consultando el log de la ejecución y del equipo correctos. La ruta se registra cuando se completa la preparación de la simulación; un fallo anterior puede impedir que aparezca. Consulte [Consultar el archivo de registro del expediente](11-resolucion-problemas.qmd#sec-log-expediente) para localizar registros anteriores o el registro general.
+
+### Tipos de cálculo y archivos de cada simulación
+
+Las subcarpetas dependen del cálculo:
 
 | Subcarpeta | Cálculo que permite revisar |
 |---|---|

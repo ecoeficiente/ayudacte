@@ -28,7 +28,7 @@ Para revisar un fallo:
 2. Abra la carpeta del expediente y localice su archivo `Log.txt` con el nombre completo del proyecto.
 3. Vaya al final del archivo y busque las entradas de esa operación. Lea también las líneas anteriores al error para conocer su contexto.
 4. Compruebe si el mensaje identifica un dato, equipo, archivo o ruta que deba revisar.
-5. Si el fallo procede de EnergyPlus, consulte también **`eplusout.err`** en la subcarpeta de simulación correspondiente; las rutas se explican en [Carpetas donde se ejecutan las simulaciones](09-archivos.qmd#sec-carpetas-simulacion).
+5. Si el fallo procede de EnergyPlus, busque **`Simulaciones\`** en este mismo log. En la entrada de esa ejecución, copie la ruta que aparece después de `simulación` y ábrala en el Explorador para consultar **`eplusout.err`**. Siga los pasos de [Localizar la carpeta de un expediente desde su log](09-archivos.qmd#sec-localizar-simulacion-log) si necesita identificar la carpeta entre varios expedientes.
 6. Conserve el registro de la incidencia antes de repetir el proceso y adjúntelo a la consulta de soporte junto con el mensaje mostrado por la aplicación.
 
 El registro puede contener mensajes de varias operaciones y sesiones. Compruebe siempre su fecha y hora; si hay registros archivados con una fecha en el nombre, seleccione el que corresponda a la incidencia.
