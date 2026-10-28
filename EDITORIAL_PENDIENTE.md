@@ -119,3 +119,16 @@ El DOCX detalla parámetros, método y procedencia de U. Al cambiar geometría, 
 Revise las divisorias entre unidades del mismo o distinto uso y entre unidades de uso y zonas comunes. El informe presenta los límites de la tabla 3.2 de HE1 para la zona climática de invierno y una tabla editable para documentar partición, unidades o zonas que separa, aplicabilidad, U, límite y resultado con su justificación. Complete esa tabla o adjunte una justificación identificada. En reformas, revise también qué particiones están afectadas por la intervención.
 
 La aplicación no identifica unidades de uso. La habitabilidad de una zona y su pertenencia a la envolvente no bastan para decidir esta condición. Una partición interior puede necesitar esta comprobación aunque no intervenga en U de envolvente o K. Los campos vacíos no acreditan cumplimiento; el documento requiere completar las verificaciones externas antes de integrarlo en la justificación de HE1.
+
+
+## Conservación de datos y ámbito HE — pendiente de distribución
+
+Texto preparado para `aplicacion/capitulos/06-aplicacion.qmd`, apartados de importación y ámbito HE:
+
+Al guardar, reabrir o importar los datos del edificio se conservan el alcance completo o parcial, la altitud introducida y la zona climática seleccionada. Una parte del edificio no sustituye la superficie total indicada para HE. La normativa de edificación, la de instalaciones y Otra normativa se recuperan independientemente. Si el origen no contiene una normativa o un registro catastral, el campo queda sin seleccionar: revise y complete esos datos.
+
+Seleccione la actuación, el ámbito representado por el modelo y el uso del edificio. Los informes HE/HE1 recogen expresamente esas selecciones; no hay una casilla adicional de confirmación. Revise su correspondencia con el modelo antes de utilizar los informes. Los datos incompletos y los ámbitos incompatibles con la actuación siguen dando lugar a comprobaciones pendientes.
+
+En expedientes guardados con versiones anteriores puede faltar la altitud personalizada o el alcance parcial. En ese caso se toma la altitud del municipio y aparece Edificio completo. Revise ambos campos y guarde el expediente: los valores que no llegaron a guardarse no pueden recuperarse automáticamente.
+
+Revisión de la guía del plugin: el recorrido de exportación no cambia. La revisión y cumplimentación del ámbito corresponde a la aplicación; no se añade una confirmación en el plugin. Al distribuir, sustituir las instrucciones anteriores de confirmación en la guía de aplicación y regenerar y revisar su HTML y PDF. Esta preparación editorial no cambia las guías ni los PDF publicados.
