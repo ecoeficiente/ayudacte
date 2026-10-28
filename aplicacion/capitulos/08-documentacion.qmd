@@ -49,9 +49,13 @@ Los informes HE y HE1 muestran el ámbito declarado y un resumen de las comproba
 - **No aplicable**: la comprobación queda fuera del ámbito declarado; no es un incumplimiento.
 - **Pendiente de datos**: falta información para determinar la aplicación o el resultado. El informe se identifica como diagnóstico incompleto.
 
-### Verificaciones a cargo del técnico {#sec-tabla32}
+### Tabla 3.2 y verificación del técnico {#sec-tabla32}
 
-Revise las comprobaciones que recoge el informe y complete las justificaciones que correspondan al proyecto. Conserve los cálculos y documentos de apoyo junto con el informe. Los campos vacíos no acreditan cumplimiento.
+Los informes HE y HE1 en DOCX incluyen **Limitación de descompensaciones**, con estado **Verificación a cargo del técnico**. Este estado identifica una justificación externa; no significa que la partición cumpla ni que se haya determinado su no aplicabilidad.
+
+Revise las divisorias entre unidades del mismo o distinto uso y entre unidades de uso y zonas comunes. El informe presenta los límites de la tabla 3.2 de HE1 para la zona climática de invierno y una tabla editable para documentar partición, unidades o zonas que separa, aplicabilidad, U, límite y resultado con su justificación. Complete esa tabla o adjunte una justificación identificada. En reformas, revise también qué particiones están afectadas por la intervención.
+
+La aplicación no identifica unidades de uso. La habitabilidad de una zona y su pertenencia a la envolvente no bastan para decidir esta condición. Una partición interior puede necesitar esta comprobación aunque no intervenga en U de envolvente o K. Los campos vacíos no acreditan cumplimiento; el documento requiere completar las verificaciones externas antes de integrarlo en la justificación de HE1.
 
 ### Alcance de las comprobaciones automáticas
 

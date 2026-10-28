@@ -51,9 +51,21 @@ La aplicación comprueba que el expediente es compatible, está completo y sus a
 
 **Expediente DBCTE consistente** significa que el contenido supera esa comprobación. No equivale a una firma digital ni acredita la identidad del autor o la exactitud técnica del certificado.
 
-### Localizar y abrir el expediente {#abrir-desde-windows}
+### Apertura desde el Explorador de Windows {#abrir-desde-windows}
 
-Localice el archivo `.dbcte` en su carpeta de trabajo. Inicie DesignBuilder CTE, pulse **Abrir proyecto** y seleccione ese archivo. Para recuperar el modelo en DesignBuilder, utilice **Importar modelo desde DBCTE** en el plugin.
+Los archivos `.dbcte` muestran el icono de DesignBuilder CTE y pueden abrirse con doble clic. Esta apertura corresponde a la aplicación de expedientes, no al programa de modelado DesignBuilder.
+
+Si la aplicación está cerrada, se inicia y abre el expediente. Si ya está abierta, se utiliza la misma ventana, restaurándola si estaba minimizada. Abrir de nuevo el mismo archivo solo activa la ventana; no vuelve a leerlo ni descarta lo que se esté editando.
+
+Al abrir otro proyecto, tanto mediante doble clic como desde **Abrir proyecto**, se ofrecen tres opciones:
+
+- **Guardar:** elegir el destino y guardar el proyecto actual antes de abrir el siguiente. Si se cancela el guardado o este falla, no se cambia de proyecto.
+- **Descartar:** continuar sin guardar las modificaciones del proyecto actual.
+- **Cancelar:** conservar el proyecto abierto.
+
+La pregunta se muestra siempre que haya otro proyecto abierto, aunque no recuerde haberlo modificado. Si hay un cálculo, una apertura u otra operación en curso, espere a que termine y repita el doble clic.
+
+Si Windows abre otra aplicación o muestra un icono diferente, pulse con el botón derecho sobre un `.dbcte`, elija **Abrir con > Elegir otra aplicación**, seleccione **DesignBuilder CTE** y confirme que desea usarla siempre para ese formato. La instalación respeta una elección anterior de aplicación predeterminada. Si el icono no se actualiza, cierre y vuelva a abrir la ventana del Explorador. Esta asociación no afecta a los archivos `.idf`.
 
 ### Procesamiento inicial
 
@@ -94,6 +106,16 @@ La importación requiere un proyecto de destino abierto y no copia el modelo ni 
 ### Importar datos del edificio
 
 **Importar datos del edificio** copia los datos administrativos y de certificado admitidos, incluidos referencias catastrales y adjuntos cuando están disponibles. No sustituye la geometría, los sistemas ni los resultados del modelo abierto.
+
+Al guardar, reabrir o importar se conservan el alcance completo o parcial, la altitud introducida y la zona climática seleccionada. La normativa de edificación, la de instalaciones y **Otra normativa** se recuperan independientemente. Si el origen no contiene una normativa o un registro catastral, el campo queda sin seleccionar: revíselo y complételo.
+
+Las imágenes y los planos incorporados a un DBCTE se recuperan desde sus adjuntos, incluso si conservan un nombre anterior o una ruta del equipo de origen. Se mantienen al importar, guardar y volver a abrir el proyecto.
+
+Al importar o cambiar los datos del edificio, el programa vuelve a preparar el modelo necesario para los informes. Si los cambios afectan a la simulación, deberá calcular de nuevo antes de generar documentación que dependa de sus resultados.
+
+::: {.callout-note title="Expedientes guardados con versiones anteriores" icon=false}
+Puede faltar la altitud personalizada o el alcance parcial si la versión anterior no llegó a guardarlos. En ese caso se toma la altitud del municipio y aparece **Edificio completo**. Revise ambos campos y guarde el expediente; los valores que no se guardaron no pueden recuperarse automáticamente.
+:::
 
 Después de importar, revise especialmente:
 
@@ -225,7 +247,7 @@ Seleccione el tipo de certificado, la escala y la fecha de calificación; revise
 
 En **Datos del Edificio > Ámbito HE**, seleccione la actuación: edificio existente sin intervención, nueva construcción, ampliación, reforma o cambio de uso. Esta declaración es independiente del tipo de certificado energético.
 
-Seleccione qué representa el modelo y confirme su correspondencia. El informe describe automáticamente el ámbito y el uso a partir de las selecciones del formulario, sin pedir un texto adicional. Una ampliación requiere un modelo de la parte ampliada; un cambio de uso puede corresponder a las unidades afectadas o al edificio completo. El programa no separa automáticamente los consumos de un modelo que incluya más superficie de la necesaria.
+Seleccione qué representa el modelo y revise su correspondencia con el edificio y el uso declarados. No se requiere una casilla adicional de confirmación. El informe describe automáticamente el ámbito y el uso a partir de las selecciones del formulario, sin pedir un texto adicional. Una ampliación requiere un modelo de la parte ampliada; un cambio de uso puede corresponder a las unidades afectadas o al edificio completo. El programa no separa automáticamente los consumos de un modelo que incluya más superficie de la necesaria.
 
 Complete las condiciones que se muestran para la actuación: exclusiones generales, superficies útiles, incrementos de superficie y volumen, renovación térmica y condiciones de ACS. Las cuatro preguntas de **Condiciones generales HE0 / HE1** parten de **No** si no tienen respuesta guardada; revise si alguna corresponde a su caso. Las respuestas **Sí** ya guardadas se conservan.
 
@@ -233,7 +255,7 @@ Complete las condiciones que se muestran para la actuación: exclusiones general
 
 Cuando tanto los Datos del Edificio como el ámbito HE corresponden al **edificio completo**, se reutiliza **Superficie útil (m²)** de Datos del Edificio y se oculta la entrada duplicada. Si alguno corresponde a una parte, se mantiene la superficie útil total independiente para no confundirla con la superficie de esa parte. En ambos casos se utiliza la superficie útil declarada, no la superficie energética calculada por la simulación. Las superficies de ampliación o cambio de uso siguen siendo datos específicos de la actuación.
 
-Los campos sin respuesta y los números vacíos o no válidos se consideran pendientes. Cambiar la actuación o el ámbito obliga a confirmar nuevamente; importar los datos de otro edificio también elimina la confirmación. Los datos se conservan al guardar el proyecto.
+Los campos sin respuesta y los números vacíos o no válidos se consideran pendientes. Los ámbitos incompatibles con la actuación también quedan pendientes; revise y corrija las selecciones antes de utilizar los informes. Los datos se conservan al guardar el proyecto.
 
 Estos datos afectan a la justificación HE. Tras modificarlos, vuelva a generar el informe; por sí solos no requieren repetir EnergyPlus.
 

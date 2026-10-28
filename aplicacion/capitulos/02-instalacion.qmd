@@ -54,6 +54,14 @@ La plantilla resulta útil si también desea analizar el modelo directamente en 
 Una DLL puede quedar bloqueada mientras DesignBuilder está abierto. Si la instalación o sustitución del plugin falla, cierre todas sus instancias y repita la operación.
 :::
 
+::: {.callout-note title="Comprobación al iniciar" icon=false}
+En cada inicio, DesignBuilder CTE compara el contenido del plugin y de la plantilla instalados con los archivos incluidos en la aplicación. Si falta alguno, es diferente o no puede leerse, muestra un aviso con **Abrir Configuración** y **Ahora no**. El aviso aparece antes de abrir un expediente solicitado desde el Explorador. Posponerlo permite continuar y vuelve a comprobarse en el siguiente inicio.
+
+La comprobación y la reparación reconocen también la ubicación antigua del plugin, `User Plugins/DBCTE`. Si es la única existente, se reutiliza. Si existen copias en `DBCTE` y en `DesignBuilder CTE`, se comprueban y actualizan ambas. No se crean duplicados ni se eliminan respaldos. Por ejemplo, una copia antigua puede ocultar la opción **Tipo de espacio no habitable: Cámara sanitaria** aunque la aplicación se haya actualizado.
+
+Cierre DesignBuilder antes de reparar y vuelva a abrirlo después. Si no puede comprobarse algún recurso, revise el detalle del aviso y los permisos. Si falta el archivo distribuido en la propia aplicación, reinstale DesignBuilder CTE con el paquete oficial. La comprobación de la plantilla no modifica los modelos DSB existentes.
+:::
+
 ## Instalar los climas normativos
 
 Instalar estos climas en DesignBuilder es opcional: DesignBuilder CTE utiliza sus propios archivos climáticos normativos durante el cálculo. Pueden ser útiles para realizar análisis directamente en DesignBuilder con los mismos datos climáticos utilizados por DesignBuilder CTE.

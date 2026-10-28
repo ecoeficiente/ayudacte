@@ -362,6 +362,10 @@ Si la inclusión de bibliotecas sigue activada o no puede comprobarse, el plugin
 
 El nombre elegido prepara el destino; compruebe la confirmación de creación y la apertura del archivo al terminar la exportación. Si se cancela o falla la exportación, repita el procedimiento.
 
+Después de exportar, puede abrir el `.dbcte` con doble clic desde el Explorador. DesignBuilder CTE utiliza una sola ventana y permite guardar, descartar o cancelar antes de cambiar de proyecto. Consulte [Abrir desde Windows](06-aplicacion.qmd#abrir-desde-windows).
+
+Para identificar una cámara sanitaria y declarar su profundidad o una U justificada, consulte [Cámaras sanitarias en la guía del plugin](https://ayudacte.ecoeficiente.es/plugin/capitulos/01-parametros.html#sec-camaras-sanitarias).
+
 ### Cancelar una creación pendiente
 
 Tras elegir destino, el menú ofrece **Cancelar creación del expediente**. Utilícelo para retirar la solicitud y evitar que la siguiente exportación complete ese destino. Después puede volver a iniciar **Crear expediente DBCTE**.
