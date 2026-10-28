@@ -26,6 +26,12 @@ Las capturas muestran los formularios reales del plugin y ejemplos de consulta. 
 
 Mantenga el modelo original como referencia. Las cifras de la vivienda sirven para aprender a manejar los controles, no como valores recomendados para otro edificio.
 
+::: {.callout-note title="Comprobar el plugin instalado" icon=false}
+**Próxima actualización, pendiente de distribución; no incluida en el MSI RC3 ya entregado.** DesignBuilder CTE comprobará al iniciar que el plugin y la plantilla coincidan con los de su instalación. Si avisa de una diferencia, cierre DesignBuilder, pulse **Abrir Configuración** y después **Reparar o reinstalar plugin y plantilla**. Vuelva a abrir DesignBuilder para cargar el plugin actualizado. **Ahora no** permite continuar y posponer la reparación.
+
+La reparación reconocerá las ubicaciones `User Plugins/DesignBuilder CTE` y `User Plugins/DBCTE`: reutiliza la antigua cuando es la única existente y actualiza ambas si ya coexisten. Una copia antigua puede explicar que falten opciones nuevas aunque se haya instalado una versión reciente de la aplicación. Consulte [Instalar el plugin y la plantilla](https://ayudacte.ecoeficiente.es/aplicacion/capitulos/02-instalacion.html#instalar-el-plugin-y-la-plantilla).
+:::
+
 ## Mapa de comandos de la versión actual
 
 ![Menú real del plugin con el modelo cargado.](assets/01-menu.jpg){width=40% fig-alt="Menú real del plugin con el modelo cargado."}
