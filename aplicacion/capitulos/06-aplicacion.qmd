@@ -55,6 +55,22 @@ La aplicación comprueba que el expediente es compatible, está completo y sus a
 
 **Expediente DBCTE consistente** significa que el contenido supera esa comprobación. No equivale a una firma digital ni acredita la identidad del autor o la exactitud técnica del certificado.
 
+### Apertura desde el Explorador de Windows {#abrir-desde-windows}
+
+**Próxima actualización, pendiente de distribución y de validación del instalador:** los archivos `.dbcte` mostrarán el icono de DesignBuilder CTE y podrán abrirse con doble clic. Esta apertura corresponde a la aplicación de expedientes, no al programa de modelado DesignBuilder.
+
+Si la aplicación está cerrada, se iniciará y abrirá el expediente. Si ya está abierta, se utilizará la misma ventana, restaurándola si estaba minimizada. Abrir de nuevo el mismo archivo solo activa la ventana; no vuelve a leerlo ni descarta lo que se esté editando.
+
+Al abrir otro proyecto, tanto mediante doble clic como desde **Abrir proyecto**, se ofrecerán tres opciones:
+
+- **Guardar:** elegir el destino y guardar el proyecto actual antes de abrir el siguiente. Si se cancela el guardado o este falla, no se cambia de proyecto.
+- **Descartar:** continuar sin guardar las modificaciones del proyecto actual.
+- **Cancelar:** conservar el proyecto abierto.
+
+La pregunta se mostrará siempre que haya otro proyecto abierto, aunque no recuerde haberlo modificado. Si hay un cálculo, una apertura u otra operación en curso, espere a que termine y repita el doble clic.
+
+Si Windows abre otra aplicación o muestra un icono diferente, pulse con el botón derecho sobre un `.dbcte`, elija **Abrir con > Elegir otra aplicación**, seleccione **DesignBuilder CTE** y confirme que desea usarla siempre para ese formato. La instalación respeta una elección anterior de aplicación predeterminada. Si el icono no se actualiza, cierre y vuelva a abrir la ventana del Explorador. Esta asociación no afecta a los archivos `.idf`.
+
 ### Procesamiento inicial
 
 Al abrir, la aplicación lee el modelo y los datos propios del IDF incluido en el expediente. Puede calcular propiedades iniciales necesarias —por ejemplo, datos de envolvente o control solar— antes de habilitar el resto de operaciones.
