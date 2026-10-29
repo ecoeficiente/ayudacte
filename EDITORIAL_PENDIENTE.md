@@ -18,3 +18,17 @@ Apartados actualizados:
 Ambos PDF regenerados y páginas afectadas revisadas visualmente. HTML generado y revisado en navegador; 1.581 referencias locales comprobadas sin errores. Publicación solicitada expresamente por el usuario junto con el instalador 1.0.0-rc.5. No quedan textos de esta corrección pendientes de integrar.
 
 No se atribuye la incidencia al tiempo de espera o al cambio de ventana: no se ha demostrado esa causa. La comprobación manual del nuevo instalador corresponde al usuario.
+
+## Zonas agrupadas — pendiente de distribución (29-10-2026)
+
+Destinos: plugin/capitulos/01-parametros.qmd, 02-puentes.qmd y 04-expediente.qmd; aplicacion/capitulos/05-plugin.qmd y 11-resolucion-problemas.qmd.
+
+Texto para parámetros y expediente:
+Las zonas hijas agrupadas no aparecen como zonas independientes en los selectores ni en el expediente. Si abre los parámetros desde una hija, el plugin abre su zona padre e indica el destino. Seleccionar directamente un cerramiento o hueco de la hija permite seguir editando ese elemento con su herencia habitual. Los datos zonales anteriores de las hijas se conservan para una eventual desagrupación.
+
+Texto para puentes:
+Cada conjunto agrupado tiene una fila, correspondiente al padre. El volumen y la superficie incluyen las zonas agrupadas; los totales por bloque atribuyen el conjunto al bloque del padre. Tras cambiar las agrupaciones, revise los valores manuales y utilice Cargar longitudes de zonas para actualizar las longitudes. No se suman automáticamente las longitudes manuales antiguas de las hijas. Si la geometría individual no permite estimar la conversión interior del conjunto, se conservan las longitudes nativas con un aviso. Revise su compatibilidad con los valores Ψ utilizados.
+
+No distribuido ni publicado. HTML y ambos PDF permanecen en la edición pública anterior; integrar estos textos y regenerarlos al entregar la corrección.
+
+Ampliación para ambos apartados de herencia: al aplicar Heredar hasta nivel de superficie o hueco, también se retira la excepción de ese parámetro guardada en las zonas hijas de esa rama. Los parámetros exclusivos de zona permanecen intactos. Los cambios se aplican al guardar; cancelar conserva los valores anteriores.
