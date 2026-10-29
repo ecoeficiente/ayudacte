@@ -1,5 +1,17 @@
 # Contenido pendiente de publicación
 
+## Indicador al abrir los editores — 29-10-2026, pendiente de distribución
+
+Destinos: `plugin/capitulos/01-parametros.qmd` (Seleccionar el destino), `plugin/capitulos/02-puentes.qmd` (apertura del editor), `aplicacion/capitulos/05-plugin.qmd` (parámetros y puentes) y `aplicacion/capitulos/11-resolucion-problemas.qmd` (espera al abrir el plugin).
+
+Texto para ambas guías:
+
+Al abrir **Asignar parámetros CTE** o **Editar puentes térmicos**, aparece un aviso con una barra animada mientras se preparan los datos. El mensaje identifica el editor que se está cargando. En modelos complejos la preparación puede tardar; espere a que termine para editar. El aviso se cierra automáticamente al finalizar la preparación. Si esta falla, el aviso se retira y se muestra el error.
+
+La barra indica actividad; no representa un porcentaje ni estima el tiempo restante. No permite cancelar la lectura del modelo. Una vez abierto el editor, siguen disponibles sus acciones habituales de Guardar y Cancelar.
+
+Cambio local sin distribuir. Incorporar estos textos y la captura del aviso al entregar el plugin; regenerar y revisar HTML y ambos PDF entonces. Las guías y los PDF públicos permanecen en la edición distribuida.
+
 ## Asignación múltiple de parámetros — pendiente de distribución (29-10-2026)
 
 Destinos: `plugin/capitulos/01-parametros.qmd` y `aplicacion/capitulos/05-plugin.qmd`, apartados de selección y herencia.
