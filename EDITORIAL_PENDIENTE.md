@@ -1,5 +1,17 @@
 # Contenido pendiente de publicación
 
+## Asignación múltiple de parámetros — pendiente de distribución (29-10-2026)
+
+Destinos: `plugin/capitulos/01-parametros.qmd` y `aplicacion/capitulos/05-plugin.qmd`, apartados de selección y herencia.
+
+Junto a cada parámetro, **Asignar a varios…** permite copiar el valor mostrado a otros elementos del mismo nivel del edificio actual. Por ejemplo, seleccione un cerramiento, indique su intervención HE y pulse el botón del campo. Marque en el árbol los cerramientos que deban recibir ese valor, aunque pertenezcan a otros bloques o zonas.
+
+El filtro busca por nombre sin distinguir mayúsculas ni tildes. **Seleccionar todo** y **Deseleccionar todo** afectan a los resultados del filtro. Al cambiarlo se conservan las selecciones anteriores: revise el contador de seleccionados ocultos antes de aplicar. El origen también puede seleccionarse. Las zonas hijas agrupadas no son destinos zonales independientes, pero sus cerramientos y huecos siguen disponibles.
+
+**Aplicar a seleccionados** fija una excepción local del parámetro en los destinos. VEEI copia también el uso elegido. Las excepciones de los descendientes se conservan. Si algún destino resulta incompatible, el mensaje identifica su ruta y no se aplica el lote. **Cancelar** en esta ventana descarta solo la selección; **Guardar** en el editor principal acepta las ediciones pendientes y **Cancelar** las descarta todas. Guarde después el DSB en DesignBuilder.
+
+La función se limita a Asignar parámetros CTE; no afecta al editor de puentes térmicos ni a otros edificios. Pendientes de distribución: integrar el texto, capturar la ventana y regenerar/verificar HTML y ambos PDF. La ayuda pública y los PDF permanecen sin cambios.
+
 Documento interno, excluido del sitio y de los PDF. Revisión editorial: 28-10-2026.
 
 Los textos de apertura desde Windows, comprobación del plugin y plantilla, cámaras sanitarias, tabla 3.2, conservación de datos e importación se integraron y publicaron con la entrega 1.0.0-rc.4. Su historial permanece en Git.
