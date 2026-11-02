@@ -1,5 +1,9 @@
 # Contenido pendiente de publicación
 
+## Asignación a todos los niveles compatibles — 02-11-2026
+
+Integrado en los apartados «Buscar y asignar a varios destinos» de ambas guías para RC7. HTML y PDF regenerados; comprobar el despliegue tras publicar.
+
 ## Integración de la revisión 1.0.0-rc.6 — 02-11-2026
 
 Los textos de los apartados históricos siguientes sobre revisión de campos, aspecto, carga, lotes, búsqueda, zonas agrupadas y entrada única se han integrado en las dos guías para RC6. Las notas originales se conservan como historial de preparación y sus indicaciones de pendiente quedan sustituidas por este estado. HTML y PDF se regeneran y revisan en esta tarea; comprobar el despliegue antes de considerarlos publicados.
