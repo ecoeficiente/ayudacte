@@ -8,7 +8,7 @@ book:
   title: "Guía del plugin de DesignBuilder CTE"
   subtitle: "Parámetros, puentes térmicos y creación del expediente"
   author: "Aurea Consulting"
-  date: "2026-10-27"
+  date: "2026-11-02"
   search: true
   navbar:
     title: "DesignBuilder CTE · Plugin"
@@ -32,7 +32,7 @@ book:
   bread-crumbs: true
   page-footer:
     left: "DesignBuilder CTE · Aurea Consulting"
-    right: "Guía del plugin · Octubre de 2026"
+    right: "Guía del plugin · Noviembre de 2026"
   chapters:
     - index.qmd
     - capitulos/01-parametros.qmd

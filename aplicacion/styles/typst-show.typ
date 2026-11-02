@@ -27,7 +27,7 @@
   v(.5em)
   text(size: 13pt)[$subtitle$]
   v(.5em)
-  text(size: 9pt)[Aurea Consulting · 25 de octubre de 2026]
+  text(size: 9pt)[Aurea Consulting · 2 de noviembre de 2026]
   v(1em)
   pagebreak()
   outline(title: [Contenido], depth: 2)
