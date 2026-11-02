@@ -2,6 +2,10 @@
 
 ## Seleccionar el destino
 
+Al abrir el editor aparece una barra animada mientras se preparan los datos. Espere a que termine: indica actividad, no porcentaje ni tiempo restante. Si falla, se cierra antes de mostrar el error.
+
+![Aviso de carga al abrir los parámetros.](../assets/carga-parametros-rc6.png){width=65% fig-alt="Aviso de carga de parámetros CTE con barra de actividad."}
+
 1. Seleccione el edificio y abra **Asignar parámetros CTE**.
 2. Lea la cabecera y el selector de nivel; compruebe el objeto de destino.
 3. Introduzca los valores comunes en el nivel más alto que los comparta.
@@ -11,9 +15,19 @@
 
 El editor muestra solo los campos disponibles en el nivel seleccionado. La ausencia de un campo en un hueco no significa que el dato se haya borrado del edificio.
 
-![Edificio: estanqueidad y selector VEEI.](../assets/02-edificio.png){width=90% fig-alt="Edificio: estanqueidad y selector VEEI."}
+![Edificio: estanqueidad y selector VEEI.](../assets/parametros-rc6.png){width=90% fig-alt="Edificio: estanqueidad y selector VEEI."}
 
 Para trabajar sobre una superficie o un hueco, seleccione primero ese elemento en DesignBuilder y después abra el editor. El selector mostrado en las capturas permite recorrer edificio, bloques y zonas. La cabecera identifica el destino: compruébela antes de editar.
+
+### Buscar y asignar a varios destinos
+
+El selector principal permite **Buscar por nombre o ruta**, sin distinguir mayúsculas ni tildes. El destino activo se mantiene aunque no coincida con el filtro; vacíelo para recuperar la lista. Las zonas hijas agrupadas se representan por su zona padre: al abrir desde una hija, el editor informa del destino. Los cerramientos y huecos de las hijas siguen disponibles. Los datos zonales anteriores se conservan para una eventual desagrupación.
+
+El icono de árbol situado junto a cada campo abre **Asignar a varios…** y permite copiar el valor mostrado a elementos del mismo nivel del edificio. Marque los destinos en el árbol; el filtro busca por nombre y **Seleccionar todo / Deseleccionar todo** afecta a los resultados filtrados. Al cambiar el filtro se conservan las selecciones: compruebe el contador de elementos ocultos. En VEEI se copia también el uso.
+
+**Aplicar a seleccionados** muestra una vista previa con ruta, valor anterior, origen local o heredado y nuevo valor. **Volver** o cerrar no aplica el lote. **Aplicar lote** fija excepciones locales y conserva las excepciones de los descendientes. Si un destino es incompatible, se identifica y no se aplica el lote.
+
+**Deshacer último lote** recupera los valores o la herencia anteriores del último lote de la sesión, conservando los demás parámetros. Solo hay un nivel de deshacer; si luego se modifica ese mismo parámetro en un destino, se avisa y no se revierte parcialmente. Para conservar los cambios pulse **Guardar** en el editor y guarde el DSB. **Cancelar** el editor descarta la sesión.
 
 ## Campos y finalidad
 
@@ -61,6 +75,8 @@ DesignBuilder CTE prepara el cerramiento de simulación con la transmitancia cal
 **Heredar todo** retira las excepciones aplicables del editor. Antes de usarlo, revise qué datos desea mantener. No edite manualmente las etiquetas de DesignBuilder para simular herencia.
 
 **Guardar** acepta los cambios preparados. **Cancelar** los descarta. Los colores ayudan a localizar el origen; la descripción textual permite distinguirlo sin depender solo del color.
+
+Al aplicar herencia hasta superficie o hueco se retira también la excepción de ese parámetro en las zonas hijas agrupadas de la rama; los parámetros exclusivos de zona se conservan. Los cambios se aplican al guardar; cancelar conserva los valores anteriores.
 
 ## Tipo de zona y envolvente
 

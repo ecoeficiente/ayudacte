@@ -103,7 +103,7 @@ Seleccione **Datos del Certificador**. Complete los grupos Profesional, Entidad 
 
 ## 9. Revisar errores y guardar
 
-Si aparece **Revisar campos**, despliegue la lista y seleccione un error para ir a la entrada correspondiente. Revise también las secciones no visibles.
+Si aparece **Campos pendientes** al solicitar HE o XML base, seleccione un error para ir al campo correspondiente. Corríjalo y vuelva a solicitar la generación.
 
 Pulse **Guardar** y, cuando se solicite el destino, seleccione el expediente `.dbcte` del proyecto. Compruebe el nombre que queda en la cabecera. La edición queda guardada; puede continuar con los parámetros del modelo.
 

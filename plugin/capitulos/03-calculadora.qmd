@@ -2,6 +2,8 @@
 
 ## Organizar cálculos del edificio {#organizar-cálculos-del-edificio}
 
+Al abrir la calculadora, **Cargando calculadora de puentes…** muestra actividad mientras se preparan los datos. Espere a que se cierre; la barra no representa porcentaje ni tiempo restante. Si ocurre un error, el aviso se retira antes de mostrarlo.
+
 Abra **Calculadora de puentes térmicos** desde el menú. El conjunto permite reutilizar un cálculo en varios encuentros compatibles, conservando sus revisiones y asignaciones.
 
 | Acción | Efecto |

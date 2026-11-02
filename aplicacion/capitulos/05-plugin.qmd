@@ -2,6 +2,10 @@
 
 Con el modelo preparado, utilice el plugin para asignar parámetros CTE, revisar puentes térmicos y crear el expediente `.dbcte`. Trabaje desde los valores comunes del edificio hacia las excepciones. Las capturas muestran una vivienda de ejemplo; sus valores no son valores recomendados para otros proyectos.
 
+::: {.callout-note title="Versión del plugin"}
+Las funciones de búsqueda, lotes y expediente aquí descritas corresponden a la versión 1.0.0-rc.6. Algunas capturas de otras ventanas proceden de versiones anteriores.
+:::
+
 ## Menú del plugin {#sec-menu-plugin}
 
 Con el modelo cargado, abra **DesignBuilder CTE** en la barra superior.
@@ -10,16 +14,17 @@ Con el modelo cargado, abra **DesignBuilder CTE** en la barra superior.
 |---|---|
 | Asignar parámetros CTE | Completar parámetros del edificio y excepciones por niveles |
 | Editar puentes térmicos | Revisar las longitudes, Ψ y aportaciones de los encuentros |
-| Crear expediente DBCTE | Elegir el destino y preparar la siguiente exportación IDF |
-| Cancelar creación del expediente | Retirar la solicitud de creación pendiente |
+| Crear expediente DBCTE… | Elegir el destino y preparar la siguiente exportación IDF |
 | Calculadora de puentes térmicos | Organizar cálculos Ψ del edificio y asignarlos a encuentros |
 | Importar modelo desde DBCTE | Recuperar en DesignBuilder el modelo incluido en un expediente |
 
-Con un modelo abierto, **Crear expediente DBCTE** y **Cancelar creación del expediente** están disponibles. Su presencia no indica que haya una solicitud pendiente. Al pulsar **Crear expediente DBCTE**, se elige el destino; si ya hay una solicitud pendiente, el plugin muestra su ruta y explica cómo completarla o cancelarla. Elegir un destino prepara la solicitud; el expediente se completa después de la exportación IDF.
+Con un modelo abierto, **Crear expediente DBCTE…** permite elegir el destino. Si ya hay una solicitud pendiente, muestra su ruta y el aviso **Pendiente de exportar el IDF**. **Volver a DesignBuilder**, Escape o cerrar la ventana conservan la solicitud; **Cancelar creación** la retira. Elegir el destino prepara la solicitud: exporte el IDF de simulación para completar el expediente.
 
 La carga de longitudes está dentro de **Editar puentes térmicos**, mediante **Cargar longitudes de zonas…**.
 
 ## Aspecto y manejo de las ventanas {#sec-interfaz-plugin}
+
+Al abrir parámetros, puentes o la calculadora aparece una barra animada mientras se preparan los datos. Espere a que termine: indica actividad, no porcentaje ni tiempo restante. Si falla, se cierra antes de mostrar el error.
 
 La cabecera y el selector identifican el edificio, bloque o zona que está editando. Compruebe el destino antes de cambiar un dato. Amplíe la ventana o desplácese para acceder a las entradas inferiores y a sus ayudas.
 
@@ -54,13 +59,25 @@ El editor muestra únicamente los campos disponibles en el nivel seleccionado. Q
 
 Las superficies y huecos se identifican mediante el título y los datos disponibles del objeto, como tipo, área, orientación o condición interior/exterior. Dos elementos con el mismo nombre siguen siendo independientes: compruebe su zona y superficie de origen.
 
-![Parámetros del edificio: estanqueidad y selección de VEEI.](../assets/plugin/02-edificio.png){width=90% fig-alt="Parámetros del edificio: estanqueidad y selección de VEEI."}
+![Parámetros del edificio: estanqueidad y selección de VEEI.](../assets/plugin/parametros-rc6.png){width=90% fig-alt="Parámetros del edificio: estanqueidad y selección de VEEI."}
+
+### Buscar y asignar a varios destinos
+
+El selector principal permite **Buscar por nombre o ruta**, sin distinguir mayúsculas ni tildes. El destino activo se mantiene aunque no coincida con el filtro; vacíelo para recuperar la lista. Las zonas hijas agrupadas se representan por su zona padre: al abrir desde una hija, el editor informa del destino. Los cerramientos y huecos de las hijas siguen disponibles. Los datos zonales anteriores se conservan para una eventual desagrupación.
+
+El icono de árbol situado junto a cada campo abre **Asignar a varios…** y permite copiar el valor mostrado a elementos del mismo nivel del edificio. Marque los destinos en el árbol; el filtro busca por nombre y **Seleccionar todo / Deseleccionar todo** afecta a los resultados filtrados. Al cambiar el filtro se conservan las selecciones: compruebe el contador de elementos ocultos. En VEEI se copia también el uso.
+
+**Aplicar a seleccionados** muestra una vista previa con ruta, valor anterior, origen local o heredado y nuevo valor. **Volver** o cerrar no aplica el lote. **Aplicar lote** fija excepciones locales y conserva las excepciones de los descendientes. Si un destino es incompatible, se identifica y no se aplica el lote.
+
+**Deshacer último lote** recupera los valores o la herencia anteriores del último lote de la sesión, conservando los demás parámetros. Solo hay un nivel de deshacer; si luego se modifica ese mismo parámetro en un destino, se avisa y no se revierte parcialmente. Para conservar los cambios pulse **Guardar** en el editor y guarde el DSB. **Cancelar** el editor descarta la sesión.
 
 ## Valor local, heredado y efectivo
 
 El **valor efectivo** es el que resulta después de resolver la herencia. Para retirar una excepción, pulse con el botón derecho sobre su campo y elija **Heredar del nivel superior**: pasará de rojo a azul. Cambiar un campo no convierte los demás en locales.
 
 **Heredar todo** retira las excepciones heredables del objeto. Revise antes qué datos desea conservar. **Guardar** acepta los cambios y **Cancelar** los descarta.
+
+Al aplicar herencia hasta superficie o hueco se retira también la excepción de ese parámetro en las zonas hijas agrupadas de la rama; los parámetros exclusivos de zona se conservan. Los cambios se aplican al guardar; cancelar conserva los valores anteriores.
 
 ## Diccionario de parámetros
 
@@ -176,6 +193,10 @@ Los campos de opacos y huecos se editan por separado en **Asignar parámetros CT
 Las marcas describen la actuación; no cambian por sí mismas materiales, instalaciones o propiedades físicas. Los elementos sin valor local utilizan el heredado o **Sin intervención**. Revise las excepciones y el alcance del modelo antes de generar la documentación HE.
 
 ## Puentes térmicos {#sec-puentes-termicos}
+
+Al abrir el editor espere a que termine el aviso de carga. **Buscar por nombre o ruta** filtra sin distinguir mayúsculas ni tildes; no cambia el destino activo. Vacíe el filtro para recuperar la lista.
+
+Cada conjunto de zonas agrupadas tiene una fila para la zona padre: volumen y superficie incluyen el grupo y los totales se atribuyen al bloque del padre. Tras cambiar agrupaciones, revise los valores manuales y use **Cargar longitudes de zonas**; las longitudes manuales anteriores de las hijas no se suman automáticamente. Si no puede estimarse la conversión interior, se conservan las longitudes nativas con un aviso: compruebe su compatibilidad con Ψ.
 
 Abra **Editar puentes térmicos**. La cabecera muestra el criterio dimensional **Interior** o **Exterior**. Seleccione edificio, bloque o zona y revise cada tarjeta: longitud L, transmitancia lineal Ψ, origen y aportación.
 
@@ -368,7 +389,7 @@ Para identificar una cámara sanitaria y declarar su profundidad o una U justifi
 
 ### Cancelar una creación pendiente
 
-Pulse **Cancelar creación del expediente** para retirar la solicitud y evitar que la siguiente exportación complete ese destino. Después puede volver a iniciar **Crear expediente DBCTE**. Ambos comandos permanecen disponibles con un modelo abierto; si no hay una solicitud pendiente, el plugin lo indica al pulsar Cancelar.
+Abra **Crear expediente DBCTE…** y pulse **Cancelar creación**. La siguiente exportación ya no completará esa solicitud. Puede volver a **Crear expediente DBCTE…** para elegir otro destino.
 
 Cancelar la solicitud no borra un expediente que ya se haya creado.
 

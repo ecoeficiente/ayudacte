@@ -52,6 +52,10 @@ El log es un archivo externo y no se incorpora al `.dbcte`. Para enviarlo a sopo
 
 Cierre DesignBuilder y pulse **Reparar o reinstalar plugin y plantilla** en **Configuración** de DesignBuilder CTE. Reabra DesignBuilder y cargue un modelo. Si el menú sigue ausente, revise el estado de integración y comunique las versiones a soporte. El procedimiento completo está en [Instalación y configuración inicial](02-instalacion.qmd#sec-instalacion). **Carpeta de plugin y plantilla** abre el material distribuido, no la carpeta del plugin activo.
 
+### El editor tarda en abrirse
+
+Al abrir parámetros, puentes o la calculadora aparece una barra animada mientras se preparan los datos. Espere a que se cierre; no representa un porcentaje ni permite cancelar. Si falla la preparación, se cierra antes de mostrar el error.
+
 ### El editor no muestra un parámetro
 
 Compruebe el nivel seleccionado. Cada etiqueta solo aparece en los ámbitos admitidos. Por ejemplo, la pertenencia a la envolvente se define en zona y `D`/`Ra` en edificio.
@@ -88,7 +92,7 @@ Corrija el campo señalado y pulse **Guardar**. Si no quiere conservar los cambi
 
 Cada solicitud genera un solo expediente. Compruebe el mensaje **Expediente creado correctamente**, la ruta y la fecha del archivo antes de utilizarlo. Si la primera exportación de una solicitud sigue sin generar el expediente, conserve la hora del intento y cualquier mensaje de error para comunicar la incidencia.
 
-En versiones anteriores del plugin, el menú puede seguir mostrando **Cancelar creación del expediente** después de terminar y ocultar **Crear expediente DBCTE**. Pulse **Cancelar**, prepare una nueva solicitud con **Crear expediente DBCTE** y exporte el IDF de simulación. Actualice el plugin para disponer de ambos comandos y de la comprobación del estado al pulsarlos.
+En versiones anteriores del plugin, el menú puede seguir mostrando **Cancelar creación del expediente** después de terminar y ocultar **Crear expediente DBCTE**. Pulse **Cancelar**, prepare una nueva solicitud con **Crear expediente DBCTE** y exporte el IDF de simulación. Actualice el plugin para disponer de la entrada única que comprueba el estado de la solicitud.
 
 ## Apertura de proyectos
 
@@ -112,7 +116,7 @@ Si la aplicación no puede leer datos administrativos persistidos, pruebe con un
 
 | Síntoma | Comprobación | Acción |
 |---|---|---|
-| No se puede generar documentación | Busque campos obligatorios vacíos o con error | Complete edificio, certificado y certificador |
+| No se puede generar documentación | Aparece Campos pendientes con datos vacíos o erróneos | Pulse cada entrada, corrija el campo y vuelva a solicitar HE, XML base o reprocesado |
 | Referencia catastral rechazada | Registro y formato mostrado | Quite separadores, revise dígitos y seleccione el registro correcto |
 | Referencias incompatibles tras cambiar registro | Tabla existente | Elimine o corrija las referencias que pertenecen al registro anterior |
 | Zona climática inesperada | Provincia, municipio y altitud | Corrija la ubicación; no escriba manualmente una zona para compensar |

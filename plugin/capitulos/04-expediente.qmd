@@ -25,6 +25,8 @@ Compruebe estas opciones en sus niveles correspondientes:
 
 El plugin comprueba las cinco primeras opciones; la selección del edificio completo debe comprobarla el usuario. La ventilación natural de origen se elimina al preparar el cálculo normativo; mantener Programada es un requisito de compatibilidad. La ventilación mecánica se define mediante HVAC detallado y sus conexiones en **Sistema HVAC**.
 
+Las zonas hijas agrupadas no aparecen como zonas independientes en el expediente; se representan por su zona padre. Los cerramientos y huecos de las hijas siguen disponibles en el modelo.
+
 ## Crear un DBCTE
 
 1. Abra **DesignBuilder CTE > Crear expediente DBCTE**.
@@ -53,7 +55,7 @@ Si Windows no lo abre en DesignBuilder CTE, use **Abrir con > Elegir otra aplica
 
 ## Cancelar una solicitud pendiente
 
-Pulse **Cancelar creación del expediente** si no quiere que la siguiente exportación complete la solicitud preparada. Después, vuelva a iniciar **Crear expediente DBCTE** para preparar otro destino. Ambos comandos permanecen disponibles con un modelo abierto; si no hay una solicitud pendiente, el plugin lo indica al pulsar Cancelar.
+Abra **Crear expediente DBCTE…** y pulse **Cancelar creación**. La siguiente exportación ya no completará esa solicitud. Puede volver a **Crear expediente DBCTE…** para elegir otro destino.
 
 Cancelar la solicitud no borra un expediente previamente creado.
 
@@ -87,7 +89,7 @@ Esta operación recupera el modelo incluido en el expediente. No recupera result
 
 Si falta el aviso de creación, pulse **Crear expediente DBCTE** para comprobar el estado: si muestra una solicitud pendiente, revise el destino y complete la exportación IDF de **Simulación**; si abre el selector de destino, prepare una nueva solicitud. Compruebe la fecha del archivo antes de utilizarlo. Si la primera exportación de una solicitud sigue sin generar el expediente, conserve la hora del intento y cualquier mensaje de error para comunicar la incidencia.
 
-En versiones anteriores, el menú puede seguir mostrando **Cancelar creación del expediente** después de terminar y ocultar **Crear expediente DBCTE**. En ese caso, pulse **Cancelar**, prepare una nueva solicitud con **Crear expediente DBCTE** y exporte el IDF de simulación. Actualice el plugin para disponer de ambos comandos y de la comprobación del estado al pulsarlos.
+En versiones anteriores, el menú puede seguir mostrando **Cancelar creación del expediente** después de terminar y ocultar **Crear expediente DBCTE**. En ese caso, pulse **Cancelar**, prepare una nueva solicitud con **Crear expediente DBCTE** y exporte el IDF de simulación. Actualice el plugin para disponer de la entrada única que comprueba el estado de la solicitud.
 
 | Situación | Qué revisar |
 |---|---|

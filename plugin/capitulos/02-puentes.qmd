@@ -2,6 +2,10 @@
 
 ## Leer la tabla
 
+Al abrir el editor espere a que termine el aviso de carga. **Buscar por nombre o ruta** filtra sin distinguir mayúsculas ni tildes; no cambia el destino activo. Vacíe el filtro para recuperar la lista.
+
+Cada conjunto de zonas agrupadas tiene una fila para la zona padre: volumen y superficie incluyen el grupo y los totales se atribuyen al bloque del padre. Tras cambiar agrupaciones, revise los valores manuales y use **Cargar longitudes de zonas**; las longitudes manuales anteriores de las hijas no se suman automáticamente. Si no puede estimarse la conversión interior, se conservan las longitudes nativas con un aviso: compruebe su compatibilidad con Ψ.
+
 1. Seleccione el edificio y abra **Editar puentes térmicos**.
 2. Lea el criterio dimensional de la cabecera.
 3. Elija edificio, bloque o zona en el selector.
@@ -90,6 +94,8 @@ Use el botón derecho en Ψ, número de pilares o porcentaje de esquinas:
 Desde edificio se conserva el valor del edificio y se retiran las excepciones inferiores del parámetro. Desde bloque se recupera primero el valor superior. Las longitudes de zona no se heredan mediante estas acciones.
 
 Azul identifica un valor heredado o predeterminado; rojo, un valor local. Después de recuperar la herencia, compruebe el valor efectivo y guarde el editor y el DSB.
+
+Al aplicar herencia hasta superficie o hueco se retira también la excepción de ese parámetro en las zonas hijas agrupadas de la rama; los parámetros exclusivos de zona se conservan. Los cambios se aplican al guardar; cancelar conserva los valores anteriores.
 
 ## Calcular o editar Ψ
 

@@ -1,5 +1,9 @@
 # Trabajar con DesignBuilder CTE {#sec-aplicacion}
 
+::: {.callout-note title="Versión de esta guía"}
+Las funciones de revisión de campos y las novedades del plugin descritas en esta guía corresponden a la versión 1.0.0-rc.6; en versiones anteriores pueden no estar disponibles o funcionar de otra forma.
+:::
+
 ## Inicio y navegación
 
 Al iniciar, DesignBuilder CTE comprueba la configuración y la licencia. Si otra instancia está activa, utilice esa ventana. Si acaba de cerrarla, espere a que termine el cierre antes de volver a abrirla.
@@ -15,6 +19,8 @@ La navegación principal contiene:
 La cabecera muestra el nombre del proyecto abierto y permite **Abrir proyecto** y **Guardar** desde cualquier página. En **Cálculos y Documentación** se encuentran la importación, el cálculo y la generación de documentos. Los datos pueden revisarse en cualquier orden, pero deben estar completos y válidos antes de generar los documentos que los utilizan.
 
 En ventanas amplias, el menú lateral muestra los nombres de las páginas. Al reducir la ventana se recogen los nombres; el botón de menú permite desplegarlos. Los formularios distribuyen sus campos en una o dos columnas según el espacio disponible.
+
+![Ventana de la aplicación con el menú de navegación desplegado.](../assets/ventana-rc6.png){width=100% fig-alt="Ventana de DesignBuilder CTE con el menú de navegación desplegado."}
 
 Sin proyecto abierto, la pantalla de cálculo ofrece abrir uno y conserva el acceso a **Abrir XML Medidas** y **Generar PDF desde XML**, que permiten trabajar con un XML existente.
 
@@ -39,7 +45,7 @@ Se necesita conexión a Internet. Si el programa no puede iniciar el navegador, 
 
 En ventanas estrechas, las pestañas se sustituyen por un selector con las mismas secciones. Cambiar de sección conserva lo escrito y la posición de desplazamiento; utilice **Guardar** para conservarlo en el expediente.
 
-Los errores de los campos se muestran debajo de la entrada después de editarla y salir de ella, o después de solicitar una operación que comprueba el formulario completo. El desplegable **Revisar campos** reúne los campos con errores; al pulsar uno, abre su sección y lleva el foco a la entrada correspondiente. Una sección que no está a la vista también puede contener datos pendientes.
+Los errores se muestran debajo de cada entrada. Al solicitar el informe HE, el XML base o el reprocesado, si faltan datos aparece **Campos pendientes**, con los errores del edificio y del certificador. Pulse una entrada para abrir su apartado y campo; para errores generales utilice **Abrir apartado**. Corrija los datos y vuelva a solicitar la operación: cerrar la lista no continúa la generación. Las referencias catastrales incompatibles remiten al registro y a su lista. Calcular y HE1 mantienen sus propios requisitos, sin exigir datos adicionales del certificador.
 
 ## Abrir un proyecto
 

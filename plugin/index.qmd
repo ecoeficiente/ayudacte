@@ -7,13 +7,17 @@ Esta guía sigue el mismo recorrido que la guía de la aplicación: objetivo, ac
 Los nombres de pestañas y nodos corresponden a la interfaz en español: **Actividad**, **Cerramientos**, **Huecos**, **Iluminación**, **HVAC** y **Sistema HVAC**.
 
 ::: {.callout-note title="Cómo utilizar esta guía"}
-Las capturas muestran los formularios reales del plugin y ejemplos de consulta. El caso práctico utiliza una vivienda y la captura de parámetros muestra un edificio de evaluación. Los valores del ejercicio no constituyen una validación técnica del edificio. La exportación completa y la reimportación deben verificarse en cada expediente.
+Las capturas muestran los formularios del plugin y ejemplos de consulta; algunas ventanas pueden corresponder a versiones anteriores. El caso práctico utiliza una vivienda y la captura de parámetros muestra un edificio de evaluación. Los valores del ejercicio no constituyen una validación técnica del edificio. La exportación completa y la reimportación deben verificarse en cada expediente.
 :::
 
 ::: {.callout-note title="Comprobar el plugin instalado" icon=false}
 DesignBuilder CTE comprueba al iniciar que el plugin y la plantilla coincidan con los de su instalación. Si avisa de una diferencia, cierre DesignBuilder, pulse **Abrir Configuración** y después **Reparar o reinstalar plugin y plantilla**. Vuelva a abrir DesignBuilder para cargar el plugin actualizado. **Ahora no** permite continuar y posponer la reparación.
 
 La reparación reconoce las ubicaciones `User Plugins/DesignBuilder CTE` y `User Plugins/DBCTE`: reutiliza la antigua cuando es la única existente y actualiza ambas si ya coexisten. Una copia antigua puede explicar que falten opciones nuevas aunque se haya instalado una versión reciente de la aplicación. Consulte [Instalar el plugin y la plantilla](https://ayudacte.ecoeficiente.es/aplicacion/capitulos/02-instalacion.html#instalar-el-plugin-y-la-plantilla).
+:::
+
+::: {.callout-note title="Versión de esta guía"}
+Las novedades de parámetros, puentes y expediente descritas aquí corresponden a la versión 1.0.0-rc.6; en versiones anteriores pueden no estar disponibles o funcionar de otra forma.
 :::
 
 ## Elegir un recorrido
@@ -39,11 +43,10 @@ Mantenga el modelo original como referencia. Las cifras de la vivienda sirven pa
 | Asignar parámetros CTE | Editar parámetros y excepciones en la jerarquía | Datos CTE guardados en el modelo |
 | Editar puentes térmicos | Revisar L, Ψ y aportación por tipo de encuentro | Tabla completa de puentes |
 | Calculadora de puentes térmicos | Gestionar cálculos y asignarlos a encuentros | Conjunto de cálculos Ψ del edificio |
-| Crear expediente DBCTE | Elegir el destino y preparar la siguiente exportación IDF | Solicitud de creación pendiente |
-| Cancelar creación del expediente | Retirar la solicitud pendiente | La siguiente exportación ya no completa esa solicitud |
+| Crear expediente DBCTE… | Elegir el destino y preparar la siguiente exportación IDF | Solicitud de creación pendiente |
 | Importar modelo desde DBCTE | Recuperar el modelo contenido en un expediente | Modelo nuevo en DesignBuilder |
 
-Con un modelo abierto, **Crear expediente DBCTE** y **Cancelar creación del expediente** están disponibles. Su presencia no indica que haya una solicitud pendiente. Al pulsar **Crear expediente DBCTE**, se elige el destino; si ya hay una solicitud pendiente, el plugin muestra su ruta y explica cómo completarla o cancelarla. Elegir un destino no significa que el expediente ya esté creado: falta completar la exportación IDF.
+Con un modelo abierto, **Crear expediente DBCTE…** permite elegir el destino. Si ya hay una solicitud pendiente, muestra su ruta y el aviso **Pendiente de exportar el IDF**. **Volver a DesignBuilder**, Escape o cerrar la ventana conservan la solicitud; **Cancelar creación** la retira. Elegir el destino prepara la solicitud: exporte el IDF de simulación para completar el expediente.
 
 ## Los tres niveles de guardado
 

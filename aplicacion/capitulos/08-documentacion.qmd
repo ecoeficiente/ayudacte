@@ -10,6 +10,8 @@ Complete los datos requeridos y use resultados vigentes antes de generar documen
 HE1 puede requerir una simulación de control solar; HE y XML necesitan resultados energéticos válidos. El PDF utiliza el XML final completado en XML Medidas.
 
 
+Si al solicitar HE, XML base o reprocesado aparece **Campos pendientes**, seleccione cada entrada para abrir el dato, corrija los errores y repita la solicitud. Cerrar la lista no genera la documentación. Consulte [Localizar y corregir campos](06-aplicacion.qmd#localizar-y-corregir-campos).
+
 ## Informes HE
 
 ### Informe HE1
