@@ -1,5 +1,10 @@
 # Contenido pendiente de publicación
 
+## DSB reducido en expedientes — RC8, pendiente de aceptación manual
+
+Fuentes completas preparadas en `editorial/dsb-v2/`: creación y apertura en ambas guías, extracción de DSB, mapa de archivos, revisión, problemas y glosario. Retiran el requisito de bibliotecas XML y explican que CTE conserva el DSB sin modificarlo. Incorporar a las guías al distribuir RC8, después de la aceptación; mantener anclas antiguas y actualizar ambos PDF.
+
+
 ## Asignación a todos los niveles compatibles — 02-11-2026
 
 Integrado en los apartados «Buscar y asignar a varios destinos» de ambas guías para RC7. HTML y PDF regenerados; comprobar el despliegue tras publicar.

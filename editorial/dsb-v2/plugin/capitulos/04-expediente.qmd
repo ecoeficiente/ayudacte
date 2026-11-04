@@ -1,0 +1,117 @@
+# Crear, recuperar y revisar el expediente
+
+## Comprobaciones previas
+
+1. Guarde el DSB de trabajo.
+2. Seleccione el edificio correcto.
+3. Revise HVAC detallado, terreno estándar, ventilación natural programada, volumen interior y área de suelo interior.
+4. Compruebe clasificación de zonas y pertenencia a la envolvente.
+5. Revise parámetros, longitudes, Ψ y excepciones.
+6. Prepare una carpeta de salida con permiso de escritura.
+
+
+Compruebe estas opciones en sus niveles correspondientes:
+
+| Opción | Valor requerido | Dónde revisarla |
+|---|---|---|
+| Nivel de datos HVAC | HVAC detallado | Edificio |
+| Modelado del terreno | 1-Estándar | Sitio |
+| Ventilación natural | Programada | Opciones del modelo |
+| Cálculo de volumen de zona | 1-Interior | Edificio |
+| Cálculo de área de suelo | 1-Interior | Edificio |
+| Ámbito de simulación | Edificio completo | Opciones del modelo |
+
+El plugin comprueba las cinco primeras opciones; la selección del edificio completo debe comprobarla el usuario. La ventilación natural de origen se elimina al preparar el cálculo normativo; mantener Programada es un requisito de compatibilidad. La ventilación mecánica se define mediante HVAC detallado y sus conexiones en **Sistema HVAC**.
+
+Las zonas hijas agrupadas no aparecen como zonas independientes en el expediente; se representan por su zona padre. Los cerramientos y huecos de las hijas siguen disponibles en el modelo.
+
+## Crear un DBCTE
+
+1. Abra **DesignBuilder CTE > Crear expediente DBCTE**.
+2. Elija nombre y destino del `.dbcte`.
+3. Lea el aviso: la **siguiente exportación IDF** incorporará los datos CTE y el DSB reducido.
+4. Ejecute la exportación de archivo IDF de EnergyPlus para simulación desde DesignBuilder.
+5. Atienda los avisos de validación; corrija el modelo si alguno impide continuar.
+6. Compruebe el mensaje **Expediente creado correctamente** y la ruta indicada.
+7. Abra el `.dbcte` en DesignBuilder CTE y compruebe su estado.
+
+El nombre elegido no acredita que se haya creado el archivo. La exportación debe finalizar correctamente. Conserve la correspondencia entre DSB y DBCTE y utilice nombres de revisión claros.
+
+El expediente contiene el DSB reducido y el IDF de esta exportación. La reducción se realiza automáticamente; no es necesario configurar las opciones de XML de DesignBuilder. Los expedientes con el formato anterior deben volver a crearse con el plugin actualizado.
+
+Cada solicitud genera un solo expediente. Para volver a generarlo, prepare una nueva solicitud con **Crear expediente DBCTE** antes de exportar el IDF de simulación. Puede elegir el mismo destino si desea actualizarlo.
+
+![Selección real de nombre y destino para preparar el expediente DBCTE.](../assets/14-expediente.jpg){width=100% fig-alt="Selección real de nombre y destino para preparar el expediente DBCTE."}
+
+**Comprobación final:** abra el archivo generado en la aplicación, compruebe el edificio y revise su estado. La captura muestra el inicio del procedimiento; no acredita una exportación terminada.
+
+### Abrir el expediente creado desde Windows {#abrir-el-expediente-creado-desde-windows}
+
+Una vez completada la exportación, puede abrir el `.dbcte` con doble clic desde el Explorador. El archivo muestra el icono de DesignBuilder CTE y se abre en la aplicación de expedientes. Para recuperar el modelo en DesignBuilder, siga usando **Abrir modelo DSB desde DBCTE…**, explicado más abajo.
+
+Si DesignBuilder CTE ya tiene otro proyecto abierto, ofrece **Guardar**, **Descartar** o **Cancelar**. Cancelar el guardado o un fallo al guardar impide cambiar de proyecto. Si el mismo expediente ya está abierto, solo se activa su ventana. Si hay una operación en curso, espere a que termine y repita la apertura.
+
+Si Windows no lo abre en DesignBuilder CTE, use **Abrir con > Elegir otra aplicación** y selecciónela como aplicación habitual para `.dbcte`. Conserve el expediente exportado y compruebe su estado después de abrirlo; el icono no acredita que el contenido sea válido.
+
+## Cancelar una solicitud pendiente
+
+Abra **Crear expediente DBCTE…** y pulse **Cancelar creación**. La siguiente exportación ya no completará esa solicitud. Puede volver a **Crear expediente DBCTE…** para elegir otro destino.
+
+Cancelar la solicitud no borra un expediente previamente creado.
+
+## Recuperar un modelo desde DBCTE
+
+1. Guarde el trabajo actual en DesignBuilder.
+2. Seleccione **DesignBuilder CTE > Abrir modelo DSB desde DBCTE…**.
+3. Elija el expediente y después el nombre y destino del DSB que se extraerá.
+4. Si el destino ya existe, revise la confirmación antes de sustituirlo. El modelo abierto no se puede sobrescribir mediante esta operación.
+5. DesignBuilder recibirá la solicitud de apertura. Atienda sus avisos sobre cambios pendientes.
+6. Revise geometría, construcciones, horarios, actividades, HVAC y parámetros CTE.
+
+El DSB queda guardado en la ruta elegida y el expediente original se conserva. Si la apertura se cancela o falla, puede abrir manualmente ese DSB. El aviso «apertura solicitada» no confirma que DesignBuilder haya terminado de abrirlo. Esta operación también está disponible sin un modelo cargado.
+
+## Lista de comprobación del técnico
+
+- [ ] El DSB y DBCTE corresponden al mismo edificio y revisión.
+- [ ] El objeto seleccionado en cada editor es el previsto.
+- [ ] Los valores por defecto se han revisado.
+- [ ] Se conocen las excepciones locales y el origen de los valores heredados.
+- [ ] Las zonas habitables pertenecen a Interior.
+- [ ] Las exclusiones de zonas no habitables están justificadas.
+- [ ] Las marcas de intervención distinguen opacos y huecos.
+- [ ] Las longitudes están por instancia de zona y los totales incluyen los multiplicadores una sola vez.
+- [ ] Los Ψ corresponden al mismo criterio dimensional que las longitudes.
+- [ ] Los cálculos usados están asignados a los destinos correctos y con la revisión prevista.
+- [ ] Se han revisado L × Ψ y los encuentros sin cálculo automático.
+- [ ] El modelo se ha guardado y el expediente se abre correctamente.
+
+## Problemas habituales
+
+Si falta el aviso de creación, pulse **Crear expediente DBCTE** para comprobar el estado: si muestra una solicitud pendiente, revise el destino y complete la exportación IDF de **Simulación**; si abre el selector de destino, prepare una nueva solicitud. Compruebe la fecha del archivo antes de utilizarlo. Si la primera exportación de una solicitud sigue sin generar el expediente, conserve la hora del intento y cualquier mensaje de error para comunicar la incidencia.
+
+En versiones anteriores, el menú puede seguir mostrando **Cancelar creación del expediente** después de terminar y ocultar **Crear expediente DBCTE**. En ese caso, pulse **Cancelar**, prepare una nueva solicitud con **Crear expediente DBCTE** y exporte el IDF de simulación. Actualice el plugin para disponer de la entrada única que comprueba el estado de la solicitud.
+
+| Situación | Qué revisar |
+|---|---|
+| No aparecen comandos del plugin | Modelo cargado, instalación y selección del edificio |
+| No aparece un parámetro | Nivel seleccionado y alcance del campo |
+| No permite guardar | Mensajes de validación y compatibilidad de zona/envolvente |
+| Un cambio superior no afecta a una zona | Excepción local o intermedia |
+| Longitud total inesperada | Longitudes por zona, multiplicadores y ámbito seleccionado |
+| Ψ nuevo no llega al encuentro | Aceptación del cálculo, asignación y guardado final |
+| Hay revisión más reciente | Revisar y reasignar la nueva revisión |
+| No se puede eliminar un cálculo | Tiene asignaciones activas |
+| No se crea el DBCTE tras elegir nombre | Pulse Crear expediente DBCTE para comprobar la solicitud; revise destino, exportación IDF de Simulación y validaciones |
+| n50 no coincide con el informe | Comprobar n50 adoptado en Datos del Edificio y el último cálculo |
+| n50 no puede repartir el caudal | Comprobar que existen opacos exteriores o fugas iniciales en huecos y puertas |
+
+## Continuar en DesignBuilder CTE
+
+1. Abra el `.dbcte` y compruebe edificio y estado.
+2. Complete **Datos del Edificio**, **Datos del Certificador**, **Ámbito HE** y **Datos del modelo**.
+3. Pulse **Calcular**. Tras modificar puentes en el modelo, utilice el expediente de la nueva exportación y recalcule. n50 se modifica directamente en Datos del Edificio y también exige recalcular.
+4. Genere HE/HE1 cuando correspondan; compruebe el n50 adoptado indicado en el informe.
+5. Genere el XML base, complételo en XML Medidas y genere el PDF desde el XML final.
+6. Pulse **Guardar** para incorporar la certificación; elija otro nombre o carpeta si necesita una copia.
+
+Los DOCX HE/HE1 se conservan aparte, en **Documentación**. **Resultados** tampoco está dentro del `.dbcte`. La guía de la aplicación explica los formularios, la calculadora de ACS y la conservación de estos archivos.
