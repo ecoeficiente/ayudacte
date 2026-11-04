@@ -139,3 +139,10 @@ Resolución de problemas de aplicación (aplicacion/capitulos/11-resolucion-prob
 En aplicación/capitulos/11-resolucion-problemas.qmd y plugin/capitulos/02-puentes.qmd: si el XML indica que no hay puentes térmicos con longitud positiva, revisar las longitudes CTE de las zonas interiores de la envolvente. Tener valores Ψ o puentes nativos de DesignBuilder no implica haber cargado esas longitudes en la tabla CTE. En Editar puentes térmicos, seleccionar el ámbito, usar Cargar longitudes de zonas…, revisar la propuesta, Aplicar a la tabla y Guardar. Guardar el DSB, crear un expediente nuevo y recalcular en la aplicación. No introducir longitudes ficticias para superar la validación. Si la vista previa también devuelve ceros, revisar el modelo y los avisos antes de exportar.
 
 La mejora preparada muestra directamente el motivo de validación en el diálogo de generación documental. No publicada ni incluida todavía en el paquete de ensayo ep251.1. Las instrucciones de carga ya existen en la guía actual; ambos PDF públicos permanecen intactos.
+
+
+## Qsol con tablas TAB/HTML — pendiente de entrega (04-11-2026)
+
+Aplicación, resolución de problemas: corregida la recogida de Qsol cuando el IDF de origen solicita tablas TAB o HTML. EnergyPlus podía terminar correctamente y CTE indicar error al no encontrar el CSV esperado. La aplicación prepara ahora la salida CSV para Qsol; basta recalcular con la versión corregida, sin modificar geometría ni parámetros solares. No se convierten resultados antiguos de forma manual.
+
+Plugin, recorrido de exportación: no requiere cambiar el formato de tablas en DesignBuilder para este cálculo con la versión corregida de CTE. No es una modificación del plugin ni de la reducción de bibliotecas. Preparar estas notas para ambas guías al distribuir la corrección; HTML y PDF públicos permanecen sin cambios.
