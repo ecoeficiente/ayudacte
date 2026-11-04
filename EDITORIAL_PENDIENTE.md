@@ -117,3 +117,15 @@ Preparado para ambas guías; incorporar al distribuir esta revisión, manteniend
 - En plugin/capitulos/04-expediente.qmd y aplicacion/capitulos/05-plugin.qmd, explicar la cancelación así: «Abre Crear expediente DBCTE… y pulsa Cancelar creación. La siguiente exportación ya no completará esa solicitud. Puedes volver a Crear expediente DBCTE… para elegir otro destino. Cancelar no borra un expediente ya creado».
 - En plugin/capitulos/04-expediente.qmd y aplicacion/capitulos/11-resolucion-problemas.qmd, sustituir la recomendación de actualizar para disponer de ambos comandos por actualizar para disponer de la entrada única que consulta el estado real. Tras terminar, esa misma entrada permite preparar otro expediente.
 - Revisar capturas del menú y añadir el diálogo pendiente cuando se distribuya. HTML/PDF públicos conservan el comportamiento de la versión distribuida.
+
+
+## EnergyPlus 23.1/25.1 y recuperación nominal — pendiente de entrega
+
+Aplicación y plugin: al distribuir la adaptación, explicar que Auto toma el menor de las eficacias sensibles nominales de calefacción y refrigeración al 100 %, con la cobertura de ventilación existente. No utiliza el 75 % ni las curvas para la equivalencia de demanda. No garantiza un resultado conservador en todas las condiciones. El usuario puede indicar una efectividad sensible de demanda manual justificada: es el porcentaje final, sin multiplicarlo otra vez por cobertura, y no modifica el recuperador real. Mantener las exclusiones por parada, falta de ventilación y zona no admisible.
+
+Ejemplo: nominales 75/70 %, cobertura 80 %: eficacia automática 56 %. Un manual de 50 % aplica 50 %, no 40 %. En 25.1 el nominal declarado puede diferir del resultado de la curva en el punto 100 %. El edificio objeto conserva sus curvas y controles. Los expedientes 23.1 pueden cambiar respecto al mínimo anterior que también usaba el 75 %: exigir recálculo e indicarlo en las notas de entrega.
+
+Actualizar ambas guías y PDF cuando se entregue; no promover todavía a las fuentes públicas. Soporte completo 25.1, integración EpNet y aceptación del host pendientes. Los PDF publicados permanecen intactos.
+
+
+Ampliación de la adaptación (04-11-2026), para ambas guías cuando se distribuya: CTE incluye los paquetes 23.1.0.002 y 25.1.0.001 y elige el correspondiente al expediente; también se preparan sus descargas alternativas. Los archivos web aún no se han publicado. No cambiar manualmente la versión escrita en el IDF para convertir un modelo. Las redes de calor por agua y vapor de 25.1 se interpretan como RED1; la red de frío, como RED2, con los factores configurados. Para bombas de calor de planta EIR, un COP explícito se conserva; si está vacío, el valor por defecto es 7,5 en 23.1 y 3,0 en 25.1. Recomendar revisar el valor nominal del equipo. No presentar todavía como completa la aceptación de los modelos exportados por la beta.
