@@ -132,3 +132,10 @@ Ampliación de la adaptación (04-11-2026), para ambas guías cuando se distribu
 
 
 Resolución de problemas de aplicación (aplicacion/capitulos/11-resolucion-problemas.qmd): si falta un resultado mensual de una bomba de calor de planta o agua-agua, se detiene la recopilación e indica el equipo y la variable. Volver a simular desde CTE con las solicitudes de resultados actuales; no sustituir una serie ausente por cero. Un equipo simulado con consumo y demanda nulos sigue siendo válido. Para la guía del plugin, remitir a este diagnóstico desde el recorrido de exportación; cambiar parámetros no reconstruye resultados antiguos. Pendiente de distribución, sin cambios en HTML/PDF públicos.
+
+
+## XML base sin longitudes de puentes — pendiente de entrega
+
+En aplicación/capitulos/11-resolucion-problemas.qmd y plugin/capitulos/02-puentes.qmd: si el XML indica que no hay puentes térmicos con longitud positiva, revisar las longitudes CTE de las zonas interiores de la envolvente. Tener valores Ψ o puentes nativos de DesignBuilder no implica haber cargado esas longitudes en la tabla CTE. En Editar puentes térmicos, seleccionar el ámbito, usar Cargar longitudes de zonas…, revisar la propuesta, Aplicar a la tabla y Guardar. Guardar el DSB, crear un expediente nuevo y recalcular en la aplicación. No introducir longitudes ficticias para superar la validación. Si la vista previa también devuelve ceros, revisar el modelo y los avisos antes de exportar.
+
+La mejora preparada muestra directamente el motivo de validación en el diálogo de generación documental. No publicada ni incluida todavía en el paquete de ensayo ep251.1. Las instrucciones de carga ya existen en la guía actual; ambos PDF públicos permanecen intactos.
