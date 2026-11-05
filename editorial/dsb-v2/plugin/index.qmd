@@ -7,17 +7,13 @@ Esta guía sigue el mismo recorrido que la guía de la aplicación: objetivo, ac
 Los nombres de pestañas y nodos corresponden a la interfaz en español: **Actividad**, **Cerramientos**, **Huecos**, **Iluminación**, **HVAC** y **Sistema HVAC**.
 
 ::: {.callout-note title="Cómo utilizar esta guía"}
-Las capturas muestran los formularios del plugin y ejemplos de consulta; algunas ventanas pueden corresponder a versiones anteriores. El caso práctico utiliza una vivienda y la captura de parámetros muestra un edificio de evaluación. Los valores del ejercicio no constituyen una validación técnica del edificio. La exportación completa y la reimportación deben verificarse en cada expediente.
+Las capturas muestran los formularios del plugin y ejemplos de consulta. El caso práctico utiliza una vivienda y la captura de parámetros muestra un edificio de evaluación. Los valores del ejercicio no constituyen una validación técnica del edificio. La exportación completa y la reimportación deben verificarse en cada expediente.
 :::
 
 ::: {.callout-note title="Comprobar el plugin instalado" icon=false}
 DesignBuilder CTE comprueba al iniciar que el plugin y la plantilla coincidan con los de su instalación. Si avisa de una diferencia, cierre DesignBuilder, pulse **Abrir Configuración** y después **Reparar o reinstalar plugin y plantilla**. Vuelva a abrir DesignBuilder para cargar el plugin actualizado. **Ahora no** permite continuar y posponer la reparación.
 
-La reparación reconoce las ubicaciones `User Plugins/DesignBuilder CTE` y `User Plugins/DBCTE`: reutiliza la antigua cuando es la única existente y actualiza ambas si ya coexisten. Una copia antigua puede explicar que falten opciones nuevas aunque se haya instalado una versión reciente de la aplicación. Consulte [Instalar el plugin y la plantilla](https://ayudacte.ecoeficiente.es/aplicacion/capitulos/02-instalacion.html#instalar-el-plugin-y-la-plantilla).
-:::
-
-::: {.callout-note title="Versión de esta guía"}
-Las novedades de parámetros y puentes están disponibles desde la versión 1.0.0-rc.6. La incorporación del DSB reducido al expediente y su apertura desde el plugin corresponden a la versión 1.0.0-rc.8; utilice versiones compatibles del plugin y de la aplicación.
+Consulte [Instalar el plugin y la plantilla](https://ayudacte.ecoeficiente.es/aplicacion/capitulos/02-instalacion.html#instalar-el-plugin-y-la-plantilla).
 :::
 
 ## Elegir un recorrido
@@ -62,8 +58,7 @@ Exportar un archivo `.ctepsi` conserva los cálculos elegidos como archivo indep
 2. Pertenencia a la envolvente y marcas de intervención HE.
 3. Longitudes de puentes por zona.
 4. Valores Ψ, cálculo y asignación cuando proceda.
-5. Revisión de L × Ψ y de los multiplicadores.
-6. Guardado del DSB, creación del DBCTE y apertura en la aplicación.
+5. Guardado del DSB, creación del DBCTE y apertura en la aplicación.
 
 [Descargar la guía en PDF](Guia-del-plugin-DesignBuilder-CTE.pdf){.btn .btn-primary}
 
@@ -71,8 +66,6 @@ Exportar un archivo `.ctepsi` conserva los cálculos elegidos como archivo indep
 
 El menú **DesignBuilder CTE → Ayuda** abre esta guía, incluso sin modelo. Cada ventana del plugin dispone de un botón **Ayuda** que abre el apartado correspondiente en el navegador: parámetros, puentes térmicos, cálculos y sus diálogos de reparto, carga, destinos, ponderación y detalle constructivo.
 
-Consultar la ayuda no acepta el diálogo, guarda el modelo ni aplica cálculos. El plugin no asigna la tecla F1; el acceso F1 corresponde a la aplicación independiente DesignBuilder CTE. Los selectores de archivos de Windows conservan sus controles habituales.
-
 La ayuda requiere Internet. Si no puede iniciarse el navegador, el aviso muestra la dirección para consultarla manualmente.
 
-![El botón Ayuda permanece visible en la parte inferior de Parámetros CTE.](assets/ayuda-parametros.png){fig-alt="Ventana de parámetros con el botón Ayuda junto a las acciones inferiores."}
+![Parámetros CTE y acceso a la ayuda.](assets/ParametrosCTE.png){width=100% fig-alt="Parámetros CTE y acceso a la ayuda."}

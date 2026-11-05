@@ -7,7 +7,7 @@
 | ACS | Agua caliente sanitaria |
 | CFI | Carga interna media utilizada por el procedimiento |
 | DSB | Archivo nativo de DesignBuilder |
-| DSB reducido | Modelo nativo de DesignBuilder incluido en el expediente, con las bibliotecas generales retiradas |
+| DSB | Modelo nativo de DesignBuilder incluido en el expediente |
 | `.dbcte` | Expediente con modelo, IDF, adjuntos y documentos registrados |
 | Edificio objeto | Edificio modelado y certificado |
 | Edificio de referencia | Caso reglamentario de comparación para terciario |

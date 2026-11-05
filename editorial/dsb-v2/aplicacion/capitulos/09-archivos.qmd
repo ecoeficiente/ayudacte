@@ -1,12 +1,11 @@
 # Archivos, revisiones y conservación {#sec-archivos}
 
-
 ## Mapa de archivos
 
 | Archivo o carpeta | Contenido | Se necesita para |
 |---|---|---|
 | DSB | Modelo nativo de DesignBuilder | Editar y justificar el modelo original |
-| DSB reducido | Modelo nativo con las bibliotecas generales retiradas | Recuperar el modelo incluido en el expediente |
+| DSB | Modelo nativo de DesignBuilder | Recuperar el modelo incluido en el expediente |
 | IDF | Entrada EnergyPlus procesada | Calcular y relacionar resultados |
 | `.dbcte` | Modelo, IDF, adjuntos y documentos registrados | Intercambiar y revisar una revisión coherente |
 | `Resultados` | Simulaciones y procesamiento | Generar, diagnosticar y reproducir resultados |
@@ -28,7 +27,7 @@ No edite manualmente el IDF de un expediente para corregir un dato que pertenece
 
 ## Expediente DBCTE
 
-El `.dbcte` reúne el DSB reducido de DesignBuilder, el IDF, imagen y plano, y los documentos incorporados al guardar. Las nuevas incorporaciones de documentos se limitan al XML de certificación y al par final XML/PDF. No contiene los DOCX HE/HE1, una copia adicional del DSB original, los resultados de simulación ni las fuentes externas de justificación. Los informes heredados de expedientes antiguos se conservan conforme a las reglas de vigencia.
+El `.dbcte` reúne el DSB de DesignBuilder, el IDF, imagen y plano, y los documentos incorporados al guardar. Las nuevas incorporaciones de documentos se limitan al XML de certificación y al par final XML/PDF. No contiene los DOCX HE/HE1, una copia adicional del DSB original, los resultados de simulación ni las fuentes externas de justificación.
 
 Abra y guarde el expediente desde DesignBuilder CTE. Para recuperar el modelo utilice **Extraer modelo DSB** o **Abrir modelo DSB desde DBCTE…** en el plugin. El archivo extraído tiene extensión `.dsb`. Al guardar el expediente desde CTE, el DSB se conserva íntegro. Los cambios realizados sobre los datos o el IDF en CTE no actualizan automáticamente ese DSB.
 

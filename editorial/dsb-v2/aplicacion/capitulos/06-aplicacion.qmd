@@ -1,9 +1,5 @@
 # Trabajar con DesignBuilder CTE {#sec-aplicacion}
 
-::: {.callout-note title="Versión de esta guía"}
-Las funciones de revisión de campos y las novedades del plugin descritas en esta guía corresponden a la versión 1.0.0-rc.6; en versiones anteriores pueden no estar disponibles o funcionar de otra forma.
-:::
-
 ## Inicio y navegación
 
 Al iniciar, DesignBuilder CTE comprueba la configuración y la licencia. Si otra instancia está activa, utilice esa ventana. Si acaba de cerrarla, espere a que termine el cierre antes de volver a abrirla.
@@ -118,10 +114,6 @@ Al guardar, reabrir o importar se conservan el alcance completo o parcial, la al
 Las imágenes y los planos incorporados a un DBCTE se recuperan desde sus adjuntos, incluso si conservan un nombre anterior o una ruta del equipo de origen. Se mantienen al importar, guardar y volver a abrir el proyecto.
 
 Al importar o cambiar los datos del edificio, el programa vuelve a preparar el modelo necesario para los informes. Si los cambios afectan a la simulación, deberá calcular de nuevo antes de generar documentación que dependa de sus resultados.
-
-::: {.callout-note title="Expedientes guardados con versiones anteriores" icon=false}
-Puede faltar la altitud personalizada o el alcance parcial si la versión anterior no llegó a guardarlos. En ese caso se toma la altitud del municipio y aparece **Edificio completo**. Revise ambos campos y guarde el expediente; los valores que no se guardaron no pueden recuperarse automáticamente.
-:::
 
 Después de importar, revise especialmente:
 
@@ -350,4 +342,4 @@ Active esta opción únicamente cuando proceda cubrir demanda no satisfecha con 
 
 ## Extraer el modelo DSB {#extraer-el-modelo-dsbxml}
 
-Con el expediente abierto, pulse **Extraer modelo DSB** y elija el destino. Obtendrá el DSB reducido que contiene el expediente. Puede abrirlo directamente en DesignBuilder o usar **Abrir modelo DSB desde DBCTE…** en el plugin. La extracción no incluye resultados de simulación.
+Con el expediente abierto, pulse **Extraer modelo DSB** y elija el destino. Obtendrá el DSB que contiene el expediente. Puede abrirlo directamente en DesignBuilder o usar **Abrir modelo DSB desde DBCTE…** en el plugin. La extracción no incluye resultados de simulación.

@@ -91,8 +91,6 @@ Corrija el campo señalado y pulse **Guardar**. Si no quiere conservar los cambi
 
 Cada solicitud genera un solo expediente. Compruebe el mensaje **Expediente creado correctamente**, la ruta y la fecha del archivo antes de utilizarlo. Si la primera exportación de una solicitud sigue sin generar el expediente, conserve la hora del intento y cualquier mensaje de error para comunicar la incidencia.
 
-En versiones anteriores del plugin, el menú puede seguir mostrando **Cancelar creación del expediente** después de terminar y ocultar **Crear expediente DBCTE**. Pulse **Cancelar**, prepare una nueva solicitud con **Crear expediente DBCTE** y exporte el IDF de simulación. Actualice el plugin para disponer de la entrada única que comprueba el estado de la solicitud.
-
 ## Apertura de proyectos
 
 ### Expediente incompatible o dañado
@@ -165,7 +163,7 @@ Consulte primero el modo y la efectividad aplicada en el registro. El criterio y
 |---|---|
 | El campo no aparece en una zona | La zona debe estar acondicionada y pertenecer a un grupo HVAC. No basta con marcarla como Ocupada. |
 | No permite guardar Manual | Introduzca un número entre 0 y 100; no deje el campo vacío. |
-| Automático da una efectividad cero | Revise los cuatro rendimientos sensibles, los caudales y el horario del recuperador. Un rendimiento vacío puede tomar el valor cero. |
+| Automático da una efectividad cero | Revise los dos rendimientos sensibles al 100 % del caudal nominal, los caudales y el horario del recuperador. Un rendimiento vacío puede tomar el valor cero. |
 | El porcentaje manual no se aplica | Compruebe que la zona tiene aire exterior atendido por un recuperador y que este no está permanentemente parado. |
 | El cálculo informa de datos o conexiones inválidos | Revise el equipo o la zona indicados: rendimientos, caudal nominal y conexión con las zonas. El programa detiene el cálculo si no puede asignar inequívocamente la recuperación. |
 
