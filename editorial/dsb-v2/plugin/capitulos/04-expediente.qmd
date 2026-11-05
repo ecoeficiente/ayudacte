@@ -67,14 +67,19 @@ Cancelar la solicitud no borra un expediente previamente creado.
 
 El DSB queda guardado en la ruta elegida y el expediente original se conserva. Si la apertura se cancela o falla, puede abrir manualmente ese DSB. El aviso «apertura solicitada» no confirma que DesignBuilder haya terminado de abrirlo. Esta operación también está disponible sin un modelo cargado.
 
-## Lista de comprobación del técnico
+## Revisión del expediente por el técnico de la Administración {#lista-de-comprobación-del-técnico}
 
-- [ ] He seleccionado el edificio y las zonas correctos.
-- [ ] He revisado los parámetros CTE, las excepciones y las zonas incluidas en la envolvente.
-- [ ] En una reforma, he indicado los cerramientos y huecos afectados.
-- [ ] He comprobado las longitudes y los valores Ψ de los puentes térmicos, sin duplicar encuentros.
-- [ ] He guardado el modelo y creado el expediente con los últimos cambios.
-- [ ] He abierto el expediente en DesignBuilder CTE y comprobado que corresponde al edificio previsto.
+Comprobaciones orientativas para contrastar el modelo y la certificación con el proyecto e identificar incoherencias relevantes que requieran aclaración o justificación.
+
+- [ ] **Identificación y alcance.** El modelo y la certificación corresponden al edificio, uso, superficie y ámbito del proyecto presentado.
+- [ ] **Geometría y envolvente.** La geometría, orientación, huecos y límites de la envolvente concuerdan con los planos. Las zonas incluidas y excluidas tienen una clasificación coherente.
+- [ ] **Soluciones constructivas.** Cerramientos, aislamientos, vidrios y protecciones solares representan las soluciones del proyecto y sus prestaciones documentadas.
+- [ ] **Esquema HVAC.** Los sistemas de climatización y ventilación, sus conexiones y las zonas atendidas concuerdan con el proyecto de instalaciones.
+- [ ] **Propiedades de los equipos.** Potencias, rendimientos, caudales, recuperación de calor y condiciones de funcionamiento son coherentes con los equipos y criterios previstos.
+- [ ] **Parámetros del plugin.** Los valores asignados en edificio, bloques, zonas, superficies y huecos corresponden al proyecto. Las excepciones locales y los valores heredados no introducen contradicciones.
+- [ ] **Longitudes de puentes térmicos.** Son coherentes con la geometría y los encuentros existentes, sin omisiones relevantes ni duplicidades al considerar las repeticiones de zonas.
+- [ ] **Valores Ψ.** Su procedencia, estimación o cálculo está justificada y corresponde a las soluciones constructivas. Utilizan el mismo criterio dimensional —interior o exterior— que las longitudes.
+- [ ] **Coherencia documental.** Los datos y resultados de la certificación concuerdan con el modelo revisado; las diferencias relevantes respecto al proyecto están explicadas.
 
 ## Problemas habituales
 
