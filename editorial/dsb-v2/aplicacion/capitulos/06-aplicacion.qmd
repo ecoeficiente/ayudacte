@@ -14,9 +14,7 @@ La navegación principal contiene:
 
 La cabecera muestra el nombre del proyecto abierto y permite **Abrir proyecto** y **Guardar** desde cualquier página. En **Cálculos y Documentación** se encuentran la importación, el cálculo y la generación de documentos. Los datos pueden revisarse en cualquier orden, pero deben estar completos y válidos antes de generar los documentos que los utilizan.
 
-En ventanas amplias, el menú lateral muestra los nombres de las páginas. Al reducir la ventana se recogen los nombres; el botón de menú permite desplegarlos. Los formularios distribuyen sus campos en una o dos columnas según el espacio disponible.
-
-![Ventana de la aplicación con el menú de navegación desplegado.](../assets/ventana-rc6.png){width=100% fig-alt="Ventana de DesignBuilder CTE con el menú de navegación desplegado."}
+![Pantalla de Cálculos y Documentación sin un proyecto abierto.](../assets/guia/calculossinproyecto.png){width=100% fig-alt="Pantalla de Cálculos y Documentación sin un proyecto abierto."}
 
 Sin proyecto abierto, la pantalla de cálculo ofrece abrir uno y conserva el acceso a **Abrir XML Medidas** y **Generar PDF desde XML**, que permiten trabajar con un XML existente.
 

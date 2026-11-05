@@ -227,6 +227,23 @@ En los equipos de combustión, DesignBuilder/EnergyPlus trabajan con rendimiento
 
 DesignBuilder CTE realiza automáticamente las conversiones necesarias de consumos y rendimientos a PCI para la certificación y los informes. No aplique otra conversión a los resultados: por ejemplo, un 92 % sobre PCS para gas natural equivale a un 102,11 % sobre PCI. Ambos expresan el mismo rendimiento con distinta base energética.
 
+### Factores de conversión PCI/PCS
+
+DesignBuilder CTE utiliza los siguientes factores **f = PCI / PCS**:
+
+| Vector energético | Factor f |
+|---|---:|
+| Biocarburante | 0,961 |
+| Biomasa | 0,924 |
+| Biomasa densificada (pellets) | 0,924 |
+| Carbón | 0,963 |
+| Gas natural | 0,901 |
+| Gasóleo | 0,944 |
+| GLP | 0,921 |
+| Electricidad, medioambiente y redes de calor/frío | 1,000 (sin conversión PCI/PCS) |
+
+Para pasar de PCS a PCI, el **consumo de combustible se multiplica por f** y el **rendimiento se divide por f**. En sentido inverso, un rendimiento del fabricante expresado sobre PCI se multiplica por f para introducirlo sobre PCS. Los consumos ya identificados como PCI no se convierten de nuevo. Estos factores no son los factores de paso a energía primaria ni los de emisiones de CO₂.
+
 ## Agua caliente sanitaria
 
 Compruebe la demanda, las zonas que la originan y la temperatura utilizada, junto con la producción, acumulación, pérdidas, circuitos y aporte solar del sistema HVAC. En instalaciones compartidas, revise la conexión de cada servicio.

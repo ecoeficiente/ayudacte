@@ -11,3 +11,5 @@ Aplicadas las 21 anotaciones del usuario a ambas guías: textos simplificados, c
 Segunda revisión del 5 de noviembre: retiradas la captura de creación de expediente, la explicación/captura de carga de parámetros y los metadatos de autor/fecha de la portada del plugin. La lista orientada al técnico de la Administración ha sido aprobada e incorporada al apartado 5.5, conservando su ancla anterior. HTML y PDF de revisión actualizados.
 
 La revisión del apartado 5.5 se presenta de forma general, sin atribuirla a un perfil: aplicable antes de presentar el expediente y durante su evaluación. Se conservan los nueve puntos aprobados y el ancla existente.
+
+Revisión de doce anotaciones de la aplicación: tabla PCI/PCS contrastada con ConversorPcsPci.Factor, siete capturas nuevas (una compartida entre dos capítulos), retirada de la captura de contacto y de los párrafos de carga y adaptación de ventana. HTML y PDF de revisión regenerados; sin publicación.

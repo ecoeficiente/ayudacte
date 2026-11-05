@@ -20,8 +20,6 @@ La carga de longitudes está dentro de **Editar puentes térmicos**, mediante **
 
 ## Aspecto y manejo de las ventanas {#sec-interfaz-plugin}
 
-Al abrir parámetros, puentes o la calculadora aparece una barra animada mientras se preparan los datos. Espere a que termine: indica actividad, no porcentaje ni tiempo restante. Si falla, se cierra antes de mostrar el error.
-
 La cabecera y el selector identifican el edificio, bloque o zona que está editando. Compruebe el destino antes de cambiar un dato. Amplíe la ventana o desplácese para acceder a las entradas inferiores y a sus ayudas.
 
 Los colores indican el origen del valor:
