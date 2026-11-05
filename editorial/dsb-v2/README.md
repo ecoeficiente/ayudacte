@@ -7,3 +7,5 @@ Vista previa completa y PDF en C:/Dev/DesignBuilderCTE/output/dsb-integration/he
 ## Revisión del 5 de noviembre
 
 Aplicadas las 21 anotaciones del usuario a ambas guías: textos simplificados, capturas sustituidas, criterio nominal del recuperador al 100 %, sin referencias públicas a RC ni denominación DSB reducido. Fuentes reservadas en esta carpeta; vista HTML y PDF regenerados en help-preview. Sin publicación.
+
+Segunda revisión del 5 de noviembre: retiradas la captura de creación de expediente, la explicación/captura de carga de parámetros y los metadatos de autor/fecha de la portada del plugin. La nueva lista orientada al técnico de la Administración se propone en el chat; todavía no sustituye la lista existente.

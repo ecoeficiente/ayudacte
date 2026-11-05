@@ -2,10 +2,6 @@
 
 ## Seleccionar el destino
 
-Al abrir el editor aparece una barra animada mientras se preparan los datos. Espere a que termine: indica actividad, no porcentaje ni tiempo restante. Si falla, se cierra antes de mostrar el error.
-
-![Aviso de carga al abrir los parámetros.](../assets/carga-parametros-rc6.png){width=65% fig-alt="Aviso de carga de parámetros CTE con barra de actividad."}
-
 1. Seleccione el edificio y abra **Asignar parámetros CTE**.
 2. Lea la cabecera y el selector de nivel; compruebe el objeto de destino.
 3. Introduzca los valores comunes en el nivel más alto que los comparta.
