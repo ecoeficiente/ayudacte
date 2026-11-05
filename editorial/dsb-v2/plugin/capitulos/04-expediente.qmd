@@ -67,9 +67,9 @@ Cancelar la solicitud no borra un expediente previamente creado.
 
 El DSB queda guardado en la ruta elegida y el expediente original se conserva. Si la apertura se cancela o falla, puede abrir manualmente ese DSB. El aviso «apertura solicitada» no confirma que DesignBuilder haya terminado de abrirlo. Esta operación también está disponible sin un modelo cargado.
 
-## Revisión del expediente por el técnico de la Administración {#lista-de-comprobación-del-técnico}
+## Revisión del expediente {#lista-de-comprobación-del-técnico}
 
-Comprobaciones orientativas para contrastar el modelo y la certificación con el proyecto e identificar incoherencias relevantes que requieran aclaración o justificación.
+Estas comprobaciones permiten revisar la coherencia del expediente, contrastar el modelo y la certificación con el proyecto e identificar aspectos que requieran corrección, aclaración o justificación. Pueden utilizarse tanto antes de presentar el expediente como durante su evaluación.
 
 - [ ] **Identificación y alcance.** El modelo y la certificación corresponden al edificio, uso, superficie y ámbito del proyecto presentado.
 - [ ] **Geometría y envolvente.** La geometría, orientación, huecos y límites de la envolvente concuerdan con los planos. Las zonas incluidas y excluidas tienen una clasificación coherente.
