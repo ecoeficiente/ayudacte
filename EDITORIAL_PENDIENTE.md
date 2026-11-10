@@ -146,3 +146,7 @@ La mejora preparada muestra directamente el motivo de validación en el diálogo
 Aplicación, resolución de problemas: corregida la recogida de Qsol cuando el IDF de origen solicita tablas TAB o HTML. EnergyPlus podía terminar correctamente y CTE indicar error al no encontrar el CSV esperado. La aplicación prepara ahora la salida CSV para Qsol; basta recalcular con la versión corregida, sin modificar geometría ni parámetros solares. No se convierten resultados antiguos de forma manual.
 
 Plugin, recorrido de exportación: no requiere cambiar el formato de tablas en DesignBuilder para este cálculo con la versión corregida de CTE. No es una modificación del plugin ni de la reducción de bibliotecas. Preparar estas notas para ambas guías al distribuir la corrección; HTML y PDF públicos permanecen sin cambios.
+
+## XML 3.0 — recursos 29/10/2026
+
+Próxima edición en `editorial/xml-20261029/aplicacion/capitulos/`: sustituir los cuatro capítulos homónimos al distribuir la actualización. Incluye NIF de entidad opcional, códigos de inmueble sin asignar, nombres con puntos y revisión de cogeneración. Guía del plugin revisada: sin cambios funcionales derivados de esta actualización. HTML/PDF de vista previa y aceptación integral pendientes; no publicar aún.
