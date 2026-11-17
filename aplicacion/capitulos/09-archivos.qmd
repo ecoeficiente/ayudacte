@@ -27,7 +27,9 @@ No edite manualmente el IDF de un expediente para corregir un dato que pertenece
 
 ## Expediente DBCTE
 
-El `.dbcte` reúne el DSB guardado en DesignBuilder, el IDF, la imagen, el plano y los documentos incorporados al guardar. Los documentos de certificación que puede incorporar son el XML de certificación y el par final XML/PDF. Conserve aparte los DOCX HE/HE1, los resultados de simulación y las fuentes externas de justificación.
+El `.dbcte` reúne el DSB guardado en DesignBuilder, el IDF, la imagen, el plano y los documentos incorporados al guardar. Tras generar el PDF desde el XML final en DesignBuilder CTE y guardar el expediente, incluye el XML final con las medidas y su PDF.
+
+Conserve aparte los Word de HE y HE1 (`.docx`) y los borradores o archivos de estado de XML Medidas si los necesita. Los resultados de simulación y las fuentes externas de justificación también se conservan aparte.
 
 Abra y guarde el expediente desde DesignBuilder CTE. Para recuperar el modelo utilice **Extraer modelo DSB** en CTE o **Abrir modelo DSB desde DBCTE…** en el plugin. El archivo extraído se abre directamente en DesignBuilder.
 

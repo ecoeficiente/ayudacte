@@ -174,7 +174,7 @@ Las observaciones deben explicar incertidumbres, limitaciones de acceso, hipóte
 4. Anote la carpeta.
 5. Cierre y vuelva a abrir el archivo si la herramienta permite comprobarlo.
 
-Un archivo de estado utilizado por XML Medidas para continuar la edición no sustituye al XML final. Conserve ambos cuando necesite reanudar el trabajo, pero seleccione el XML final para generar el certificado.
+Si necesita reanudar la edición, conserve aparte los borradores o archivos de estado de XML Medidas. Seleccione el XML final para generar el certificado.
 
 ### Generar el PDF mediante XMLCert
 
@@ -197,7 +197,9 @@ Contraste con el XML final la identidad y alcance del edificio, catastro, superf
 
 ### Incorporar los documentos al expediente
 
-Solo se preparan para incorporar los documentos de certificación: el XML base y, al completar el flujo, el XML final y su PDF. El par final sustituye al XML base. El reprocesado combinado HE + XML base registra únicamente ese XML; el informe HE permanece fuera. La presencia de archivos en **Documentación** no los incorpora automáticamente.
+Después de generar el PDF desde el XML final en DesignBuilder CTE, pulse **Guardar**. El DBCTE incorpora **el XML final con las medidas y el PDF generado a partir de él**. Este par sustituye al XML base en el expediente.
+
+Conserve aparte los Word de HE y HE1 (`.docx`) y los borradores o archivos de estado de XML Medidas si los necesita. Al reprocesar HE y el XML base, solo se prepara el XML base para incorporar. La carpeta **Documentación** reúne también archivos externos al expediente.
 
 Con un `.dbcte` abierto:
 

@@ -106,6 +106,6 @@ Si falta el aviso de creación, pulse **Crear expediente DBCTE** para comprobar 
 3. Pulse **Calcular**. Tras modificar puentes en el modelo, utilice el expediente de la nueva exportación y recalcule. n50 se modifica directamente en Datos del Edificio y también exige recalcular.
 4. Genere HE/HE1 cuando correspondan; compruebe el n50 adoptado indicado en el informe.
 5. Genere el XML base, complételo en XML Medidas y genere el PDF desde el XML final.
-6. Pulse **Guardar** para incorporar la certificación; elija otro nombre o carpeta si necesita una copia.
+6. Pulse **Guardar** para incorporar al DBCTE el XML final con las medidas y el PDF generado a partir de él. Elija otro nombre o carpeta si necesita una copia.
 
-Los DOCX HE/HE1 se conservan aparte, en **Documentación**. **Resultados** tampoco está dentro del `.dbcte`. La guía de la aplicación explica los formularios, la calculadora de ACS y la conservación de estos archivos.
+Conserve los Word de HE y HE1 (`.docx`) en **Documentación** y los borradores o archivos de estado de XML Medidas en la carpeta de trabajo si los necesita. La carpeta **Resultados** se conserva aparte. Consulte la [guía de la aplicación](https://ayudacte.ecoeficiente.es/aplicacion/capitulos/08-documentacion.html#incorporar-los-documentos-al-expediente) para incorporar y comprobar los documentos.
