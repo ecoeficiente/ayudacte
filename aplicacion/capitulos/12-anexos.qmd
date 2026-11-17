@@ -7,8 +7,7 @@
 | ACS | Agua caliente sanitaria |
 | CFI | Carga interna media utilizada por el procedimiento |
 | DSB | Archivo nativo de DesignBuilder |
-| `dsbXML` | Representación XML intercambiable del modelo DesignBuilder |
-| `.dbcte` | Expediente con modelo, IDF, adjuntos y documentos registrados |
+| `.dbcte` | Expediente con DSB guardado, IDF, adjuntos y documentos registrados |
 | Edificio objeto | Edificio modelado y certificado |
 | Edificio de referencia | Caso reglamentario de comparación para terciario |
 | EnergyPlus | Motor de simulación energética utilizado |
@@ -39,7 +38,7 @@ Utilice los componentes compatibles de la misma distribución:
 
 La versión exacta de DesignBuilder se obtiene desde **Ayuda > Acerca de**. La versión del ejecutable en el sistema de archivos puede no identificar correctamente la edición.
 
-El modelo y el diccionario EnergyPlus deben corresponder a la versión admitida por DesignBuilder CTE. El procesamiento actual exige EnergyPlus 23.1 y detiene la apertura si el IDF o el diccionario no corresponden a esa versión.
+DesignBuilder CTE selecciona el motor y el diccionario de EnergyPlus según la versión completa del IDF. La apertura requiere un paquete admitido para esa versión.
 
 No combine ejecutables o resultados de paquetes distintos aunque sus nombres sean iguales.
 

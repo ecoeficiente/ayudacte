@@ -1,7 +1,7 @@
 # Trabajar con DesignBuilder CTE {#sec-aplicacion}
 
 ::: {.callout-note title="Versión de esta guía"}
-Las funciones de revisión de campos y las novedades del plugin descritas en esta guía corresponden a la versión 1.0.0-rc.6; en versiones anteriores pueden no estar disponibles o funcionar de otra forma.
+La apertura y extracción de expedientes con DSB guardado corresponden al flujo descrito en la actualización del 17 de noviembre de 2026.
 :::
 
 ## Inicio y navegación
@@ -75,7 +75,7 @@ Si Windows abre otra aplicación o muestra un icono diferente, pulse con el bot�
 
 ### Procesamiento inicial
 
-Al abrir, la aplicación lee el modelo y los datos propios del IDF incluido en el expediente. Puede calcular propiedades iniciales necesarias —por ejemplo, datos de envolvente o control solar— antes de habilitar el resto de operaciones.
+Al abrir, la aplicación utiliza el IDF incluido en el expediente y selecciona la versión de EnergyPlus indicada en él. Puede calcular propiedades iniciales de envolvente o control solar antes de habilitar el resto de operaciones.
 
 Si el aviso indica que la apertura está tardando más de lo previsto, espere a que concluya. Si EnergyPlus comunica un error, revise el archivo de errores indicado antes de repetir.
 
@@ -83,7 +83,7 @@ Si los datos persistidos están dañados o el IDF no corresponde a la versión a
 
 ## Guardar expediente {#sec-guardar-proyecto}
 
-Pulse **Guardar** en la cabecera para conservar los datos, adjuntos y documentos de certificación preparados para el expediente. Los informes HE y HE1 se generan en DOCX externo dentro de **Documentación**; no se incorporan al `.dbcte`. El modelo DesignBuilder incluido permanece como se exportó; las correcciones del modelo energético deben hacerse en DesignBuilder y volver a exportarse.
+Pulse **Guardar** en la cabecera para conservar los datos, adjuntos y documentos de certificación preparados para el expediente. Los informes HE y HE1 se generan en DOCX en la carpeta **Documentación**. Al guardar el expediente se conserva el DSB que se incorporó en la exportación. Para corregir el modelo energético, edite y guarde el DSB en DesignBuilder y genere otro expediente.
 
 Para conservar una copia, pulse **Guardar** y elija otro nombre o carpeta en el diálogo. Revise cualquier advertencia de archivos que no hayan podido copiarse; guardar el proyecto no demuestra por sí solo que todos sus archivos externos se hayan trasladado.
 
@@ -348,6 +348,6 @@ Active esta opción únicamente cuando proceda cubrir demanda no satisfecha con 
 
 **Reprocesar EPDB / HE / XML** reutiliza resultados válidos para actualizar la documentación después de cambiar datos que no exigen una nueva simulación. Genera un informe HE en DOCX externo y registra únicamente el XML base para el expediente. Si no existen resultados compatibles, realice **Calcular**.
 
-## Extraer el modelo dsbXML
+## Extraer el modelo DSB {#extraer-el-modelo-dsbxml}
 
-Con el expediente abierto, pulse **Extraer modelo dsbXML** y elija el destino. Obtendrá el XML del modelo incluido, para inspeccionarlo o conservar una copia independiente. Para abrir ese modelo en DesignBuilder puede usar **Importar modelo desde DBCTE**, en el plugin, y guardarlo como DSB. La extracción no incluye resultados de simulación.
+Con el expediente abierto, pulse **Extraer modelo DSB** y elija el destino. Obtendrá el archivo `.dsb` que se guardó en DesignBuilder antes de exportar el IDF. Puede abrirlo directamente en DesignBuilder o utilizar allí **Abrir modelo DSB desde DBCTE…**. Los cambios que haya guardado en el expediente desde CTE se conservan en el `.dbcte`.

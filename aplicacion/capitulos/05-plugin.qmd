@@ -3,7 +3,7 @@
 Con el modelo preparado, utilice el plugin para asignar parámetros CTE, revisar puentes térmicos y crear el expediente `.dbcte`. Trabaje desde los valores comunes del edificio hacia las excepciones. Las capturas muestran una vivienda de ejemplo; sus valores no son valores recomendados para otros proyectos.
 
 ::: {.callout-note title="Versión del plugin"}
-Las funciones de búsqueda, lotes y expediente aquí descritas corresponden a la versión 1.0.0-rc.6. Algunas capturas de otras ventanas proceden de versiones anteriores.
+El flujo de expediente con DSB guardado corresponde a la actualización del 17 de noviembre de 2026. Algunas capturas de otras ventanas proceden de versiones anteriores.
 :::
 
 ## Menú del plugin {#sec-menu-plugin}
@@ -16,7 +16,7 @@ Con el modelo cargado, abra **DesignBuilder CTE** en la barra superior.
 | Editar puentes térmicos | Revisar las longitudes, Ψ y aportaciones de los encuentros |
 | Crear expediente DBCTE… | Elegir el destino y preparar la siguiente exportación IDF |
 | Calculadora de puentes térmicos | Organizar cálculos Ψ del edificio y asignarlos a encuentros |
-| Importar modelo desde DBCTE | Recuperar en DesignBuilder el modelo incluido en un expediente |
+| Abrir modelo DSB desde DBCTE… | Extraer el DSB incluido en el expediente y abrirlo en DesignBuilder |
 
 Con un modelo abierto, **Crear expediente DBCTE…** permite elegir el destino. Si ya hay una solicitud pendiente, muestra su ruta y el aviso **Pendiente de exportar el IDF**. **Volver a DesignBuilder**, Escape o cerrar la ventana conservan la solicitud; **Cancelar creación** la retira. Elegir el destino prepara la solicitud: exporte el IDF de simulación para completar el expediente.
 
@@ -364,22 +364,16 @@ Para eliminar un cálculo con asignaciones activas, sustituya primero esas asign
 1. Guarde el DSB y seleccione el edificio correcto.
 2. Compruebe las [Opciones obligatorias](04-preparar-designbuilder.qmd#sec-opciones-obligatorias), la clasificación de zonas y su pertenencia a la envolvente.
 3. Revise parámetros, longitudes, Ψ y excepciones.
-4. En **Opciones del programa > Archivos XML de DesignBuilder**, seleccione **1-Ninguno** para **Incluir datos de bibliotecas en archivo XML de DesignBuilder**.
-5. Prepare una carpeta de salida con permiso de escritura.
-
-Si la inclusión de bibliotecas sigue activada o no puede comprobarse, el plugin informa del problema y no prepara el expediente. Corrija la opción y repita la solicitud.
+4. Prepare una carpeta de salida con permiso de escritura.
 
 ### Crear y comprobar
 
-1. Abra **DesignBuilder CTE > Crear expediente DBCTE**.
-2. Elija el nombre y destino del `.dbcte`.
-3. Lea el aviso: la siguiente exportación IDF incorporará los datos CTE y el modelo XML.
-4. Ejecute la exportación de archivo IDF de EnergyPlus para simulación desde DesignBuilder.
-5. Corrija los avisos que impidan continuar.
-6. Compruebe el mensaje **Expediente creado correctamente** y la ruta indicada.
-7. Abra el `.dbcte` en DesignBuilder CTE y compruebe el edificio y su estado.
-
-El nombre elegido prepara el destino; compruebe la confirmación de creación y la apertura del archivo al terminar la exportación. Si se cancela o falla la exportación, pulse **Crear expediente DBCTE** para comprobar si la solicitud sigue pendiente y complete la exportación IDF de **Simulación**.
+1. Abra **DesignBuilder CTE > Crear expediente DBCTE…** y elija el nombre y destino del `.dbcte`. El aviso confirma que la solicitud está preparada y le recuerda guardar el modelo.
+2. **Guarde el DSB en DesignBuilder inmediatamente antes de exportar el IDF** de EnergyPlus para **Simulación**. El expediente incorporará ese DSB tal como está guardado en disco.
+3. Cuando aparezca el aviso con la ruta del DSB, pulse **Ya he guardado, continuar** si acaba de guardarlo. Si aún no lo ha hecho, pulse **Cancelar exportación**, guarde y vuelva a exportar. La solicitud y el destino se conservan. Cerrar el aviso o pulsar Escape tiene el mismo efecto.
+4. Compruebe el mensaje **Expediente creado correctamente** y la ruta indicada. El `.dbcte` ya contiene el DSB guardado y el IDF generado con los datos CTE.
+5. Puede pulsar **Cancelar** en el diálogo de DesignBuilder que ofrece guardar el IDF en otra ubicación. Solo sirve para guardar una copia adicional del IDF.
+6. Abra el `.dbcte` en DesignBuilder CTE y compruebe el edificio y su estado.
 
 Cada solicitud genera un solo expediente. Para volver a generarlo, prepare una nueva solicitud con **Crear expediente DBCTE** antes de exportar el IDF de simulación. Puede elegir el mismo destino si desea actualizarlo.
 
@@ -391,19 +385,15 @@ Para identificar una cámara sanitaria y declarar su profundidad o una U justifi
 
 Abra **Crear expediente DBCTE…** y pulse **Cancelar creación**. La siguiente exportación ya no completará esa solicitud. Puede volver a **Crear expediente DBCTE…** para elegir otro destino.
 
-Cancelar la solicitud no borra un expediente que ya se haya creado.
+**Cancelar creación** retira la solicitud. Si solo necesita volver a guardar el DSB, use **Cancelar exportación** en el aviso previo. Podrá repetir la exportación con la misma solicitud.
 
-## Importar modelo desde DBCTE
+## Abrir modelo DSB desde DBCTE… {#importar-modelo-desde-dbcte}
 
-Esta operación recupera el XML del modelo incluido en el expediente y lo abre en DesignBuilder como un modelo nuevo.
+1. Guarde el trabajo actual en DesignBuilder.
+2. Seleccione **DesignBuilder CTE > Abrir modelo DSB desde DBCTE…**.
+3. Elija el expediente y, a continuación, el nombre y destino del DSB que desea extraer.
+4. Compruebe que DesignBuilder termina de abrirlo. Si la apertura se interrumpe, puede abrir manualmente el DSB extraído.
 
-1. Guarde el trabajo actual antes de importar.
-2. Seleccione **DesignBuilder CTE > Importar modelo desde DBCTE**.
-3. Elija el expediente y lea la confirmación.
-4. Confirme la creación del modelo si es el archivo previsto.
-5. Guarde el nuevo DSB con otro nombre.
-6. Revise cerramientos, bibliotecas, sistemas y parámetros antes de editar.
-
-El expediente de origen se conserva.
+La extracción conserva el expediente de origen.
 
 Continúe con [Caso práctico: completar una vivienda](06a-ejemplo-guiado.qmd#sec-ejemplo-guiado) o consulte las opciones de [Trabajar con DesignBuilder CTE](06-aplicacion.qmd#sec-aplicacion).

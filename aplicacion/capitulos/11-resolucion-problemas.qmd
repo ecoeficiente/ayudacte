@@ -86,11 +86,14 @@ Corrija el campo señalado y pulse **Guardar**. Si no quiere conservar los cambi
 | Exige volumen o área interior | Convención geométrica exterior | Configure ambos métodos como **1-Interior** |
 | Se exportó una selección parcial | El ámbito no era el edificio completo; el plugin no comprueba esta selección | Seleccione el edificio completo y repita la exportación |
 | No permite crear expediente | El DSB no está guardado | Guarde el DSB y repita |
-| Advierte sobre `dsbXML` | Datos de biblioteca con valor distinto | Seleccione **1-Ninguno** en la opción de inclusión de bibliotecas XML |
+| Se canceló el aviso previo a la exportación | El intento se detuvo y la solicitud quedó pendiente | Guarde el modelo y vuelva a exportar el IDF. La solicitud conserva el destino del expediente |
+| Se canceló el diálogo final de guardar IDF | Solo se descartó la copia adicional del IDF | Si vio **Expediente creado correctamente**, abra el `.dbcte` en la ruta indicada |
 | No aparece el aviso de creación | La solicitud sigue pendiente o ya terminó en una exportación anterior | Pulse **Crear expediente DBCTE**: si muestra una solicitud pendiente, complete el IDF de **Simulación**; si abre el selector, prepare una nueva solicitud |
 | No se puede escribir el destino | Carpeta protegida, red o archivo abierto | Use una carpeta local escribible y cierre el archivo |
 
 Cada solicitud genera un solo expediente. Compruebe el mensaje **Expediente creado correctamente**, la ruta y la fecha del archivo antes de utilizarlo. Si la primera exportación de una solicitud sigue sin generar el expediente, conserve la hora del intento y cualquier mensaje de error para comunicar la incidencia.
+
+Si quiere retirar la solicitud, abra **Crear expediente DBCTE…** y pulse **Cancelar creación**.
 
 En versiones anteriores del plugin, el menú puede seguir mostrando **Cancelar creación del expediente** después de terminar y ocultar **Crear expediente DBCTE**. Pulse **Cancelar**, prepare una nueva solicitud con **Crear expediente DBCTE** y exporte el IDF de simulación. Actualice el plugin para disponer de la entrada única que comprueba el estado de la solicitud.
 
@@ -99,6 +102,8 @@ En versiones anteriores del plugin, el menú puede seguir mostrando **Cancelar c
 ### Expediente incompatible o dañado
 
 La aplicación rechaza expedientes incompletos, incompatibles o cuyos archivos no concuerdan. Vuelva a obtener el original o créelo desde el DSB. Conserve el mensaje para soporte; no intente reparar manualmente su contenido.
+
+Si el expediente procede de una versión que incorporaba el modelo en XML, genere otro desde el DSB con el plugin actualizado.
 
 ### IDF incompatible
 
