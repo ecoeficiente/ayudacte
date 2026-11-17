@@ -119,10 +119,6 @@ Las imágenes y los planos incorporados a un DBCTE se recuperan desde sus adjunt
 
 Al importar o cambiar los datos del edificio, el programa vuelve a preparar el modelo necesario para los informes. Si los cambios afectan a la simulación, deberá calcular de nuevo antes de generar documentación que dependa de sus resultados.
 
-::: {.callout-note title="Expedientes guardados con versiones anteriores" icon=false}
-Puede faltar la altitud personalizada o el alcance parcial si la versión anterior no llegó a guardarlos. En ese caso se toma la altitud del municipio y aparece **Edificio completo**. Revise ambos campos y guarde el expediente; los valores que no se guardaron no pueden recuperarse automáticamente.
-:::
-
 Después de importar, revise especialmente:
 
 - dirección y alcance;
@@ -348,6 +344,8 @@ Active esta opción únicamente cuando proceda cubrir demanda no satisfecha con 
 
 **Reprocesar EPDB / HE / XML** reutiliza resultados válidos para actualizar la documentación después de cambiar datos que no exigen una nueva simulación. Genera un informe HE en DOCX externo y registra únicamente el XML base para el expediente. Si no existen resultados compatibles, realice **Calcular**.
 
-## Extraer el modelo DSB {#extraer-el-modelo-dsbxml}
+## Extraer el modelo DSB {#extraer-el-modelo-dsb}
+
+[]{#extraer-el-modelo-dsbxml}
 
 Con el expediente abierto, pulse **Extraer modelo DSB** y elija el destino. Obtendrá el archivo `.dsb` que se guardó en DesignBuilder antes de exportar el IDF. Puede abrirlo directamente en DesignBuilder o utilizar allí **Abrir modelo DSB desde DBCTE…**. Los cambios que haya guardado en el expediente desde CTE se conservan en el `.dbcte`.

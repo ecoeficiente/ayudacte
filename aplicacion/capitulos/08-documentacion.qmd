@@ -211,8 +211,6 @@ Con un `.dbcte` abierto:
 
 En **Documentos del expediente** se muestran los documentos incorporados en el último guardado; **Abrir** permite consultarlos. Al incorporar el XML final, el base deja de figurar como documento generado del expediente, aunque puede seguir en la carpeta **Documentación**. El XML y PDF finales conservan los nombres elegidos.
 
-Los informes incluidos en expedientes antiguos siguen siendo recuperables; no se eliminan por el cambio de formato. Se mantienen sus reglas de vigencia documental. El modelo, la imagen y el plano del expediente se conservan.
-
 Si el IDF cambió desde que se generaron, el guardado puede excluirlos para evitar una entrega incoherente. Genere de nuevo la documentación con resultados válidos.
 
 ## Comprobación final de entrega

@@ -33,7 +33,7 @@ Las zonas hijas agrupadas no aparecen como zonas independientes en el expediente
 5. En el siguiente diálogo de DesignBuilder, puede pulsar **Cancelar**. Ese diálogo solo sirve para guardar otra copia del IDF en una ubicación que usted elija. El expediente ya está creado.
 6. Abra el `.dbcte` en DesignBuilder CTE y compruebe el edificio y el estado del expediente.
 
-El plugin incorpora el DSB tal como se guardó en disco. Guarde antes de exportar para que los cambios de la sesión queden incluidos también en ese modelo. La configuración de bibliotecas para la exportación XML ya no se necesita en este recorrido.
+El plugin incorpora el DSB tal como se guardó en disco. Guarde antes de exportar para que los cambios de la sesión queden incluidos también en ese modelo.
 
 Cada solicitud genera un solo expediente. Para volver a generarlo, prepare una nueva solicitud con **Crear expediente DBCTE** antes de exportar el IDF de simulación. Puede elegir el mismo destino si desea actualizarlo.
 
@@ -82,8 +82,6 @@ El archivo extraído es el DSB guardado que se incorporó al expediente. La extr
 ## Problemas habituales
 
 Si falta el aviso de creación, pulse **Crear expediente DBCTE** para comprobar el estado: si muestra una solicitud pendiente, revise el destino y complete la exportación IDF de **Simulación**; si abre el selector de destino, prepare una nueva solicitud. Compruebe la fecha del archivo antes de utilizarlo. Si la primera exportación de una solicitud sigue sin generar el expediente, conserve la hora del intento y cualquier mensaje de error para comunicar la incidencia.
-
-En versiones anteriores, el menú puede seguir mostrando **Cancelar creación del expediente** después de terminar y ocultar **Crear expediente DBCTE**. En ese caso, pulse **Cancelar**, prepare una nueva solicitud con **Crear expediente DBCTE** y exporte el IDF de simulación. Actualice el plugin para disponer de la entrada única que comprueba el estado de la solicitud.
 
 | Situación | Qué revisar |
 |---|---|

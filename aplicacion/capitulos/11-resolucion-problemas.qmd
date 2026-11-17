@@ -95,15 +95,11 @@ Cada solicitud genera un solo expediente. Compruebe el mensaje **Expediente crea
 
 Si quiere retirar la solicitud, abra **Crear expediente DBCTE…** y pulse **Cancelar creación**.
 
-En versiones anteriores del plugin, el menú puede seguir mostrando **Cancelar creación del expediente** después de terminar y ocultar **Crear expediente DBCTE**. Pulse **Cancelar**, prepare una nueva solicitud con **Crear expediente DBCTE** y exporte el IDF de simulación. Actualice el plugin para disponer de la entrada única que comprueba el estado de la solicitud.
-
 ## Apertura de proyectos
 
 ### Expediente incompatible o dañado
 
 La aplicación rechaza expedientes incompletos, incompatibles o cuyos archivos no concuerdan. Vuelva a obtener el original o créelo desde el DSB. Conserve el mensaje para soporte; no intente reparar manualmente su contenido.
-
-Si el expediente procede de una versión que incorporaba el modelo en XML, genere otro desde el DSB con el plugin actualizado.
 
 ### IDF incompatible
 
