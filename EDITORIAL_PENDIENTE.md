@@ -141,9 +141,9 @@ En aplicación/capitulos/11-resolucion-problemas.qmd y plugin/capitulos/02-puent
 La mejora preparada muestra directamente el motivo de validación en el diálogo de generación documental. No publicada ni incluida todavía en el paquete de ensayo ep251.1. Las instrucciones de carga ya existen en la guía actual; ambos PDF públicos permanecen intactos.
 
 
-## Qsol en edificios con control de CO₂ — pendiente de entrega (19-11-2026)
+## Qsol en edificios con controles y grupos de zonas — pendiente de entrega (19-11-2026)
 
-Para el capítulo de resolución de problemas de la aplicación. Si el registro de Qsol menciona `ZoneControl:ContaminantController` y una zona que sí existe en DesignBuilder, conserva el control de CO₂ del edificio. Con la versión que incorpore la corrección basta volver a calcular el expediente existente. La aplicación descarta ese controlador al preparar el modelo auxiliar de control solar. La exportación desde el plugin sigue el procedimiento habitual.
+Para el capítulo de resolución de problemas de la aplicación. Si el registro de Qsol menciona una zona que existe en DesignBuilder junto a un control de CO₂ o humedad, una fuente de CO₂, un equipo eléctrico o una lista de zonas, conserva esos datos en el edificio. Con la versión que incorpore la corrección basta volver a calcular el expediente existente. La aplicación retira esos objetos al preparar el modelo auxiliar de control solar. La exportación desde el plugin sigue el procedimiento habitual.
 
 ## Qsol con tablas TAB/HTML — pendiente de entrega (04-11-2026)
 
