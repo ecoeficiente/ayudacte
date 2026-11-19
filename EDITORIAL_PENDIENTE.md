@@ -145,6 +145,8 @@ La mejora preparada muestra directamente el motivo de validación en el diálogo
 
 Para el capítulo de resolución de problemas de la aplicación. Si el registro de Qsol menciona una zona que existe en DesignBuilder junto a un control de CO₂ o humedad, una fuente de CO₂, un equipo eléctrico o una lista de zonas, conserva esos datos en el edificio. Con la versión que incorpore la corrección basta volver a calcular el expediente existente. La aplicación retira esos objetos al preparar el modelo auxiliar de control solar. La exportación desde el plugin sigue el procedimiento habitual.
 
+Si el registro de Qsol señala un control de protección solar móvil que apunta a una ventana fuera de la envolvente térmica, conserva la protección en DesignBuilder y vuelve a calcular con la versión corregida. Qsol aplica el control a los huecos que participan en el cálculo solar.
+
 ## Qsol con tablas TAB/HTML — pendiente de entrega (04-11-2026)
 
 Aplicación, resolución de problemas: corregida la recogida de Qsol cuando el IDF de origen solicita tablas TAB o HTML. EnergyPlus podía terminar correctamente y CTE indicar error al no encontrar el CSV esperado. La aplicación prepara ahora la salida CSV para Qsol; basta recalcular con la versión corregida, sin modificar geometría ni parámetros solares. No se convierten resultados antiguos de forma manual.
