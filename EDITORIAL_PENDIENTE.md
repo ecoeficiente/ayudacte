@@ -141,6 +141,10 @@ En aplicación/capitulos/11-resolucion-problemas.qmd y plugin/capitulos/02-puent
 La mejora preparada muestra directamente el motivo de validación en el diálogo de generación documental. No publicada ni incluida todavía en el paquete de ensayo ep251.1. Las instrucciones de carga ya existen en la guía actual; ambos PDF públicos permanecen intactos.
 
 
+## Qsol en edificios con control de CO₂ — pendiente de entrega (19-11-2026)
+
+Para el capítulo de resolución de problemas de la aplicación. Si el registro de Qsol menciona `ZoneControl:ContaminantController` y una zona que sí existe en DesignBuilder, conserva el control de CO₂ del edificio. Con la versión que incorpore la corrección basta volver a calcular el expediente existente. La aplicación descarta ese controlador al preparar el modelo auxiliar de control solar. La exportación desde el plugin sigue el procedimiento habitual.
+
 ## Qsol con tablas TAB/HTML — pendiente de entrega (04-11-2026)
 
 Aplicación, resolución de problemas: corregida la recogida de Qsol cuando el IDF de origen solicita tablas TAB o HTML. EnergyPlus podía terminar correctamente y CTE indicar error al no encontrar el CSV esperado. La aplicación prepara ahora la salida CSV para Qsol; basta recalcular con la versión corregida, sin modificar geometría ni parámetros solares. No se convierten resultados antiguos de forma manual.
