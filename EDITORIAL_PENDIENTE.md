@@ -153,7 +153,7 @@ Para [Consultar el archivo de registro del expediente](aplicacion/capitulos/11-r
 
 ## Regulación por luz natural en residencial — pendiente de entrega
 
-Para [Edificios residenciales](aplicacion/capitulos/04-preparar-designbuilder.qmd) en la guía de la aplicación. Al calcular en residencial, DesignBuilder CTE aplica el perfil residencial de iluminación sin regulación por sensores de luz natural. El edificio objeto y el cálculo de demanda prescinden de los sensores y de sus puntos de referencia. Las reglas de sombra que dependen exclusivamente de esos sensores dan paso al sombreado del procedimiento residencial. Los controles por radiación o por horario siguen siendo aplicables. Puede volver a calcular el expediente existente con la versión corregida.
+Para [Edificios residenciales](aplicacion/capitulos/04-preparar-designbuilder.qmd) en la guía de la aplicación. Al calcular en residencial, DesignBuilder CTE aplica el perfil residencial de iluminación sin regulación por sensores de luz natural. El edificio objeto y el cálculo de demanda prescinden de los sensores y de sus puntos de referencia. Las reglas de sombra que requieren esos sensores dan paso al sombreado del procedimiento residencial. Los controles independientes, como los regidos por radiación solar o por horario, siguen siendo aplicables. Puede volver a calcular el expediente existente con la versión corregida.
 
 La exportación desde el plugin sigue el proceso habitual. Incorporar el texto al capítulo de la aplicación y regenerar su PDF cuando se distribuya la corrección.
 
