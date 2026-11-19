@@ -147,6 +147,10 @@ Para el capítulo de resolución de problemas de la aplicación. Si el registro 
 
 Si el registro de Qsol señala un control de protección solar móvil que apunta a una ventana fuera de la envolvente térmica, conserva la protección en DesignBuilder y vuelve a calcular con la versión corregida. Qsol aplica el control a los huecos que participan en el cálculo solar.
 
+## Diagnóstico del cierre de simulación y de la copia de resultados — pendiente de entrega (19-11-2026)
+
+Para [Consultar el archivo de registro del expediente](aplicacion/capitulos/11-resolucion-problemas.qmd#sec-log-expediente). Si falla una simulación, busca en el registro el tipo de cálculo y las entradas de cierre de EnergyPlus y de copia de resultados. El cierre muestra el código de salida y el resumen del motor. Si la copia falla, el registro indica el archivo, la ruta de destino y el error de Windows. Conserva estas líneas junto con el mensaje de la aplicación al comunicar la incidencia.
+
 ## Qsol con tablas TAB/HTML — pendiente de entrega (04-11-2026)
 
 Aplicación, resolución de problemas: corregida la recogida de Qsol cuando el IDF de origen solicita tablas TAB o HTML. EnergyPlus podía terminar correctamente y CTE indicar error al no encontrar el CSV esperado. La aplicación prepara ahora la salida CSV para Qsol; basta recalcular con la versión corregida, sin modificar geometría ni parámetros solares. No se convierten resultados antiguos de forma manual.
