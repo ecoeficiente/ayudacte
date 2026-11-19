@@ -151,6 +151,12 @@ Si el registro de Qsol señala un control de protección solar móvil que apunta
 
 Para [Consultar el archivo de registro del expediente](aplicacion/capitulos/11-resolucion-problemas.qmd#sec-log-expediente). Si falla una simulación, busca en el registro el tipo de cálculo y las entradas de cierre de EnergyPlus y de copia de resultados. El cierre muestra el código de salida y el resumen del motor. Si la copia falla, el registro indica el archivo, la ruta de destino y el error de Windows. Conserva estas líneas junto con el mensaje de la aplicación al comunicar la incidencia.
 
+## Regulación por luz natural en residencial — pendiente de entrega
+
+Para [Edificios residenciales](aplicacion/capitulos/04-preparar-designbuilder.qmd) en la guía de la aplicación. Al calcular en residencial, DesignBuilder CTE aplica el perfil residencial de iluminación sin regulación por sensores de luz natural. El edificio objeto y el cálculo de demanda prescinden de los sensores y de sus puntos de referencia. Las reglas de sombra que dependen exclusivamente de esos sensores dan paso al sombreado del procedimiento residencial. Los controles por radiación o por horario siguen siendo aplicables. Puede volver a calcular el expediente existente con la versión corregida.
+
+La exportación desde el plugin sigue el proceso habitual. Incorporar el texto al capítulo de la aplicación y regenerar su PDF cuando se distribuya la corrección.
+
 ## Qsol con tablas TAB/HTML — pendiente de entrega (04-11-2026)
 
 Aplicación, resolución de problemas: corregida la recogida de Qsol cuando el IDF de origen solicita tablas TAB o HTML. EnergyPlus podía terminar correctamente y CTE indicar error al no encontrar el CSV esperado. La aplicación prepara ahora la salida CSV para Qsol; basta recalcular con la versión corregida, sin modificar geometría ni parámetros solares. No se convierten resultados antiguos de forma manual.
