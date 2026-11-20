@@ -1,5 +1,11 @@
 # Contenido pendiente de publicación
 
+## Cálculo con zonas sin ocupación y ventilación por máximo
+
+Al distribuir la corrección, incorporar este caso en [Resolución de problemas de la aplicación](aplicacion/capitulos/11-resolucion-problemas.qmd#sec-log-expediente) y actualizar su PDF.
+
+Si «Calcular» se interrumpe al crear los modelos y el log indica `Sequence contains no matching element`, una causa conocida es una zona sin ocupación con el método de aire exterior `Maximum`. Con la versión corregida puede recalcular el mismo expediente. En un almacén sin personas, por ejemplo, se conserva el caudal por superficie que haya definido. El método toma el mayor de los aportes por persona, por superficie, por zona o por renovaciones por hora. La exportación del plugin conserva su procedimiento habitual.
+
 ## Exportación de superficies de tipo Hole
 
 Al distribuir la corrección, añadir esta entrada a la tabla de incidencias de [Crear un expediente](plugin/capitulos/04-expediente.qmd).
