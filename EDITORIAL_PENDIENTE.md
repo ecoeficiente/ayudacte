@@ -172,3 +172,7 @@ Próxima edición en `editorial/xml-20261029/aplicacion/capitulos/`: sustituir l
 Al distribuir la función, incorporar el texto de `editorial/importacion-paneles/aplicacion/importacion-paneles.qmd` en [Importar datos desde otro proyecto](aplicacion/capitulos/06-aplicacion.qmd#sec-importar-datos), antes de «Importar certificador». Añadir un enlace a ese apartado desde «Datos del modelo» y actualizar el nombre del botón en «Importar generadores de otro proyecto» a **Añadir producciones de otro proyecto…**. Regenerar el PDF de la aplicación y comprobar los enlaces y el nombre de descarga.
 
 La recuperación de modelos desde DBCTE en la [guía del plugin](plugin/capitulos/04-expediente.qmd) sigue siendo una operación de DesignBuilder. La importación de los tres paneles se documenta en la guía de la aplicación.
+
+## Ensayos por comandos
+
+Al distribuir el modo de ensayo, incorporar [Ensayar combinaciones de expedientes](editorial/ensayos/aplicacion/ensayos.qmd) en el capítulo de cálculo de la guía de la aplicación y regenerar su PDF. La exportación desde el plugin conserva su procedimiento actual.

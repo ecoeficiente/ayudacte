@@ -1,0 +1,23 @@
+## Ensayar combinaciones de expedientes
+
+Cierre DesignBuilder CTE antes de iniciar el lote. Use una carpeta de salida nueva o vacía para cada caso. El ensayo trabaja sobre una copia del expediente, utiliza la licencia y los motores de EnergyPlus instalados y vuelve a calcular el edificio con los paneles elegidos.
+
+En PowerShell puede ejecutar un caso y esperar al resultado con este ejemplo. Ajuste la ruta del ejecutable a su instalación.
+
+```powershell
+$programa = 'C:\ruta\DesignBuilderCTE.exe'
+$caso = Start-Process $programa -Wait -PassThru -ArgumentList '--ensayo "C:\Modelos\Base.dbcte" --todos "C:\Modelos\Referencia.dbcte" --salida "C:\Ensayos\Caso 01"'
+$caso.ExitCode
+```
+
+Use `--edificio`, `--certificador` y `--modelo` para tomar paneles de expedientes distintos. Si omite un panel, se conservan los datos del expediente base. Use `--todos` para tomar los tres del mismo expediente. Para obtener un caso de control, indique únicamente `--ensayo` y `--salida`.
+
+Sin `--medidas` se generan el informe HE en Word, el XML base y su PDF. Este PDF permite revisar el caso base con los datos importados. Con `--medidas "Mejoras.json"`, XML Medidas 1.1.0 requiere terminar la exportación en su ventana. Abra el proyecto JSON, seleccione como caso base el XML recién calculado, compruebe las rutas de los edificios mejorados y genere el XML final.
+
+| Código de salida | Interpretación |
+|---|---|
+| 0 | Caso completo. Consulte las rutas de los documentos en `resultado.json`. |
+| 1 | Fallo. Consulte la etapa, el diagnóstico y los mensajes del caso. Si la carpeta ya contenía archivos, elija otra para el reintento. |
+| 2 | Cálculo y documentación base generados. Queda pendiente completar el XML con medidas. |
+
+Si un expediente requiere confirmar controles solares específicos, revíselo en la aplicación. El ensayo desatendido comunica la necesidad de confirmación.
