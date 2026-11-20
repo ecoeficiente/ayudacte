@@ -1,5 +1,11 @@
 # Contenido pendiente de publicación
 
+## Abrir el fichero de error de EnergyPlus
+
+Al distribuir el cambio, incorporar esta indicación a «EnergyPlus termina con error» en [Resolución de problemas](aplicacion/capitulos/11-resolucion-problemas.qmd) y a [Carpetas donde se ejecutan las simulaciones](aplicacion/capitulos/09-archivos.qmd#sec-carpetas-simulacion). Regenerar el PDF de la aplicación.
+
+Si una simulación falla y ha generado `eplusout.err`, pulse **Abrir fichero de error** en el aviso. Windows abrirá el fichero de esa simulación con la aplicación predeterminada para la extensión `.err`. Busque el primer error grave. Si Windows indica que falta una aplicación asociada, abra la ruta que muestra el aviso con un editor de texto.
+
 ## Cálculo con zonas sin ocupación y ventilación por máximo
 
 Al distribuir la corrección, incorporar este caso en [Resolución de problemas de la aplicación](aplicacion/capitulos/11-resolucion-problemas.qmd#sec-log-expediente) y actualizar su PDF.
