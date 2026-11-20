@@ -1,5 +1,11 @@
 # Contenido pendiente de publicación
 
+## Error al guardar los puentes térmicos
+
+Cuando se distribuya el cambio, incorporar en [Editar puentes térmicos](plugin/capitulos/02-puentes.qmd#cargar-longitudes-de-zonas) y regenerar el PDF del plugin.
+
+Si aparece un error al pulsar **Guardar**, el aviso identifica la operación, el edificio, bloque o zona cuando corresponde y el motivo que comunicó DesignBuilder. Si indica **Restauración incompleta**, conserve el DSB original y revise los datos afectados antes de guardar el modelo. Para comunicar la incidencia, adjunte el registro cuya ruta aparece en el aviso.
+
 ## Soleras definidas mediante factor F
 
 Al distribuir la corrección, incorporar este caso en [Resolución de problemas de la aplicación](aplicacion/capitulos/11-resolucion-problemas.qmd#sec-log-expediente) y regenerar su PDF.
