@@ -1,5 +1,13 @@
 # Contenido pendiente de publicación
 
+## Certificados generados con XmlCert 0.7.2
+
+Al distribuir la actualización, incorporar en [Generar el PDF mediante XMLCert](aplicacion/capitulos/08-documentacion.qmd) el siguiente texto. «El certificado muestra en cada página la huella SHA-256 del XML seleccionado. También puede consultarla en las palabras clave de las propiedades del PDF. Conserve ese XML junto al certificado. Si edita el XML, genere de nuevo el PDF para que ambos coincidan».
+
+Añadir a [XMLCert y PDF](aplicacion/capitulos/11-resolucion-problemas.qmd#sec-xmlcert-pdf) esta solución. «Si aparece `expected a borrowed string` al abrir un XML con una lista en varias líneas, guarde una copia con finales de línea LF en un editor de texto. Seleccione esa copia en **Generar PDF desde XML** y consérvela junto al PDF, cuya huella corresponde a la copia».
+
+Regenerar y revisar el PDF de la guía de la aplicación al publicar estos apartados.
+
 ## Avisos de creación del expediente
 
 Al distribuir la actualización del plugin, integrar el [texto y las dos capturas](editorial/avisos-expediente/avisos.qmd) en «Crear un DBCTE» de la guía del plugin y «Crear y comprobar» de la guía de la aplicación. Partir de la edición con DSB guardado. Sustituir la explicación de estos dos avisos en sus pasos respectivos y conservar el paso intermedio de confirmación del DSB. Copiar las dos imágenes junto al texto o ajustar sus rutas en cada guía. Regenerar y revisar el HTML y los dos PDF en esa entrega.
