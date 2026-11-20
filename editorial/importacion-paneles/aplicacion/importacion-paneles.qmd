@@ -1,0 +1,13 @@
+### Importar edificio, certificador y modelo
+
+Abra el proyecto que va a recibir los datos. En **Cálculos y Documentación → Datos del proyecto**, pulse **Importar edificio, certificador y modelo…** y seleccione un archivo `.dbcte` o `.idf` que contenga los tres bloques. Revise el archivo y el número de producciones en el diálogo antes de pulsar **Importar**. La aplicación carga los datos del edificio, la imagen y el plano disponibles, los datos del certificador y las opciones de **Datos del modelo**.
+
+Para preparar un expediente de prueba, abra una copia del proyecto que quiera ensayar, importe los tres bloques de un expediente con los datos de prueba y revise la ubicación, la identidad del técnico y los parámetros importados. Pulse **Guardar** cuando quiera conservarlos. El proyecto de destino conserva su geometría, sus instalaciones y sus archivos de resultados. Si aparece un aviso para volver a calcular, hágalo antes de generar la documentación. Para actualizar documentos con resultados que sigan vigentes, use **Reprocesar EPDB / HE / XML**.
+
+Si falta alguno de los tres bloques, el aviso indica qué paneles faltan y el destino conserva sus datos. Abra el origen en DesignBuilder CTE, complete y guarde los datos necesarios, y vuelva a seleccionar ese archivo.
+
+### Importar solo los datos del modelo
+
+Con el destino abierto, vaya a **Datos del modelo** y pulse **Importar datos del modelo…**, junto al título. Seleccione el IDF o DBCTE de origen. Al confirmar se sustituyen el mes del CFI, el periodo de sombras, los factores de conversión, las opciones de reflectancia y sistemas de sustitución y la lista de producciones adicionales. Si el origen tiene una lista vacía, se vacía la del destino.
+
+Para incorporar componentes a la lista existente, pulse **Añadir producciones de otro proyecto…** en **Producciones energéticas adicionales**. Si está editando un componente, guarde o cancele su edición antes de importar los datos del modelo o los tres paneles. Si el nombre de un componente que va a sustituir la lista coincide con un objeto del modelo de destino, cambie el nombre del componente en el origen, guarde ese proyecto y repita la importación.

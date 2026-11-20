@@ -166,3 +166,9 @@ Plugin, recorrido de exportación: no requiere cambiar el formato de tablas en D
 ## XML 3.0 — recursos 29/10/2026
 
 Próxima edición en `editorial/xml-20261029/aplicacion/capitulos/`: sustituir los cuatro capítulos homónimos al distribuir la actualización. Incluye NIF de entidad opcional, códigos de inmueble sin asignar, nombres con puntos y revisión de cogeneración. Guía del plugin revisada: sin cambios funcionales derivados de esta actualización. HTML/PDF de vista previa y aceptación integral pendientes; no publicar aún.
+
+## Importación de datos del modelo y de los tres paneles
+
+Al distribuir la función, incorporar el texto de `editorial/importacion-paneles/aplicacion/importacion-paneles.qmd` en [Importar datos desde otro proyecto](aplicacion/capitulos/06-aplicacion.qmd#sec-importar-datos), antes de «Importar certificador». Añadir un enlace a ese apartado desde «Datos del modelo» y actualizar el nombre del botón en «Importar generadores de otro proyecto» a **Añadir producciones de otro proyecto…**. Regenerar el PDF de la aplicación y comprobar los enlaces y el nombre de descarga.
+
+La recuperación de modelos desde DBCTE en la [guía del plugin](plugin/capitulos/04-expediente.qmd) sigue siendo una operación de DesignBuilder. La importación de los tres paneles se documenta en la guía de la aplicación.
