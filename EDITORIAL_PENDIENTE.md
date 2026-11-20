@@ -1,5 +1,9 @@
 # Contenido pendiente de publicación
 
+## Avisos de creación del expediente
+
+Al distribuir la actualización del plugin, integrar el [texto y las dos capturas](editorial/avisos-expediente/avisos.qmd) en «Crear un DBCTE» de la guía del plugin y «Crear y comprobar» de la guía de la aplicación. Partir de la edición con DSB guardado. Sustituir la explicación de estos dos avisos en sus pasos respectivos y conservar el paso intermedio de confirmación del DSB. Copiar las dos imágenes junto al texto o ajustar sus rutas en cada guía. Regenerar y revisar el HTML y los dos PDF en esa entrega.
+
 ## DSB reducido en expedientes — RC8, pendiente de aceptación manual
 
 Fuentes completas preparadas en `editorial/dsb-v2/`: creación y apertura en ambas guías, extracción de DSB, mapa de archivos, revisión, problemas y glosario. Retiran el requisito de bibliotecas XML y explican que CTE conserva el DSB sin modificarlo. Incorporar a las guías al distribuir RC8, después de la aceptación; mantener anclas antiguas y actualizar ambos PDF.

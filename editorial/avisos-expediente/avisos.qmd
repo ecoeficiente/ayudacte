@@ -1,0 +1,7 @@
+Al elegir el destino del archivo `.dbcte`, aparece **Solicitud preparada · Pendiente de exportación**. Compruebe la ruta bajo **Destino del expediente**. Puede seleccionarla y copiarla. Pulse **Volver a DesignBuilder**, guarde el modelo y exporte inmediatamente después el IDF de simulación. Intro, Esc y el cierre de la ventana también conservan la solicitud. Para consultarla o cancelarla, abra **Crear expediente DBCTE…**.
+
+![La solicitud preparada muestra el destino del expediente y los dos pasos que debe realizar en DesignBuilder.](solicitud-preparada.png){width=100%}
+
+Al finalizar la exportación, **Expediente creado correctamente** confirma que el archivo de la ruta indicada bajo **Archivo guardado** ya contiene el IDF con los datos CTE y el DSB guardado. Pulse **Entendido**. Si DesignBuilder le ofrece guardar el IDF por separado, puede cancelar ese diálogo. El expediente ya está completo. Para generar otro, prepare una nueva solicitud desde **Crear expediente DBCTE…**.
+
+![El aviso de creación permite copiar la ruta del expediente y aclara que guardar otra copia del IDF es opcional.](expediente-creado.png){width=100%}
