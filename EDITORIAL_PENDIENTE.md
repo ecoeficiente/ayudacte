@@ -1,5 +1,11 @@
 # Contenido pendiente de publicación
 
+## Soleras definidas mediante factor F
+
+Al distribuir la corrección, incorporar este caso en [Resolución de problemas de la aplicación](aplicacion/capitulos/11-resolucion-problemas.qmd#sec-log-expediente) y regenerar su PDF.
+
+Si el cálculo se detiene al iniciarse y el registro indica que la construcción de una solera «no es compatible con el cálculo de su resistencia térmica», compruebe si esa solera se definió mediante factor F en DesignBuilder. En ese caso, abra el mismo expediente con la versión corregida y pulse **Calcular**. Puede conservar el factor F y el expediente exportado con el plugin.
+
 ## Abrir el fichero de error de EnergyPlus
 
 Al distribuir el cambio, incorporar esta indicación a «EnergyPlus termina con error» en [Resolución de problemas](aplicacion/capitulos/11-resolucion-problemas.qmd) y a [Carpetas donde se ejecutan las simulaciones](aplicacion/capitulos/09-archivos.qmd#sec-carpetas-simulacion). Regenerar el PDF de la aplicación.
