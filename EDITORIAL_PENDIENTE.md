@@ -1,5 +1,15 @@
 # Contenido pendiente de publicación
 
+## Exportación de superficies de tipo Hole
+
+Al distribuir la corrección, añadir esta entrada a la tabla de incidencias de [Crear un expediente](plugin/capitulos/04-expediente.qmd).
+
+| Situación | Qué revisar |
+|---|---|
+| «No se encontró el elemento IDF para intervención HE» muestra varias veces el nombre de una zona | Si el modelo contiene superficies de tipo *Hole* y el aviso muestra solo el nombre de su zona, repita la exportación con el plugin actualizado. Puede conservar la geometría y las marcas HE del modelo. Si el aviso identifica un cerramiento o una ventana concretos, compruebe que ese elemento aparece en el IDF del edificio seleccionado. |
+
+Actualizar el PDF del plugin al incorporar esta entrada. El procedimiento de apertura en la guía de la aplicación sigue siendo el mismo.
+
 ## Certificados generados con XmlCert 0.7.2
 
 Al distribuir la actualización, incorporar en [Generar el PDF mediante XMLCert](aplicacion/capitulos/08-documentacion.qmd) el siguiente texto. «El certificado muestra en cada página la huella SHA-256 del XML seleccionado. También puede consultarla en las palabras clave de las propiedades del PDF. Conserve ese XML junto al certificado. Si edita el XML, genere de nuevo el PDF para que ambos coincidan».
