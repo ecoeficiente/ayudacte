@@ -1,5 +1,13 @@
 # Contenido pendiente de publicación
 
+## Ocupación de las zonas acondicionadas
+
+Al distribuir el cambio, incorporar este diagnóstico en [Horas fuera de consigna](aplicacion/capitulos/07-calculo.qmd#horas-fuera-de-consigna) y actualizar el PDF de la aplicación.
+
+Antes de generar el informe HE y el XML, la aplicación comprueba la ocupación simulada de cada zona habitable acondicionada. La generación se detiene si falta su serie de ocupación o si una zona marcada como **Ocupada** registra cero personas durante todo el período. Los intervalos sin personas son válidos cuando corresponden al horario de la zona.
+
+El aviso identifica las zonas afectadas. Revise en DesignBuilder la casilla **Ocupada** de **Actividad**, las personas asignadas y su horario. La pertenencia al grupo HVAC determina si la zona está acondicionada. Una vez corregido el dato de origen, vuelva a exportar el expediente y pulse **Calcular**.
+
 ## Superficie de zona insuficiente para generar el mobiliario
 
 Al distribuir la mejora, incorporar este caso en [Resolución de problemas de la aplicación](aplicacion/capitulos/11-resolucion-problemas.qmd#sec-diagnostico) y actualizar el PDF de esa guía.
