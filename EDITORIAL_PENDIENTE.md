@@ -1,5 +1,11 @@
 # Contenido pendiente de publicación
 
+## Consumo mensual del acumulador de ACS
+
+Cuando se distribuya la corrección, incorporar este caso en [Resolución de problemas de la aplicación](aplicacion/capitulos/11-resolucion-problemas.qmd#sec-log-expediente) y actualizar el PDF de esa guía.
+
+Si al generar el informe HE o el XML aparece «No se encontró el resultado mensual» para un acumulador de ACS cuyo nombre contiene paréntesis, abra el mismo expediente con la versión corregida y pulse **Calcular**. Después, vuelva a generar la documentación. Puede conservar el nombre del equipo y el expediente exportado desde DesignBuilder.
+
 ## Error al guardar los puentes térmicos
 
 Cuando se distribuya el cambio, incorporar en [Editar puentes térmicos](plugin/capitulos/02-puentes.qmd#cargar-longitudes-de-zonas) y regenerar el PDF del plugin.
