@@ -1,5 +1,11 @@
 # Contenido pendiente de publicación
 
+## Superficie de zona insuficiente para generar el mobiliario
+
+Al distribuir la mejora, incorporar este caso en [Resolución de problemas de la aplicación](aplicacion/capitulos/11-resolucion-problemas.qmd#sec-diagnostico) y actualizar el PDF de esa guía.
+
+Si el cálculo identifica una zona cuya superficie da lugar a un mobiliario inferior a 0,000001 m², revise la superficie de suelo asignada a esa zona en DesignBuilder y compárela con su geometría. Una vez confirmado el valor que corresponde al modelo, vuelva a exportar el expediente y pulse **Calcular**. El mensaje muestra el nombre de la zona y las dos superficies para localizar el dato de origen.
+
 ## Consumo mensual del acumulador de ACS
 
 Cuando se distribuya la corrección, incorporar este caso en [Resolución de problemas de la aplicación](aplicacion/capitulos/11-resolucion-problemas.qmd#sec-log-expediente) y actualizar el PDF de esa guía.
