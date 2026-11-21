@@ -222,3 +222,9 @@ La recuperación de modelos desde DBCTE en la [guía del plugin](plugin/capitulo
 ## Ensayos por comandos
 
 Al distribuir el modo de ensayo, incorporar [Ensayar combinaciones de expedientes](editorial/ensayos/aplicacion/ensayos.qmd) en el capítulo de cálculo de la guía de la aplicación y regenerar su PDF. La exportación desde el plugin conserva su procedimiento actual.
+
+## Contribución renovable de ACS con cogeneración
+
+Al distribuir la corrección, incorporar en [Documentación de la aplicación](aplicacion/capitulos/08-documentacion.qmd) y regenerar el PDF de esa guía.
+
+Si el cálculo energético detecta electricidad cogenerada y no puede determinar la fracción renovable de la demanda de agua caliente sanitaria, el informe HE muestra «No calculable» en la contribución renovable. Si HE4 resulta exigible, el informe deja pendiente esa comprobación e indica el motivo. Justifique la contribución renovable con los datos de la instalación antes de acreditar el cumplimiento. Los resultados de energía y emisiones siguen disponibles para el XML y el PDF de certificación.
