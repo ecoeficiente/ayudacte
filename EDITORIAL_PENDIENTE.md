@@ -4,9 +4,9 @@
 
 Al distribuir el cambio, incorporar este diagnóstico en [Horas fuera de consigna](aplicacion/capitulos/07-calculo.qmd#horas-fuera-de-consigna) y actualizar el PDF de la aplicación.
 
-Antes de generar el informe HE y el XML, la aplicación comprueba la ocupación simulada de cada zona habitable acondicionada. La generación se detiene si falta su serie de ocupación o si una zona marcada como **Ocupada** registra cero personas durante todo el período. Los intervalos sin personas son válidos cuando corresponden al horario de la zona.
+El límite del 4 % se comprueba en las zonas habitables acondicionadas y durante sus intervalos con ocupación simulada. Una zona sin personas asignadas se excluye del recuento y se identifica en el registro. Una zona con ocupación simulada igual a cero aporta cero horas. Si ninguna zona del ámbito tiene tiempo ocupado, el informe muestra el resultado como «No calculable».
 
-El aviso identifica las zonas afectadas. Revise en DesignBuilder la casilla **Ocupada** de **Actividad**, las personas asignadas y su horario. La pertenencia al grupo HVAC determina si la zona está acondicionada. Una vez corregido el dato de origen, vuelva a exportar el expediente y pulse **Calcular**.
+Para incluir una zona habitable acondicionada que actualmente presenta ocupación cero, indique en DesignBuilder una ocupación positiva, aunque sea baja, y un horario representativo de su uso. Vuelva a exportar el expediente y pulse **Calcular**. Si el expediente tiene personas asignadas y falta su serie de resultados o está incompleta, el aviso identifica la zona y solicita repetir el cálculo.
 
 ## Superficie de zona insuficiente para generar el mobiliario
 
