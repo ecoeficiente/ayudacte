@@ -12,7 +12,9 @@ El aviso identifica las zonas afectadas. Revise en DesignBuilder la casilla **Oc
 
 Al distribuir la mejora, incorporar este caso en [Resolución de problemas de la aplicación](aplicacion/capitulos/11-resolucion-problemas.qmd#sec-diagnostico) y actualizar el PDF de esa guía.
 
-Si el cálculo identifica una zona cuya superficie da lugar a un mobiliario inferior a 0,000001 m², revise la superficie de suelo asignada a esa zona en DesignBuilder y compárela con su geometría. Una vez confirmado el valor que corresponde al modelo, vuelva a exportar el expediente y pulse **Calcular**. El mensaje muestra el nombre de la zona y las dos superficies para localizar el dato de origen.
+Cuando el área calculada para el mobiliario sea inferior a 0,000001 m², el tratamiento depende de la zona. Si es una zona no acondicionada con un área de suelo nula o inferior a 0,000002 m², la aplicación conserva la zona en la simulación y deja constancia de la omisión del mobiliario en el registro de cálculo.
+
+Si la zona está acondicionada, el cálculo se detiene y el aviso muestra el nombre de la zona y las dos superficies. Revise la superficie de suelo en DesignBuilder y compárela con su geometría. Una vez corregido el dato, vuelva a exportar el expediente y pulse **Calcular**.
 
 ## Consumo mensual del acumulador de ACS
 
