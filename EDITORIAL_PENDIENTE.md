@@ -8,6 +8,8 @@ El límite del 4 % se comprueba en las zonas habitables acondicionadas y durante
 
 Para incluir una zona habitable acondicionada que actualmente presenta ocupación cero, indique en DesignBuilder una ocupación positiva, aunque sea baja, y un horario representativo de su uso. Vuelva a exportar el expediente y pulse **Calcular**. Si el expediente tiene personas asignadas y falta su serie de resultados o está incompleta, el aviso identifica la zona y solicita repetir el cálculo.
 
+Al consultar el archivo ESO, varias zonas con los mismos horarios de ocupación pueden compartir una serie `Zone People Occupant Count`. Busque «Representante de ocupación» en el registro del cálculo para localizar la serie y las zonas que la utilizan. Las salidas de calefacción y refrigeración fuera de consigna conservan el nombre de cada zona evaluada.
+
 ## Superficie de zona insuficiente para generar el mobiliario
 
 Al distribuir la mejora, incorporar este caso en [Resolución de problemas de la aplicación](aplicacion/capitulos/11-resolucion-problemas.qmd#sec-diagnostico) y actualizar el PDF de esa guía.
