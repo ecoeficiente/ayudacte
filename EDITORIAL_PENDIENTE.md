@@ -1,5 +1,19 @@
 # Contenido pendiente de publicación
 
+## Fracciones radiantes del modelo en terciario
+
+Al distribuir esta opción, añadir «Fracciones radiantes» en [Datos del modelo](aplicacion/capitulos/06-aplicacion.qmd#datos-del-modelo), después de «Reflectancia de los materiales». Incorporar la fila de recálculo en [Validez e invalidación de resultados](aplicacion/capitulos/07-calculo.qmd#validez-e-invalidación-de-resultados) y regenerar el PDF de la guía de la aplicación.
+
+### Fracciones radiantes
+
+En **Datos del modelo**, la casilla **Usar las fracciones radiantes del modelo (solo terciario)** está disponible cuando la escala del expediente es terciaria. Está desactivada por defecto. Con la casilla desactivada se usan las fracciones de referencia del procedimiento, 0,6 de la carga sensible para personas, 0,8 para iluminación y 0,7 para equipos.
+
+Al activarla, el cálculo utiliza las fracciones radiantes definidas en DesignBuilder. Justifique en la memoria del proyecto o en un anexo técnico del expediente los valores adoptados y su fuente. Guarde el expediente y vuelva a pulsar **Calcular** después de activar o desactivar la opción.
+
+| Cambio | Acción necesaria |
+|---|---|
+| Uso de las fracciones radiantes del modelo en terciario | Guardar el expediente, **Calcular** y regenerar informes y XML |
+
 ## Ocupación de las zonas acondicionadas
 
 Al distribuir el cambio, incorporar este diagnóstico en [Horas fuera de consigna](aplicacion/capitulos/07-calculo.qmd#horas-fuera-de-consigna) y actualizar el PDF de la aplicación.
