@@ -297,6 +297,14 @@ Al distribuir la corrección, incorporar en [Documentación de la aplicación](a
 
 Si el cálculo energético detecta electricidad cogenerada y no puede determinar la fracción renovable de la demanda de agua caliente sanitaria, el informe HE muestra «No calculable» en la contribución renovable. Si HE4 resulta exigible, el informe deja pendiente esa comprobación e indica el motivo. Justifique la contribución renovable con los datos de la instalación antes de acreditar el cumplimiento. Los resultados de energía y emisiones siguen disponibles para el XML y el PDF de certificación.
 
+## Abrir el expediente desde el aviso del plugin
+
+Al distribuir el plugin, incorporar este texto en [Crear expediente](plugin/capitulos/04-expediente.qmd) y en [Plugin de DesignBuilder](aplicacion/capitulos/05-plugin.qmd). Regenerar y revisar ambos PDF con la entrega.
+
+Cuando aparezca **Expediente creado correctamente**, pulse **Abrir en DesignBuilder CTE** para abrir el archivo indicado o **Entendido** para volver a DesignBuilder. Si Windows no puede abrirlo, copie la ruta del aviso y seleccione ese archivo desde **Abrir proyecto** en DesignBuilder CTE.
+
+El botón funciona igual que el doble clic en el Explorador. Si ya tiene otro proyecto abierto, **Guardar** guarda el proyecto actual antes de abrir el nuevo, **Descartar** continúa sin guardar y **Cancelar** mantiene el proyecto actual.
+
 ## HE 5 · Próxima edición de la guía de la aplicación
 
 Para los capítulos de uso de la aplicación, documentación y resolución de problemas, al distribuirse la comprobación HE 5 del RD 450/2022.
