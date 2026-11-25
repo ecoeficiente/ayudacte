@@ -1,5 +1,19 @@
 # Contenido pendiente de publicación
 
+## Un único informe HE según el estado del proyecto
+
+Texto preparado para la versión que incorpore el botón único. En la guía de la aplicación, actualizar el flujo general, la pantalla principal, el cálculo, la documentación y los archivos. En la guía del plugin, actualizar el paso de exportación y revisión del expediente y las referencias a los dos informes. Conservar las anclas actuales y los nombres de descarga de ambos PDF.
+
+**Guía de la aplicación · Generar informe HE.** Abra el modelo y pulse **Generar informe HE**. Si hay controles específicos de protecciones solares, revise sus condiciones y confírmelas en la pantalla principal. La aplicación guarda una edición de Word en **Documentación**. La portada y el resumen identifican las comprobaciones disponibles y explican qué falta. **Abrir documento** abre esa edición.
+
+- **Ejemplo durante el diseño.** Ya ha definido muros, huecos y puentes térmicos, pero sigue diseñando las instalaciones. Pulse **Generar informe HE** para obtener la comprobación de la envolvente. La aplicación reutiliza el control solar de julio (Qsol) si es vigente y lo calcula cuando hace falta. Si ese cálculo falla, consulte el motivo en el informe. Las transmitancias y las demás comprobaciones independientes pueden seguir evaluándose. Si también ha definido la actuación, las superficies y la generación eléctrica, el informe puede incorporar HE5 en esta fase.
+- **Ejemplo con el modelo terminado.** Complete las instalaciones y pulse **Calcular**. Vuelva a **Generar informe HE** para incluir, según el ámbito de la actuación, consumo de energía primaria, envolvente, contribución renovable de ACS y generación eléctrica. Un incumplimiento aparece con su resultado. Si falta la fracción renovable de ACS, revise el motivo en HE4. Si las horas fuera de consigna superan el 4 %, corrija los equipos suplementarios y vuelva a calcular para poder justificar los consumos.
+- **Archivos.** Cada edición se guarda como `<proyecto>_HE_<marca temporal>.docx`. Los DOCX anteriores de HE y HE1 siguen disponibles. El informe se entrega aparte del expediente. El XML base y el reprocesado combinado requieren resultados vigentes y los datos de certificación.
+
+**Guía del plugin · Después de exportar.** Abra el expediente en DesignBuilder CTE. Para revisar la envolvente, pulse **Generar informe HE**. Puede hacerlo antes de terminar las instalaciones. Si aparece una comprobación pendiente, consulte su motivo, complete los datos en el plugin o la aplicación según corresponda y genere otra edición. Cuando haya cambiado entradas del cálculo energético, vuelva a exportar el modelo y pulse **Calcular** para actualizar los resultados anuales.
+
+**Entrega de la ayuda.** Al distribuir el cambio, sustituir las capturas de la pantalla principal y los ejemplos que muestran dos botones o dos archivos nuevos. Incorporar los textos a ambas guías, ejecutar `python scripts/build_pdf.py` y `python scripts/build.py`, y revisar la pantalla, las páginas de ayuda, sus enlaces y ambos PDF antes de publicar.
+
 ## Fracciones radiantes del modelo en terciario
 
 Al distribuir esta opción, añadir «Fracciones radiantes» en [Datos del modelo](aplicacion/capitulos/06-aplicacion.qmd#datos-del-modelo), después de «Reflectancia de los materiales». Incorporar la fila de recálculo en [Validez e invalidación de resultados](aplicacion/capitulos/07-calculo.qmd#validez-e-invalidación-de-resultados) y regenerar el PDF de la guía de la aplicación.
