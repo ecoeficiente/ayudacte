@@ -305,6 +305,20 @@ Cuando aparezca **Expediente creado correctamente**, pulse **Abrir en DesignBuil
 
 El botón funciona igual que el doble clic en el Explorador. Si ya tiene otro proyecto abierto, **Guardar** guarda el proyecto actual antes de abrir el nuevo, **Descartar** continúa sin guardar y **Cancelar** mantiene el proyecto actual.
 
+## Versiones del expediente y del plugin
+
+Al distribuir la funcionalidad, incorporar en [Cálculos y Documentación](aplicacion/capitulos/06-aplicacion.qmd) y [Crear expediente](plugin/capitulos/04-expediente.qmd), capturar el desplegable con un expediente real y actualizar ambos PDF.
+
+**Guía de la aplicación.** Abra **Cálculos y Documentación → Versiones del expediente** para consultar el plugin exportador, DesignBuilder, la versión de EnergyPlus declarada en el IDF y el último guardado con DesignBuilder CTE. Un expediente recién exportado identifica el primer guardado como pendiente. En archivos antiguos puede aparecer «entrega exacta desconocida». Al abrir un IDF independiente, **Versiones del modelo** muestra los datos del IDF. Si el último guardado se hizo con una aplicación posterior, la pantalla indica las dos versiones.
+
+**Guía del plugin.** «Exportado con el plugin» identifica la versión cargada por DesignBuilder durante la exportación. Guardar el expediente con otra aplicación conserva ese dato. Si al iniciar CTE se indica que el plugin instalado difiere del distribuido, cierre DesignBuilder, pulse **Configuración → Reparar o reinstalar plugin y plantilla** y vuelva a abrir DesignBuilder antes de exportar.
+
+Al distribuir la corrección de instalación, actualizar la ayuda de instalación en las dos guías. Cierre DesignBuilder antes de instalar el MSI. Abra DesignBuilder CTE con la cuenta que utilizará el plugin. La aplicación comprueba y completa en ese perfil la instalación del plugin y la plantilla. Si los archivos siguen bloqueados o faltan permisos, el aviso ofrece la reparación desde Configuración. Actualizar los PDF con la publicación.
+
+Al distribuir la corrección de reapertura, añadir a ambas guías: si vuelve a exportar sobre un expediente abierto, pulse **Abrir en DesignBuilder CTE** y elija **Cargar la nueva versión**. Para conservar primero la edición abierta, use **Guardar copia…** y elija otro nombre. La aplicación protege el expediente sustituido al guardar.
+
+Al distribuir el cambio, indicar en la guía de la aplicación que, si falta la imagen o el plano seleccionado, el guardado del expediente se interrumpe. En Datos del edificio se puede volver a seleccionar el archivo o quitarlo y guardar. Para importar datos del edificio, los adjuntos seleccionados deben estar disponibles en el origen.
+
 ## HE 5 · Próxima edición de la guía de la aplicación
 
 Para los capítulos de uso de la aplicación, documentación y resolución de problemas, al distribuirse la comprobación HE 5 del RD 450/2022.
