@@ -266,3 +266,17 @@ Al distribuir el modo de ensayo, incorporar [Ensayar combinaciones de expediente
 Al distribuir la corrección, incorporar en [Documentación de la aplicación](aplicacion/capitulos/08-documentacion.qmd) y regenerar el PDF de esa guía.
 
 Si el cálculo energético detecta electricidad cogenerada y no puede determinar la fracción renovable de la demanda de agua caliente sanitaria, el informe HE muestra «No calculable» en la contribución renovable. Si HE4 resulta exigible, el informe deja pendiente esa comprobación e indica el motivo. Justifique la contribución renovable con los datos de la instalación antes de acreditar el cumplimiento. Los resultados de energía y emisiones siguen disponibles para el XML y el PDF de certificación.
+
+## HE 5 · Próxima edición de la guía de la aplicación
+
+Para los capítulos de uso de la aplicación, documentación y resolución de problemas, al distribuirse la comprobación HE 5 del RD 450/2022.
+
+En «Ámbito HE», elija la actuación. En obra nueva introduzca la superficie construida del edificio. En una ampliación introduzca los metros cuadrados construidos que se añaden. Si se ejecutan varios edificios en una misma parcela catastral, indique también la superficie conjunta para comprobar el umbral. El cómputo incluye los aparcamientos interiores y excluye las zonas exteriores comunes. Una vivienda nueva aislada de 140 m² queda fuera del ámbito y puede continuar sin rellenar las superficies de cubierta.
+
+Cuando aplique HE 5, indique la superficie de cubierta no transitable o accesible únicamente para conservación y, dentro de ella, la ocupada por captadores solares térmicos. Excluya las cubiertas de patios de luces. La ocupación por módulos fotovoltaicos, incluidos los conectados directamente a ACS, no forma parte de la superficie solar térmica.
+
+Revise las potencias eléctricas de los generadores. Si aparece un equipo sin potencia, consulte su potencia en el proyecto y complete el dato. Si la instalación documentada está ausente del modelo, declare su aportación e identifique su procedencia. Si ha confirmado que el proyecto carece de generación, indique esa circunstancia expresamente. Los valores declarados para esta justificación no incorporan equipos al modelo energético ni cambian la calificación.
+
+El informe HE completo muestra el motivo de aplicabilidad, la potencia mínima y la alcanzada. Por ejemplo, para uso residencial privado con 1.200 m² construidos, 100 m² de cubierta computable y 10 m² ocupados por captadores térmicos, el mínimo es 4 kW. Si se documenta una limitación urbanística, arquitectónica o de protección, detalle las alternativas y la solución adoptada para valoración técnica. El certificado XML conserva los datos de la instalación modelada.
+
+Al distribuir la funcionalidad, incorporar estos textos y capturas del formulario y del informe a los capítulos 06, 08 y 11, regenerar y revisar el PDF de la aplicación. El flujo de exportación del plugin no cambia.
