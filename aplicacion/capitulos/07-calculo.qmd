@@ -6,11 +6,11 @@ Abra el expediente correcto y confirme la escala, ubicación y altitud antes de 
 
 ## Puentes térmicos exportados {#sec-puentes-exportados}
 
-La aplicación utiliza las longitudes y los valores Ψ guardados por el plugin para cada zona, tanto en expedientes actuales como en los antiguos compatibles. No vuelve a medir las longitudes a partir de la geometría. La simulación, HE1 y el XML utilizan esos mismos datos, teniendo en cuenta los multiplicadores de zona.
+La aplicación utiliza las longitudes y los valores Ψ guardados por el plugin para cada zona. La simulación, HE1 y el XML utilizan esos datos y aplican los multiplicadores de zona.
 
 Por ejemplo, una longitud de 10 m con Ψ = 0,4 W/(m·K) aporta 4 W/K por instancia de zona. Si el multiplicador de zona es 3, aporta 12 W/K al total. Revise las longitudes, los signos de Ψ y los multiplicadores antes de exportar.
 
-Después de actualizar la aplicación, vuelva a **Calcular** antes de generar documentos de expedientes con resultados anteriores. En expedientes antiguos, los resultados pueden cambiar porque ahora se respetan las longitudes exportadas. Si están incompletas o no representan el edificio, corríjalas en el plugin y cree de nuevo el expediente. Reprocesar documentación no sustituye ese recálculo.
+Si las longitudes están incompletas o no representan el edificio, corríjalas en el plugin, cree un nuevo expediente y pulse **Calcular** antes de generar la documentación.
 
 En terciario, el edificio de referencia conserva las longitudes exportadas y aplica sus Ψ de referencia. El edificio objeto conserva los Ψ del usuario.
 

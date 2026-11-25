@@ -6,9 +6,8 @@
 | Archivo o carpeta | Contenido | Se necesita para |
 |---|---|---|
 | DSB | Modelo nativo de DesignBuilder | Editar y justificar el modelo original |
-| `dsbXML` | Representación intercambiable del modelo | Incorporar o recuperar el modelo del expediente |
 | IDF | Entrada EnergyPlus procesada | Calcular y relacionar resultados |
-| `.dbcte` | Modelo, IDF, adjuntos y documentos registrados | Intercambiar y revisar una revisión coherente |
+| `.dbcte` | DSB guardado, IDF, adjuntos y documentos registrados | Intercambiar y revisar una revisión coherente |
 | `Resultados` | Simulaciones y procesamiento | Generar, diagnosticar y reproducir resultados |
 | `Documentación` | DOCX HE/HE1, XML y PDF visibles | Revisar y entregar documentos |
 | `<nombre>Log.txt` | Registro de operaciones junto al expediente | Localizar avisos y errores; aportar información a soporte |
@@ -28,9 +27,11 @@ No edite manualmente el IDF de un expediente para corregir un dato que pertenece
 
 ## Expediente DBCTE
 
-El `.dbcte` reúne el modelo DesignBuilder intercambiable, el IDF, imagen y plano, y los documentos incorporados al guardar. Las nuevas incorporaciones de documentos se limitan al XML de certificación y al par final XML/PDF. No contiene los DOCX HE/HE1, el DSB original, los resultados de simulación ni las fuentes externas de justificación. Los informes heredados de expedientes antiguos se conservan conforme a las reglas de vigencia.
+El `.dbcte` reúne el DSB guardado en DesignBuilder, el IDF, la imagen, el plano y los documentos incorporados al guardar. Tras generar el PDF desde el XML final en DesignBuilder CTE y guardar el expediente, incluye el XML final con las medidas y su PDF.
 
-Abra y guarde el expediente desde DesignBuilder CTE. Para recuperar el modelo utilice **Extraer modelo dsbXML** o **Importar modelo desde DBCTE** en el plugin. El archivo extraído tiene extensión `.xml`.
+Conserve aparte los Word de HE y HE1 (`.docx`) y los borradores o archivos de estado de XML Medidas si los necesita. Los resultados de simulación y las fuentes externas de justificación también se conservan aparte.
+
+Abra y guarde el expediente desde DesignBuilder CTE. Para recuperar el modelo utilice **Extraer modelo DSB** en CTE o **Abrir modelo DSB desde DBCTE…** en el plugin. El archivo extraído se abre directamente en DesignBuilder.
 
 ## Integridad y autenticidad
 
@@ -95,7 +96,7 @@ Los archivos de trabajo pueden quedar incompletos si una simulación falla o se 
 
 ## Versiones de EnergyPlus
 
-La instalación incluye el paquete 23.1.0.002 de EnergyPlus. Al abrir o importar un modelo se selecciona la versión completa indicada en su IDF y su diccionario asociado. Si falta el paquete, el programa intenta descargarlo, muestra el progreso y permite cancelar. Solo se admiten paquetes publicados y comprobados para el procedimiento CTE; disponer de otra versión no autoriza a sustituir la requerida.
+Al abrir o importar un modelo, la aplicación selecciona la versión completa de EnergyPlus indicada en el IDF y su diccionario asociado. Si el paquete falta en la instalación, el programa intenta descargar el correspondiente, muestra el progreso y permite cancelar. Para calcular se necesita el paquete de esa versión.
 
 Los paquetes verificados se conservan en `%LOCALAPPDATA%\DesignBuilderCTE\EnergyPlus`; sus diccionarios, en la subcarpeta `Diccionarios`. Una vez disponible el paquete, puede utilizarse sin conexión y permanece entre actualizaciones. La disponibilidad de nuevas versiones depende de su publicación en el servidor.
 

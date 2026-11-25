@@ -4,14 +4,14 @@ Este recorrido está dirigido a quien recibe un expediente para revisarlo. Traba
 
 ## Preparar los archivos
 
-La revisión externa parte del expediente final `.dbcte`, que debe contener el XML final y el PDF del certificado. El DSB original puede no formar parte de la entrega solicitada. Con una instalación compatible de DesignBuilder CTE, el revisor puede volver a calcular a partir del expediente y contrastar los resultados con la certificación recibida.
+La revisión externa parte del expediente final `.dbcte`, que debe contener el XML final y el PDF del certificado. El expediente incluye el DSB guardado y el IDF. Con una instalación compatible de DesignBuilder CTE, el revisor puede volver a calcular a partir del IDF incluido y contrastar los resultados con la certificación recibida.
 
 1. Conserve el expediente recibido y trabaje sobre una copia en una carpeta de revisión.
 2. Abra el `.dbcte`, compruebe su estado y consulte **Documentos del expediente**. Revise la identificación, el alcance y la calificación del XML final y del PDF recibidos antes de recalcular.
 3. Revise los datos del edificio, del certificado y del modelo. Anote las versiones de los programas utilizadas.
 4. Pulse **Calcular** para obtener los resultados de comprobación. No necesita recibir la carpeta **Resultados** del autor: se genera al realizar el cálculo.
 5. Compare los indicadores e informes obtenidos con los documentos recibidos. El nuevo cálculo permite contrastar los resultados energéticos; las medidas, visitas y observaciones se revisan en el XML final entregado.
-6. Si necesita examinar el modelo, utilice **Extraer modelo dsbXML**. También puede abrirlo en DesignBuilder mediante **Importar modelo desde DBCTE** en el plugin y guardarlo como DSB para su revisión.
+6. Si necesita examinar el modelo, utilice **Extraer modelo DSB**. También puede recuperarlo desde DesignBuilder con **Abrir modelo DSB desde DBCTE…** en el plugin.
 
 Contraste el modelo con los planos, fichas y justificantes disponibles, incluidos los de los casos mejorados cuando proceda. Los nombres y fechas de los archivos son indicios: compruebe su contenido. Mantenga diferenciados los documentos recibidos y los generados durante la revisión.
 
