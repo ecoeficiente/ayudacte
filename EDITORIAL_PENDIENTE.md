@@ -98,7 +98,23 @@ Regenerar y revisar el PDF de la guía de la aplicación al publicar estos apart
 
 Al distribuir la actualización del plugin, integrar el [texto y las dos capturas](editorial/avisos-expediente/avisos.qmd) en «Crear un DBCTE» de la guía del plugin y «Crear y comprobar» de la guía de la aplicación. Partir de la edición con DSB guardado. Sustituir la explicación de estos dos avisos en sus pasos respectivos y conservar el paso intermedio de confirmación del DSB. Copiar las dos imágenes junto al texto o ajustar sus rutas en cada guía. Regenerar y revisar el HTML y los dos PDF en esa entrega.
 
-## DSB reducido en expedientes — RC8, pendiente de aceptación manual
+## Expediente con el DSB guardado normalmente — publicado el 17-11-2026
+
+Corrección publicada en `4744567`: retirada de las referencias a expedientes con modelo XML, supuestas migraciones y compatibilidad con esos archivos. Ambas guías y PDF verificados en la web. El formato activo exige DSB e IDF. La exportación XML de modelo experimental que aún existe en el código queda fuera del flujo. Mantener las instrucciones de XML de certificación.
+
+Publicado por petición del usuario en `52e8c52` desde una copia aislada de la rama pública, `C:/Dev/DesignBuilderCTE/output/ayudacte-dsb-20261117`. Despliegue [44067978428](https://github.com/ecoeficiente/ayudacte/actions/runs/44067978428) correcto. Verificados en la web los ocho capítulos/portadas afectados y los dos PDF. Esta copia local conserva sus once commits de otros temas. Incorpore el cambio público antes de una publicación posterior. No promueva el borrador anterior de reducción en `editorial/dsb-v2/`.
+
+Notas de preparación anteriores a la publicación. El contenedor sigue siendo DBCTE. El plugin incorpora íntegro el DSB guardado normalmente por DesignBuilder.
+
+Texto para `plugin/capitulos/04-expediente.qmd` y `aplicacion/capitulos/05-plugin.qmd`:
+
+«Crear expediente DBCTE… prepara la solicitud y recuerda que debes guardar el modelo en DesignBuilder inmediatamente antes de exportar el IDF. Al comenzar la exportación aparece otro recordatorio con la ruta del DSB que se incorporará. Si todavía no has guardado, pulsa Cancelar exportación, guarda el modelo y vuelve a exportar. La solicitud conserva su destino y sigue pendiente; no necesitas crearla otra vez. Cerrar ese aviso o pulsar Escape también cancela solo el intento de exportación. Cuando acabes de guardar, pulsa Ya he guardado, continuar. Los cambios sin guardar no estarán en el DSB del expediente».
+
+«El mensaje Expediente creado correctamente confirma que el DBCTE ya contiene el IDF generado y el DSB guardado. Puedes cancelar el siguiente diálogo de DesignBuilder para guardar el IDF en otra ubicación: solo crearía una copia adicional que no necesitas para trabajar con el expediente. La creación ya ha terminado. Si se ha mostrado un error en lugar del mensaje de éxito, no des el expediente por creado».
+
+En `aplicacion/capitulos/11-resolucion-problemas.qmd` se distingue cancelar el intento de retirar la solicitud. Se actualizaron también los apartados de archivos, extracción y revisión. Los dos PDF se regeneraron. Se mantuvo la captura del selector de destino, que sigue correspondiendo al paso de elegir el nombre. Los avisos nuevos se explican con sus textos y opciones.
+
+## DSB reducido en expedientes — borrador histórico sustituido
 
 Fuentes completas preparadas en `editorial/dsb-v2/`: creación y apertura en ambas guías, extracción de DSB, mapa de archivos, revisión, problemas y glosario. Retiran el requisito de bibliotecas XML y explican que CTE conserva el DSB sin modificarlo. Incorporar a las guías al distribuir RC8, después de la aceptación; mantener anclas antiguas y actualizar ambos PDF.
 
